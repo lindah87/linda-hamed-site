@@ -1,0 +1,27 @@
+# OS
+.DS_Store
+**/.DS_Store
+
+# local working files — not part of the deployed site
+index-golden-hour.BEFORE-*.html
+work/omantel-previous.html
+_archive/
+2IT8d-gA.jpeg
+
+# image sources — the optimised .webp versions are what ship
+Thumbnail-1.jpg
+Thumbnail-2.jpg
+Thumbnail-3.jpg
+portrait-image.png
+portrait-image.webp
+
+# Fontspring DEMO fonts — evaluation licence only, must not be served publicly.
+# Unreferenced by the site in any case.
+fonts/gelica-font-family/
+
+# superseded by the .webp versions
+archive/Thumbnail-2.jpg
+archive/Tumbnail-2.jpg
+
+# not published yet — case study stays local
+work/

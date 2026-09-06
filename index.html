@@ -4,27 +4,29 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Linda Hamed — Experience Design Director</title>
-<meta name="description" content="Associate Creative Director at Publicis Sapient. 15 years leading experience design across MENA and globally.">
+<meta name="description" content="Experience Lead and Head of Design at Publicis Sapient. 15 years leading experience design across MENA and globally.">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23F5ECD8'/%3E%3Ctext x='3' y='24' font-family='Georgia%2C serif' font-size='20' font-weight='400' font-style='italic' fill='%231B3A5C' letter-spacing='-1'%3Elh.%3C/text%3E%3C/svg%3E">
 <link rel="apple-touch-icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 180 180'%3E%3Crect width='180' height='180' fill='%23F5ECD8'/%3E%3Ctext x='10' y='135' font-family='Georgia%2C serif' font-size='108' font-weight='400' font-style='italic' fill='%231B3A5C' letter-spacing='-4'%3Elh.%3C/text%3E%3C/svg%3E">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Gloock:ital@0;1&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<style id="gh-fontface">
+@font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;
+  src:url('fonts/DM_Serif_Display/DMSerifDisplay-Regular.ttf') format('truetype');}
+@font-face{font-family:'DM Serif Display';font-style:italic;font-weight:400;font-display:swap;
+  src:url('fonts/DM_Serif_Display/DMSerifDisplay-Italic.ttf') format('truetype');}
+</style>
+
 
 <!-- Calendly popup -->
 <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
 <script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 
 <style>
-@font-face {
-  font-family: 'Cabinet Grotesk';
-  src: url('Fonts/WEB/fonts/CabinetGrotesk-Variable.woff2') format('woff2'),
-       url('Fonts/WEB/fonts/CabinetGrotesk-Variable.woff') format('woff');
-  font-weight: 100 900;
-  font-display: swap;
-}
+/* Cabinet Grotesk @font-face removed — the font file was never in the
+   project, so it 404'd on every load. The stack falls back to Manrope. */
 
 /* ── TOKENS ── */
 :root {
@@ -32,7 +34,7 @@
   --hero-bg:    #F5ECD8;
   --navy:       #2B2A7E;
   --ink:        #2B2A7E;
-  --raspberry:  #D4541A;
+  --raspberry:  #CE5320;
   --ochre:      #E2AC7E;
   --mist:       rgba(43,42,126,0.06);
   --display:    'DM Serif Display', Georgia, serif;
@@ -878,9 +880,13 @@ nav.scrolled {
 .ttt-cell[data-v="X"] { color: #fff; }
 .ttt-cell[data-v="O"] { color: rgba(245,240,232,0.75); }
 .ttt-status {
-  margin-top: 0.625rem; text-align: center;
-  font-family: var(--sans); font-size: 11px; font-weight: 500;
-  color: rgba(245,240,232,0.85); min-height: 1.5em;
+  margin-top: 0.625rem;
+  text-align: center;
+  font-family: var(--sans);
+  font-size: 14px;
+  font-weight: 500;
+  color: rgba(245,240,232,0.85);
+  min-height: 1.5em;
 }
 .ttt-reset {
   display: block; margin: 0.375rem auto 0;
@@ -941,13 +947,11 @@ footer { background: var(--ink); border-top: 1px solid rgba(245,236,216,0.06); p
 
 /* ── SECTION DIVIDERS — gradient-faded horizontal rules ── */
 /* Soft line at the top of each content section, fades in from edges */
-.built-section,
 .designs-section,
 .rec2-section,
 .collab-section {
   position: relative;
 }
-.built-section::before,
 .designs-section::before,
 .rec2-section::before,
 .collab-section::before {
@@ -984,7 +988,7 @@ footer { background: var(--ink); border-top: 1px solid rgba(245,236,216,0.06); p
   padding: 0;
 }
 .built-inner {
-  padding-top: 7rem;
+  padding-top: 0;
   padding-bottom: 7rem;
   position: relative; z-index: 1;
   max-width: 760px; /* narrower — matches Figma column width */
@@ -1500,8 +1504,10 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
 }
 .collab-lead {
   font-family: var(--display);
-  font-style: italic; font-weight: 400;
-  font-size: var(--text-lg); line-height: var(--lh-snug);
+  font-style: italic;
+  font-weight: 400;
+  font-size: var(--text-lg);
+  line-height: var(--lh-snug);
   letter-spacing: 0;
   color: var(--ink);
 }
@@ -1588,12 +1594,12 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
 /* ── AI CHAT TAB ── */
 .collab-tab.ai-tab {
   border-style: dashed;
-  border-color: rgba(196,103,58,0.45);
+  border-color: rgba(206,83,32,0.45);
   color: var(--raspberry);
   font-weight: 400;
 }
 .collab-tab.ai-tab:hover {
-  background: rgba(196,103,58,0.08);
+  background: rgba(206,83,32,0.08);
   border-color: var(--raspberry);
   color: var(--raspberry);
 }
@@ -1644,8 +1650,8 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
 /* User message */
 .ai-msg.user { justify-content: flex-end; }
 .ai-msg.user .ai-msg-bubble {
-  background: rgba(196,103,58,0.18);
-  border: 1px solid rgba(196,103,58,0.28);
+  background: rgba(206,83,32,0.18);
+  border: 1px solid rgba(206,83,32,0.28);
   color: rgba(240,237,232,0.75);
   padding: 0.5rem 0.875rem;
   border-radius: 18px 18px 4px 18px;
@@ -1658,7 +1664,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
 }
 .ai-typing span {
   width: 5px; height: 5px; border-radius: 50%;
-  background: rgba(196,103,58,0.6);
+  background: rgba(206,83,32,0.6);
   animation: aiDot 1.2s infinite ease-in-out;
 }
 .ai-typing span:nth-child(2) { animation-delay: 0.2s; }
@@ -1689,8 +1695,8 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
 }
 .ai-chip:hover {
   color: var(--bg);
-  background: rgba(196,103,58,0.15);
-  border-color: rgba(196,103,58,0.4);
+  background: rgba(206,83,32,0.15);
+  border-color: rgba(206,83,32,0.4);
 }
 /* Input bar */
 .ai-input-row {
@@ -1715,7 +1721,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
 .ai-input-prefix {
   font-family: var(--display);
   font-style: italic; font-size: var(--text-base);
-  color: rgba(196,103,58,0.6);
+  color: rgba(206,83,32,0.6);
   padding-left: 1.25rem;
   pointer-events: none; flex-shrink: 0;
 }
@@ -1865,9 +1871,6 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
   .cta-footer-links a { font-size: var(--text-xs); letter-spacing: 0.06em; }
   .cta-footer-copy { font-size: var(--text-xs); }
 
-  /* Hero stats */
-  .hero-stats { gap: 2rem; }
-
   /* Principles */
   .principle-t { font-size: clamp(1.1rem, 4.5vw, 1.5rem); }
 
@@ -1896,7 +1899,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
   .rec2-grid { grid-template-columns: 1fr; gap: 1rem; }
 
   /* Where I've Built — mobile */
-  .built-inner { padding-top: 3rem; padding-bottom: 4rem; }
+  .built-inner { padding-top: 0; padding-bottom: 4rem; }
   .built-heading { margin-bottom: 2.5rem; }
   .built-row-header { gap: 1rem; }
   .built-row-title { flex-direction: column; gap: 0.15em; }
@@ -1983,6 +1986,9 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
 </head>
 <body>
 
+<!-- Scroll progress -->
+<div class="gh-progress" aria-hidden="true"><span class="gh-progress-fill" id="ghProgressFill"></span></div>
+
 <!-- Skip to main content — keyboard accessibility -->
 <a href="#main-content" class="skip-link">Skip to main content</a>
 
@@ -2018,13 +2024,13 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
   <div class="nav-right">
     <ul class="nav-links">
       <li>
-        <a href="#work">Work<span class="nav-squig"><svg viewBox="0 0 40 6" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 Q5 0 10 3 Q15 6 20 3 Q25 0 30 3 Q35 6 40 3" stroke="#C4673A" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></span></a>
+        <a href="#work">Work<span class="nav-squig"><svg viewBox="0 0 40 6" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 Q5 0 10 3 Q15 6 20 3 Q25 0 30 3 Q35 6 40 3" stroke="#CE5320" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></span></a>
       </li>
       <li>
-        <a href="#about">About<span class="nav-squig"><svg viewBox="0 0 40 6" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 Q5 0 10 3 Q15 6 20 3 Q25 0 30 3 Q35 6 40 3" stroke="#C4673A" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></span></a>
+        <a href="#about">About<span class="nav-squig"><svg viewBox="0 0 40 6" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 Q5 0 10 3 Q15 6 20 3 Q25 0 30 3 Q35 6 40 3" stroke="#CE5320" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></span></a>
       </li>
-      <li>
-        <a href="mailto:lindahamed@gmail.com">Let's talk<span class="nav-squig"><svg viewBox="0 0 40 6" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 Q5 0 10 3 Q15 6 20 3 Q25 0 30 3 Q35 6 40 3" stroke="#C4673A" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></span></a>
+      <li class="gh-nav-pill-li"><button class="gh-ai-pill" id="ghLedgerToggle" aria-pressed="true"><span class="gh-ai-dot"></span>Built with AI</button></li><li>
+        <a href="mailto:lindahamed@gmail.com" class="nav-talk"><span class="nav-talk-inner"><span class="nav-talk-label">Let's talk</span><span class="nav-talk-label">Let's talk ↗</span></span><span class="nav-squig"><svg viewBox="0 0 40 6" preserveAspectRatio="none" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M0 3 Q5 0 10 3 Q15 6 20 3 Q25 0 30 3 Q35 6 40 3" stroke="#CE5320" stroke-width="1.8" stroke-linecap="round" fill="none"/></svg></span></a>
       </li>
     </ul>
   </div>
@@ -2041,23 +2047,23 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
 <section class="hero-section">
   <div class="hero-inner">
     <!-- Eyebrow: reduced size for harmony -->
-    <p class="hero-eyebrow" id="heroEyebrow">Hey, I'm Linda,</p>
+    <p class="hero-eyebrow" id="heroEyebrow">Hi I'm Linda,</p>
 
     <!-- H1: line 1 regular, lines 2+3 italic -->
     <h1 class="hero-h1">
       <span class="line"><span class="word" id="w1">and I make</span></span>
-      <span class="line"><span class="word italic-line" id="w2">complicated things work.</span></span>
+      <span class="line"><span class="word italic-line" id="w2"><span class="gh-wash gh-it">complicated</span><br>things <span class="gh-it">work.</span></span></span>
     </h1>
 
     <!-- Sub: bold + #D36060 for specific phrases -->
-    <p class="hero-sub" id="heroSub">Currently, <span class="hl">Associate Creative Director</span> at <span class="hl">Publicis Sapient</span>. Working in the gap between <span class="hl">business ambition and shipped product</span> while based in sunny <span class="hl">Dubai</span> <span style="font-size:1.5em; line-height:1; vertical-align:middle;">☼</span></p>
+    <p class="hero-sub" id="heroSub">Currently, <span class="hl">Experience Lead</span> at <span class="hl">Publicis Sapient</span>. Working in the gap between <span class="hl">business ambition and shipped product</span> while based in sunny <span class="hl">Dubai</span> <span style="font-size:1em; line-height:1; vertical-align:middle;">🔆</span></p>
 
     <!-- CTAs: dominant primary + ghost outline — nabauer lift -->
     <div class="hero-ctas" id="heroCtas">
       <a href="#work" class="btn-hero-primary">
         <span class="btn-inner">
-          <span class="btn-default">See my work →</span>
-          <span class="btn-hover">See my work →</span>
+          <span class="btn-default">See my work <span class="btn-arrow-right">↓</span></span>
+          <span class="btn-hover">See my work <span class="btn-arrow-right">↓</span></span>
         </span>
       </a>
       <a href="CV_LindaHamed_2026.pdf" download class="btn-hero-ghost">
@@ -2068,6 +2074,19 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
       </a>
     </div>
   </div>
+    <div class="gh-hero-right">
+      <span class="gh-locale">Dubai · GMT+4</span>
+      <div class="gh-portrait is-cutout">
+        <!-- SWITCH THE PORTRAIT: uncomment one <img>, and set the matching
+             class on the div above.
+               is-cutout -> portrait-image.png   (pre-cropped, pre-graded)
+               is-glass  -> portrait-glass.jpg   (Dubai glass wall)
+               is-studio -> portrait-linda.jpg   (grey-backdrop headshot) -->
+        <img src="portrait-hero.webp" alt="Portrait of Linda Hamed" width="900" height="900" fetchpriority="high" decoding="async">
+        <!-- <img src="portrait-glass.jpg" alt="Linda Hamed sketching on a glass wall in Dubai" width="1800" height="1200" decoding="async"> -->
+        <!-- <img src="portrait-linda.jpg" alt="Linda Hamed" width="1667" height="2500" decoding="async"> -->
+      </div>
+    </div>
 </section>
 
 
@@ -2086,7 +2105,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
         <div class="built-row-header">
           <div class="built-row-title">
             <span class="built-company">Publicis Sapient</span>
-            <span class="built-jobtitle">Associate Creative Director</span>
+            <span class="built-jobtitle">Experience Lead &middot; Head of Design</span>
           </div>
           <div class="built-row-right">
             <span class="built-date">2021 — Present</span>
@@ -2098,7 +2117,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
             <div class="built-detail-body">
               <div>
                 <p class="built-detail-col-label">The work</p>
-                <p class="built-detail-summary">Associate Creative Director and Head of Design across a portfolio of national transformation programmes. Led and scaled distributed design teams across multiple product streams, set the design operating model, and embedded data-informed design — A/B testing, personalisation, customer impact metrics — as the default across all client engagements. Clients have included Omantel, NEOM, and Ezdihar Group.</p>
+                <p class="built-detail-summary">Experience Lead and Head of Design across a portfolio of national transformation programmes. Led and scaled distributed design teams across multiple product streams, set the design operating model, and embedded data-informed design — A/B testing, personalisation, customer impact metrics — as the default across all client engagements. Clients have included Omantel, NEOM, and Ezdihar Group.</p>
               </div>
               <div>
                 <p class="built-detail-col-label">What moved</p>
@@ -2113,7 +2132,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
             </div>
           </div>
         </div>
-        <div class="built-sep"><span class="built-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 11 11" fill="none"><path class="icon-vbar" d="M4.12109 9.24414V1C4.12109 0.447715 4.56881 0 5.12109 0C5.67338 0 6.12109 0.447715 6.12109 1V9.24414C6.12109 9.79643 5.67338 10.2441 5.12109 10.2441C4.56881 10.2441 4.12109 9.79643 4.12109 9.24414Z" fill="#2B2A7E"/><path d="M1 4.12109L9.24414 4.12109C9.79643 4.12109 10.2441 4.56881 10.2441 5.12109C10.2441 5.67338 9.79643 6.12109 9.24414 6.12109L1 6.12109C0.447715 6.12109 -6.78525e-08 5.67338 -4.37114e-08 5.12109C-1.95703e-08 4.56881 0.447715 4.12109 1 4.12109Z" fill="#C4673A"/></svg></span></div>
+        <div class="built-sep"><span class="built-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 11 11" fill="none"><path class="icon-vbar" d="M4.12109 9.24414V1C4.12109 0.447715 4.56881 0 5.12109 0C5.67338 0 6.12109 0.447715 6.12109 1V9.24414C6.12109 9.79643 5.67338 10.2441 5.12109 10.2441C4.56881 10.2441 4.12109 9.79643 4.12109 9.24414Z" fill="#2B2A7E"/><path d="M1 4.12109L9.24414 4.12109C9.79643 4.12109 10.2441 4.56881 10.2441 5.12109C10.2441 5.67338 9.79643 6.12109 9.24414 6.12109L1 6.12109C0.447715 6.12109 -6.78525e-08 5.67338 -4.37114e-08 5.12109C-1.95703e-08 4.56881 0.447715 4.12109 1 4.12109Z" fill="#CE5320"/></svg></span></div>
       </div>
 
       <!-- 2. AXA -->
@@ -2148,7 +2167,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
             </div>
           </div>
         </div>
-        <div class="built-sep"><span class="built-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 11 11" fill="none"><path class="icon-vbar" d="M4.12109 9.24414V1C4.12109 0.447715 4.56881 0 5.12109 0C5.67338 0 6.12109 0.447715 6.12109 1V9.24414C6.12109 9.79643 5.67338 10.2441 5.12109 10.2441C4.56881 10.2441 4.12109 9.79643 4.12109 9.24414Z" fill="#2B2A7E"/><path d="M1 4.12109L9.24414 4.12109C9.79643 4.12109 10.2441 4.56881 10.2441 5.12109C10.2441 5.67338 9.79643 6.12109 9.24414 6.12109L1 6.12109C0.447715 6.12109 -6.78525e-08 5.67338 -4.37114e-08 5.12109C-1.95703e-08 4.56881 0.447715 4.12109 1 4.12109Z" fill="#C4673A"/></svg></span></div>
+        <div class="built-sep"><span class="built-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 11 11" fill="none"><path class="icon-vbar" d="M4.12109 9.24414V1C4.12109 0.447715 4.56881 0 5.12109 0C5.67338 0 6.12109 0.447715 6.12109 1V9.24414C6.12109 9.79643 5.67338 10.2441 5.12109 10.2441C4.56881 10.2441 4.12109 9.79643 4.12109 9.24414Z" fill="#2B2A7E"/><path d="M1 4.12109L9.24414 4.12109C9.79643 4.12109 10.2441 4.56881 10.2441 5.12109C10.2441 5.67338 9.79643 6.12109 9.24414 6.12109L1 6.12109C0.447715 6.12109 -6.78525e-08 5.67338 -4.37114e-08 5.12109C-1.95703e-08 4.56881 0.447715 4.12109 1 4.12109Z" fill="#CE5320"/></svg></span></div>
       </div>
 
       <!-- 3. Apple / Hogarth -->
@@ -2182,7 +2201,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
             </div>
           </div>
         </div>
-        <div class="built-sep"><span class="built-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 11 11" fill="none"><path class="icon-vbar" d="M4.12109 9.24414V1C4.12109 0.447715 4.56881 0 5.12109 0C5.67338 0 6.12109 0.447715 6.12109 1V9.24414C6.12109 9.79643 5.67338 10.2441 5.12109 10.2441C4.56881 10.2441 4.12109 9.79643 4.12109 9.24414Z" fill="#2B2A7E"/><path d="M1 4.12109L9.24414 4.12109C9.79643 4.12109 10.2441 4.56881 10.2441 5.12109C10.2441 5.67338 9.79643 6.12109 9.24414 6.12109L1 6.12109C0.447715 6.12109 -6.78525e-08 5.67338 -4.37114e-08 5.12109C-1.95703e-08 4.56881 0.447715 4.12109 1 4.12109Z" fill="#C4673A"/></svg></span></div>
+        <div class="built-sep"><span class="built-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 11 11" fill="none"><path class="icon-vbar" d="M4.12109 9.24414V1C4.12109 0.447715 4.56881 0 5.12109 0C5.67338 0 6.12109 0.447715 6.12109 1V9.24414C6.12109 9.79643 5.67338 10.2441 5.12109 10.2441C4.56881 10.2441 4.12109 9.79643 4.12109 9.24414Z" fill="#2B2A7E"/><path d="M1 4.12109L9.24414 4.12109C9.79643 4.12109 10.2441 4.56881 10.2441 5.12109C10.2441 5.67338 9.79643 6.12109 9.24414 6.12109L1 6.12109C0.447715 6.12109 -6.78525e-08 5.67338 -4.37114e-08 5.12109C-1.95703e-08 4.56881 0.447715 4.12109 1 4.12109Z" fill="#CE5320"/></svg></span></div>
       </div>
 
       <!-- 4. Dubizzle -->
@@ -2215,7 +2234,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
             </div>
           </div>
         </div>
-        <div class="built-sep"><span class="built-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 11 11" fill="none"><path class="icon-vbar" d="M4.12109 9.24414V1C4.12109 0.447715 4.56881 0 5.12109 0C5.67338 0 6.12109 0.447715 6.12109 1V9.24414C6.12109 9.79643 5.67338 10.2441 5.12109 10.2441C4.56881 10.2441 4.12109 9.79643 4.12109 9.24414Z" fill="#2B2A7E"/><path d="M1 4.12109L9.24414 4.12109C9.79643 4.12109 10.2441 4.56881 10.2441 5.12109C10.2441 5.67338 9.79643 6.12109 9.24414 6.12109L1 6.12109C0.447715 6.12109 -6.78525e-08 5.67338 -4.37114e-08 5.12109C-1.95703e-08 4.56881 0.447715 4.12109 1 4.12109Z" fill="#C4673A"/></svg></span></div>
+        <div class="built-sep"><span class="built-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 11 11" fill="none"><path class="icon-vbar" d="M4.12109 9.24414V1C4.12109 0.447715 4.56881 0 5.12109 0C5.67338 0 6.12109 0.447715 6.12109 1V9.24414C6.12109 9.79643 5.67338 10.2441 5.12109 10.2441C4.56881 10.2441 4.12109 9.79643 4.12109 9.24414Z" fill="#2B2A7E"/><path d="M1 4.12109L9.24414 4.12109C9.79643 4.12109 10.2441 4.56881 10.2441 5.12109C10.2441 5.67338 9.79643 6.12109 9.24414 6.12109L1 6.12109C0.447715 6.12109 -6.78525e-08 5.67338 -4.37114e-08 5.12109C-1.95703e-08 4.56881 0.447715 4.12109 1 4.12109Z" fill="#CE5320"/></svg></span></div>
       </div>
 
       <!-- 5. Diwanee -->
@@ -2248,7 +2267,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
             </div>
           </div>
         </div>
-        <div class="built-sep"><span class="built-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 11 11" fill="none"><path class="icon-vbar" d="M4.12109 9.24414V1C4.12109 0.447715 4.56881 0 5.12109 0C5.67338 0 6.12109 0.447715 6.12109 1V9.24414C6.12109 9.79643 5.67338 10.2441 5.12109 10.2441C4.56881 10.2441 4.12109 9.79643 4.12109 9.24414Z" fill="#2B2A7E"/><path d="M1 4.12109L9.24414 4.12109C9.79643 4.12109 10.2441 4.56881 10.2441 5.12109C10.2441 5.67338 9.79643 6.12109 9.24414 6.12109L1 6.12109C0.447715 6.12109 -6.78525e-08 5.67338 -4.37114e-08 5.12109C-1.95703e-08 4.56881 0.447715 4.12109 1 4.12109Z" fill="#C4673A"/></svg></span></div>
+        <div class="built-sep"><span class="built-arrow"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 11 11" fill="none"><path class="icon-vbar" d="M4.12109 9.24414V1C4.12109 0.447715 4.56881 0 5.12109 0C5.67338 0 6.12109 0.447715 6.12109 1V9.24414C6.12109 9.79643 5.67338 10.2441 5.12109 10.2441C4.56881 10.2441 4.12109 9.79643 4.12109 9.24414Z" fill="#2B2A7E"/><path d="M1 4.12109L9.24414 4.12109C9.79643 4.12109 10.2441 4.56881 10.2441 5.12109C10.2441 5.67338 9.79643 6.12109 9.24414 6.12109L1 6.12109C0.447715 6.12109 -6.78525e-08 5.67338 -4.37114e-08 5.12109C-1.95703e-08 4.56881 0.447715 4.12109 1 4.12109Z" fill="#CE5320"/></svg></span></div>
       </div>
 
 
@@ -2275,10 +2294,10 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
     <div class="designs-list">
 
       <!-- Omantel -->
-      <a href="coming-soon.html" class="design-card fade">
+      <a href="coming-soon.html" class="design-card fade"><span class="gh-act-num" aria-hidden="true">01</span>
         <div class="design-card-image c-navy" style="padding:0;">
           <!-- real Omantel thumbnail -->
-          <img src="Thumbnail-1.jpg" alt="Omantel super-app bill payment UI" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="Thumbnail-1.webp" alt="Omantel super-app bill payment UI" style="width:100%;height:100%;object-fit:cover;display:block;">
           <!-- hidden svg placeholder removed -->
           <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="display:none;">
             <defs>
@@ -2303,7 +2322,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
             </g>
 
             <!-- Terracotta ambient bleed — top right only -->
-            <ellipse cx="400" cy="30" rx="160" ry="90" fill="rgba(212,84,26,0.09)"/>
+            <ellipse cx="400" cy="30" rx="160" ry="90" fill="rgba(206,83,32,0.09)"/>
 
             <!-- ── SCREEN 1 — Home / super-app dashboard (leftmost, full height) ── -->
             <g transform="translate(32, 28)">
@@ -2313,7 +2332,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
               <rect x="8" y="5" width="18" height="3" rx="1.5" fill="rgba(255,255,255,0.2)"/>
               <rect x="92" y="5" width="18" height="3" rx="1.5" fill="rgba(255,255,255,0.15)"/>
               <!-- Terracotta app bar -->
-              <rect x="0" y="14" width="118" height="32" fill="#D4541A"/>
+              <rect x="0" y="14" width="118" height="32" fill="#CE5320"/>
               <rect x="10" y="22" width="48" height="5" rx="2" fill="rgba(255,255,255,0.9)"/>
               <circle cx="102" cy="30" r="8" fill="rgba(255,255,255,0.15)"/>
               <rect x="97" y="27" width="10" height="2" rx="1" fill="rgba(255,255,255,0.5)"/>
@@ -2322,13 +2341,13 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
               <rect x="10" y="54" width="55" height="4" rx="2" fill="rgba(255,255,255,0.25)"/>
               <rect x="10" y="62" width="80" height="7" rx="2" fill="rgba(255,255,255,0.7)"/>
               <!-- Balance card -->
-              <rect x="10" y="76" width="98" height="42" rx="6" fill="rgba(212,84,26,0.18)" stroke="rgba(212,84,26,0.4)" stroke-width="0.8"/>
+              <rect x="10" y="76" width="98" height="42" rx="6" fill="rgba(206,83,32,0.18)" stroke="rgba(206,83,32,0.4)" stroke-width="0.8"/>
               <rect x="18" y="83" width="30" height="3" rx="1.5" fill="rgba(255,255,255,0.3)"/>
               <rect x="18" y="90" width="50" height="8" rx="2" fill="rgba(255,255,255,0.75)"/>
-              <rect x="18" y="102" width="22" height="3" rx="1.5" fill="rgba(212,84,26,0.7)"/>
-              <rect x="88" y="82" width="12" height="12" rx="3" fill="rgba(212,84,26,0.4)"/>
+              <rect x="18" y="102" width="22" height="3" rx="1.5" fill="rgba(206,83,32,0.7)"/>
+              <rect x="88" y="82" width="12" height="12" rx="3" fill="rgba(206,83,32,0.4)"/>
               <!-- Service grid — 4×2 -->
-              <rect x="10" y="126" width="22" height="22" rx="5" fill="rgba(212,84,26,0.85)"/>
+              <rect x="10" y="126" width="22" height="22" rx="5" fill="rgba(206,83,32,0.85)"/>
               <rect x="37" y="126" width="22" height="22" rx="5" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
               <rect x="64" y="126" width="22" height="22" rx="5" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
               <rect x="91" y="126" width="22" height="22" rx="5" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
@@ -2340,7 +2359,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
               <rect x="11" y="151" width="14" height="2" rx="1" fill="rgba(255,255,255,0.18)"/>
               <!-- Bottom nav -->
               <rect x="0" y="186" width="118" height="1" fill="rgba(255,255,255,0.07)"/>
-              <rect x="14" y="193" width="16" height="3" rx="1.5" fill="rgba(212,84,26,0.8)"/>
+              <rect x="14" y="193" width="16" height="3" rx="1.5" fill="rgba(206,83,32,0.8)"/>
               <rect x="51" y="193" width="16" height="3" rx="1.5" fill="rgba(255,255,255,0.18)"/>
               <rect x="88" y="193" width="16" height="3" rx="1.5" fill="rgba(255,255,255,0.18)"/>
             </g>
@@ -2363,9 +2382,9 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
               <rect x="10" y="72" width="98" height="52" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="0.5"/>
               <rect x="18" y="80" width="28" height="3" rx="1.5" fill="rgba(255,255,255,0.22)"/>
               <rect x="18" y="88" width="62" height="12" rx="3" fill="rgba(255,255,255,0.75)"/>
-              <rect x="18" y="105" width="40" height="4" rx="2" fill="rgba(212,84,26,0.5)"/>
+              <rect x="18" y="105" width="40" height="4" rx="2" fill="rgba(206,83,32,0.5)"/>
               <!-- Progress steps -->
-              <circle cx="28" cy="136" r="5" fill="#D4541A"/>
+              <circle cx="28" cy="136" r="5" fill="#CE5320"/>
               <line x1="33" y1="136" x2="55" y2="136" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
               <circle cx="59" cy="136" r="5" fill="rgba(255,255,255,0.12)" stroke="rgba(255,255,255,0.2)" stroke-width="0.8"/>
               <line x1="64" y1="136" x2="86" y2="136" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
@@ -2376,7 +2395,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
               <rect x="10" y="168" width="98" height="14" rx="4" fill="rgba(255,255,255,0.05)" stroke="rgba(255,255,255,0.1)" stroke-width="0.5"/>
               <rect x="16" y="173" width="30" height="3" rx="1.5" fill="rgba(255,255,255,0.15)"/>
               <!-- CTA -->
-              <rect x="10" y="188" width="98" height="16" rx="8" fill="#D4541A"/>
+              <rect x="10" y="188" width="98" height="16" rx="8" fill="#CE5320"/>
               <rect x="32" y="193" width="54" height="4" rx="2" fill="rgba(255,255,255,0.9)"/>
             </g>
 
@@ -2385,17 +2404,17 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
               <rect x="0" y="0" width="140" height="240" rx="4" fill="#0A1420" stroke="rgba(255,255,255,0.1)" stroke-width="0.8"/>
               <!-- Top nav -->
               <rect x="0" y="0" width="140" height="14" rx="4" fill="rgba(255,255,255,0.03)"/>
-              <rect x="0" y="14" width="140" height="28" fill="rgba(212,84,26,0.12)"/>
+              <rect x="0" y="14" width="140" height="28" fill="rgba(206,83,32,0.12)"/>
               <rect x="10" y="22" width="44" height="4" rx="2" fill="rgba(255,255,255,0.45)"/>
-              <rect x="118" y="20" width="14" height="8" rx="3" fill="rgba(212,84,26,0.6)"/>
+              <rect x="118" y="20" width="14" height="8" rx="3" fill="rgba(206,83,32,0.6)"/>
               <!-- Section label -->
               <rect x="10" y="50" width="36" height="3" rx="1.5" fill="rgba(255,255,255,0.18)"/>
               <!-- Partner card 1 — active/highlighted -->
-              <rect x="10" y="58" width="120" height="44" rx="6" fill="rgba(212,84,26,0.15)" stroke="rgba(212,84,26,0.35)" stroke-width="0.8"/>
-              <rect x="18" y="66" width="28" height="28" rx="4" fill="rgba(212,84,26,0.3)"/>
+              <rect x="10" y="58" width="120" height="44" rx="6" fill="rgba(206,83,32,0.15)" stroke="rgba(206,83,32,0.35)" stroke-width="0.8"/>
+              <rect x="18" y="66" width="28" height="28" rx="4" fill="rgba(206,83,32,0.3)"/>
               <rect x="52" y="68" width="50" height="5" rx="2" fill="rgba(255,255,255,0.6)"/>
               <rect x="52" y="77" width="36" height="3" rx="1.5" fill="rgba(255,255,255,0.25)"/>
-              <rect x="52" y="84" width="24" height="10" rx="5" fill="rgba(212,84,26,0.7)"/>
+              <rect x="52" y="84" width="24" height="10" rx="5" fill="rgba(206,83,32,0.7)"/>
               <rect x="56" y="87" width="16" height="3" rx="1.5" fill="rgba(255,255,255,0.9)"/>
               <!-- Partner card 2 -->
               <rect x="10" y="108" width="120" height="44" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.5"/>
@@ -2422,7 +2441,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
             <rect x="32" y="258" width="420" height="1" fill="rgba(255,255,255,0.05)"/>
             <text x="32" y="272" font-family="'Manrope',sans-serif" font-size="8" font-weight="700" letter-spacing="0.16em" fill="rgba(255,255,255,0.18)">OMANTEL</text>
             <text x="108" y="272" font-family="'Manrope',sans-serif" font-size="8" font-weight="400" letter-spacing="0.08em" fill="rgba(255,255,255,0.1)">SUPER APP · 2021–2024</text>
-            <rect x="32" y="280" width="36" height="2" rx="1" fill="rgba(212,84,26,0.6)"/>
+            <rect x="32" y="280" width="36" height="2" rx="1" fill="rgba(206,83,32,0.6)"/>
 
             <rect width="480" height="320" filter="url(#grain-o)" opacity="0.1"/>
           </svg>
@@ -2439,22 +2458,22 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
           </div>
           <div class="design-card-footer">
             <span class="design-cta">
-              View case study <span style="font-style:normal; margin-left:0.25em">→</span>
+              View case study <span class="btn-arrow-right">↓</span>
             </span>
           </div>
         </div>
       </a>
 
       <!-- AXA -->
-      <a href="coming-soon.html" class="design-card fade">
+      <a href="coming-soon.html" class="design-card fade"><span class="gh-act-num" aria-hidden="true">02</span>
         <div class="design-card-image c-midnight" style="padding:0;">
-          <img src="Thumbnail-2.jpg" alt="All-in-One Bill Payment UI" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="Thumbnail-2.webp" alt="All-in-One Bill Payment UI" style="width:100%;height:100%;object-fit:cover;display:block;">
           <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="display:none;">
             <defs>
               <filter id="grain-a"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
               <linearGradient id="grad-a" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#0D0D1A"/><stop offset="100%" stop-color="#0A0A14"/></linearGradient>
               <radialGradient id="glow-a" cx="60%" cy="25%" r="55%"><stop offset="0%" stop-color="#1E1E6E" stop-opacity="0.8"/><stop offset="100%" stop-color="transparent"/></radialGradient>
-              <radialGradient id="glow-a2" cx="20%" cy="80%" r="40%"><stop offset="0%" stop-color="#D4541A" stop-opacity="0.2"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+              <radialGradient id="glow-a2" cx="20%" cy="80%" r="40%"><stop offset="0%" stop-color="#CE5320" stop-opacity="0.2"/><stop offset="100%" stop-color="transparent"/></radialGradient>
             </defs>
             <rect width="480" height="320" fill="url(#grad-a)"/>
             <rect width="480" height="320" fill="url(#glow-a)"/>
@@ -2477,8 +2496,8 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
               <rect x="8" y="42" width="28" height="3" rx="1.5" fill="rgba(255,255,255,0.12)"/>
               <rect x="8" y="52" width="32" height="3" rx="1.5" fill="rgba(255,255,255,0.12)"/>
               <rect x="8" y="62" width="26" height="3" rx="1.5" fill="rgba(255,255,255,0.12)"/>
-              <rect x="4" y="72" width="2" height="3" rx="1" fill="rgba(212,84,26,0.9)"/>
-              <rect x="8" y="72" width="36" height="3" rx="1.5" fill="rgba(212,84,26,0.6)"/>
+              <rect x="4" y="72" width="2" height="3" rx="1" fill="rgba(206,83,32,0.9)"/>
+              <rect x="8" y="72" width="36" height="3" rx="1.5" fill="rgba(206,83,32,0.6)"/>
               <rect x="8" y="82" width="30" height="3" rx="1.5" fill="rgba(255,255,255,0.12)"/>
               <rect x="8" y="92" width="24" height="3" rx="1.5" fill="rgba(255,255,255,0.12)"/>
               <rect x="8" y="110" width="36" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
@@ -2489,10 +2508,10 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
               <!-- Component spec title -->
               <rect x="62" y="32" width="60" height="5" rx="2" fill="rgba(255,255,255,0.5)"/>
               <!-- Button component specimens -->
-              <rect x="62" y="46" width="60" height="20" rx="10" fill="rgba(212,84,26,0.9)"/>
+              <rect x="62" y="46" width="60" height="20" rx="10" fill="rgba(206,83,32,0.9)"/>
               <rect x="74" y="52" width="36" height="4" rx="2" fill="rgba(255,255,255,0.9)"/>
-              <rect x="132" y="46" width="60" height="20" rx="10" fill="transparent" stroke="rgba(212,84,26,0.7)" stroke-width="1.2"/>
-              <rect x="144" y="52" width="36" height="4" rx="2" fill="rgba(212,84,26,0.7)"/>
+              <rect x="132" y="46" width="60" height="20" rx="10" fill="transparent" stroke="rgba(206,83,32,0.7)" stroke-width="1.2"/>
+              <rect x="144" y="52" width="36" height="4" rx="2" fill="rgba(206,83,32,0.7)"/>
               <rect x="202" y="46" width="50" height="20" rx="4" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.12)" stroke-width="1"/>
               <rect x="210" y="52" width="34" height="4" rx="2" fill="rgba(255,255,255,0.3)"/>
               <!-- Divider -->
@@ -2502,12 +2521,12 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
               <rect x="62" y="95" width="140" height="5" rx="1.5" fill="rgba(255,255,255,0.2)"/>
               <rect x="62" y="104" width="120" height="4" rx="1.5" fill="rgba(255,255,255,0.12)"/>
               <!-- Colour swatches -->
-              <rect x="62" y="120" width="18" height="18" rx="4" fill="#D4541A"/>
+              <rect x="62" y="120" width="18" height="18" rx="4" fill="#CE5320"/>
               <rect x="86" y="120" width="18" height="18" rx="4" fill="#2B2A7E"/>
               <rect x="110" y="120" width="18" height="18" rx="4" fill="#F5ECD8"/>
               <rect x="134" y="120" width="18" height="18" rx="4" fill="rgba(255,255,255,0.2)" stroke="rgba(255,255,255,0.15)" stroke-width="1"/>
               <!-- Annotation lines -->
-              <line x1="62" y1="148" x2="248" y2="148" stroke="rgba(212,84,26,0.25)" stroke-width="0.8" stroke-dasharray="3 3"/>
+              <line x1="62" y1="148" x2="248" y2="148" stroke="rgba(206,83,32,0.25)" stroke-width="0.8" stroke-dasharray="3 3"/>
               <rect x="62" y="152" width="50" height="3" rx="1.5" fill="rgba(255,255,255,0.12)"/>
               <rect x="62" y="159" width="70" height="3" rx="1.5" fill="rgba(255,255,255,0.08)"/>
               <rect x="62" y="166" width="40" height="3" rx="1.5" fill="rgba(255,255,255,0.08)"/>
@@ -2520,30 +2539,30 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
               <rect x="0" y="0" width="148" height="26" rx="8" fill="rgba(255,255,255,0.06)"/>
               <rect x="0" y="18" width="148" height="8" fill="rgba(255,255,255,0.06)"/>
               <rect x="10" y="9" width="50" height="5" rx="2" fill="rgba(255,255,255,0.35)"/>
-              <rect x="120" y="9" width="20" height="5" rx="2" fill="rgba(212,84,26,0.7)"/>
+              <rect x="120" y="9" width="20" height="5" rx="2" fill="rgba(206,83,32,0.7)"/>
               <!-- Quote form -->
               <rect x="10" y="34" width="128" height="32" rx="6" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="0.8"/>
               <rect x="16" y="40" width="40" height="4" rx="2" fill="rgba(255,255,255,0.2)"/>
               <rect x="16" y="49" width="80" height="5" rx="2" fill="rgba(255,255,255,0.4)"/>
               <!-- Car icon placeholder -->
-              <rect x="10" y="74" width="128" height="40" rx="6" fill="rgba(212,84,26,0.08)" stroke="rgba(212,84,26,0.2)" stroke-width="0.8"/>
+              <rect x="10" y="74" width="128" height="40" rx="6" fill="rgba(206,83,32,0.08)" stroke="rgba(206,83,32,0.2)" stroke-width="0.8"/>
               <rect x="20" y="82" width="35" height="5" rx="2" fill="rgba(255,255,255,0.25)"/>
               <rect x="20" y="92" width="55" height="4" rx="2" fill="rgba(255,255,255,0.12)"/>
-              <rect x="90" y="80" width="38" height="24" rx="4" fill="rgba(212,84,26,0.3)"/>
+              <rect x="90" y="80" width="38" height="24" rx="4" fill="rgba(206,83,32,0.3)"/>
               <!-- Progress steps -->
               <g transform="translate(10, 124)">
-                <circle cx="8" cy="8" r="7" fill="rgba(212,84,26,0.9)"/>
+                <circle cx="8" cy="8" r="7" fill="rgba(206,83,32,0.9)"/>
                 <rect x="18" y="5" width="20" height="3" rx="1.5" fill="rgba(255,255,255,0.5)"/>
                 <line x1="15" y1="8" x2="128" y2="8" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
                 <circle cx="56" cy="8" r="7" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
                 <circle cx="104" cy="8" r="7" fill="rgba(255,255,255,0.1)" stroke="rgba(255,255,255,0.2)" stroke-width="1"/>
               </g>
               <!-- CTA -->
-              <rect x="10" y="148" width="128" height="22" rx="11" fill="rgba(212,84,26,0.9)"/>
+              <rect x="10" y="148" width="128" height="22" rx="11" fill="rgba(206,83,32,0.9)"/>
               <rect x="40" y="156" width="68" height="5" rx="2" fill="rgba(255,255,255,0.9)"/>
               <!-- Award badge -->
-              <rect x="10" y="180" width="128" height="22" rx="5" fill="rgba(255,255,255,0.04)" stroke="rgba(212,84,26,0.3)" stroke-width="0.8"/>
-              <rect x="16" y="187" width="52" height="3" rx="1.5" fill="rgba(212,84,26,0.6)"/>
+              <rect x="10" y="180" width="128" height="22" rx="5" fill="rgba(255,255,255,0.04)" stroke="rgba(206,83,32,0.3)" stroke-width="0.8"/>
+              <rect x="16" y="187" width="52" height="3" rx="1.5" fill="rgba(206,83,32,0.6)"/>
               <rect x="16" y="194" width="80" height="3" rx="1.5" fill="rgba(255,255,255,0.15)"/>
             </g>
 
@@ -2554,8 +2573,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
         <div class="design-card-glass">
           <div class="design-card-tags">
             <span class="design-tag design-tag--act">Act 2</span>
-            <span class="design-tag">Experience Strategy</span>
-            <span class="design-tag">Fintech</span>
+            <span class="design-tag">UX Research</span>
             <span class="design-tag">Superapp</span>
           </div>
           <div class="design-card-body">
@@ -2572,15 +2590,15 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
       </a>
 
       <!-- NEOM -->
-      <a href="coming-soon.html" class="design-card fade">
+      <a href="coming-soon.html" class="design-card fade"><span class="gh-act-num" aria-hidden="true">03</span>
         <div class="design-card-image c-plum" style="padding:0;">
-          <img src="Thumbnail-3.jpg" alt="NEOM PlanIt tourism content and booking hub" style="width:100%;height:100%;object-fit:cover;display:block;">
+          <img src="Thumbnail-3.webp" alt="NEOM PlanIt tourism content and booking hub" style="width:100%;height:100%;object-fit:cover;display:block;">
           <svg viewBox="0 0 480 320" xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" style="display:none;">
             <defs>
               <filter id="grain-n"><feTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="4" stitchTiles="stitch"/><feColorMatrix type="saturate" values="0"/><feBlend in="SourceGraphic" mode="multiply"/></filter>
               <linearGradient id="grad-n" x1="0%" y1="100%" x2="60%" y2="0%"><stop offset="0%" stop-color="#060810"/><stop offset="100%" stop-color="#0C0A1A"/></linearGradient>
               <radialGradient id="glow-n1" cx="50%" cy="45%" r="50%"><stop offset="0%" stop-color="#3B2080" stop-opacity="0.6"/><stop offset="100%" stop-color="transparent"/></radialGradient>
-              <radialGradient id="glow-n2" cx="15%" cy="70%" r="35%"><stop offset="0%" stop-color="#D4541A" stop-opacity="0.18"/><stop offset="100%" stop-color="transparent"/></radialGradient>
+              <radialGradient id="glow-n2" cx="15%" cy="70%" r="35%"><stop offset="0%" stop-color="#CE5320" stop-opacity="0.18"/><stop offset="100%" stop-color="transparent"/></radialGradient>
             </defs>
             <rect width="480" height="320" fill="url(#grad-n)"/>
             <rect width="480" height="320" fill="url(#glow-n1)"/>
@@ -2608,9 +2626,9 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
             <rect x="98" y="140" width="20" height="60" fill="rgba(255,255,255,0.05)"/>
             <rect x="122" y="128" width="10" height="72" fill="rgba(255,255,255,0.06)"/>
             <!-- The Line — tall mirror buildings with terracotta accent -->
-            <rect x="138" y="90" width="28" height="110" fill="rgba(212,84,26,0.12)" stroke="rgba(212,84,26,0.3)" stroke-width="0.8"/>
-            <rect x="170" y="90" width="4" height="110" fill="rgba(212,84,26,0.08)"/>
-            <rect x="140" y="92" width="24" height="2" fill="rgba(212,84,26,0.5)"/>
+            <rect x="138" y="90" width="28" height="110" fill="rgba(206,83,32,0.12)" stroke="rgba(206,83,32,0.3)" stroke-width="0.8"/>
+            <rect x="170" y="90" width="4" height="110" fill="rgba(206,83,32,0.08)"/>
+            <rect x="140" y="92" width="24" height="2" fill="rgba(206,83,32,0.5)"/>
             <rect x="140" y="120" width="24" height="1" fill="rgba(255,255,255,0.06)"/>
             <rect x="140" y="150" width="24" height="1" fill="rgba(255,255,255,0.06)"/>
             <rect x="140" y="180" width="24" height="1" fill="rgba(255,255,255,0.06)"/>
@@ -2618,7 +2636,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
             <rect x="204" y="125" width="14" height="75" fill="rgba(255,255,255,0.06)"/>
             <rect x="222" y="105" width="20" height="95" fill="rgba(255,255,255,0.05)"/>
             <rect x="246" y="118" width="16" height="82" fill="rgba(255,255,255,0.06)"/>
-            <rect x="266" y="95" width="24" height="105" fill="rgba(212,84,26,0.08)" stroke="rgba(212,84,26,0.2)" stroke-width="0.5"/>
+            <rect x="266" y="95" width="24" height="105" fill="rgba(206,83,32,0.08)" stroke="rgba(206,83,32,0.2)" stroke-width="0.5"/>
             <rect x="294" y="130" width="14" height="70" fill="rgba(255,255,255,0.05)"/>
             <rect x="312" y="115" width="18" height="85" fill="rgba(255,255,255,0.06)"/>
             <rect x="334" y="142" width="12" height="58" fill="rgba(255,255,255,0.04)"/>
@@ -2635,7 +2653,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
               <rect x="0" y="0" width="200" height="18" rx="6" fill="rgba(255,255,255,0.05)"/>
               <rect x="0" y="12" width="200" height="6" fill="rgba(255,255,255,0.05)"/>
               <rect x="8" y="5" width="55" height="5" rx="2" fill="rgba(255,255,255,0.4)"/>
-              <circle cx="186" cy="9" r="4" fill="rgba(212,84,26,0.7)"/>
+              <circle cx="186" cy="9" r="4" fill="rgba(206,83,32,0.7)"/>
               <!-- Map grid lines -->
               <g stroke="rgba(255,255,255,0.05)" stroke-width="0.8">
                 <line x1="0" y1="28" x2="200" y2="28"/>
@@ -2646,19 +2664,19 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
                 <line x1="150" y1="18" x2="150" y2="85"/>
               </g>
               <!-- Data points on the grid -->
-              <circle cx="38" cy="34" r="3" fill="rgba(212,84,26,0.8)"/>
+              <circle cx="38" cy="34" r="3" fill="rgba(206,83,32,0.8)"/>
               <circle cx="82" cy="45" r="2.5" fill="rgba(255,255,255,0.3)"/>
               <circle cx="120" cy="32" r="2.5" fill="rgba(255,255,255,0.3)"/>
-              <circle cx="165" cy="48" r="3" fill="rgba(212,84,26,0.5)"/>
+              <circle cx="165" cy="48" r="3" fill="rgba(206,83,32,0.5)"/>
               <!-- Pulse ring on one point -->
-              <circle cx="38" cy="34" r="7" fill="none" stroke="rgba(212,84,26,0.25)" stroke-width="1"/>
-              <circle cx="38" cy="34" r="12" fill="none" stroke="rgba(212,84,26,0.1)" stroke-width="1"/>
+              <circle cx="38" cy="34" r="7" fill="none" stroke="rgba(206,83,32,0.25)" stroke-width="1"/>
+              <circle cx="38" cy="34" r="12" fill="none" stroke="rgba(206,83,32,0.1)" stroke-width="1"/>
               <!-- Path between points -->
-              <path d="M38 34 Q60 28 82 45 Q100 52 120 32 Q142 18 165 48" stroke="rgba(212,84,26,0.4)" stroke-width="1" fill="none" stroke-dasharray="3 2"/>
+              <path d="M38 34 Q60 28 82 45 Q100 52 120 32 Q142 18 165 48" stroke="rgba(206,83,32,0.4)" stroke-width="1" fill="none" stroke-dasharray="3 2"/>
               <!-- Bottom data row -->
-              <rect x="8" y="62" width="40" height="16" rx="3" fill="rgba(212,84,26,0.15)" stroke="rgba(212,84,26,0.3)" stroke-width="0.5"/>
+              <rect x="8" y="62" width="40" height="16" rx="3" fill="rgba(206,83,32,0.15)" stroke="rgba(206,83,32,0.3)" stroke-width="0.5"/>
               <rect x="13" y="67" width="14" height="3" rx="1" fill="rgba(255,255,255,0.3)"/>
-              <rect x="13" y="73" width="22" height="4" rx="1.5" fill="rgba(212,84,26,0.8)"/>
+              <rect x="13" y="73" width="22" height="4" rx="1.5" fill="rgba(206,83,32,0.8)"/>
               <rect x="56" y="62" width="40" height="16" rx="3" fill="rgba(255,255,255,0.05)"/>
               <rect x="61" y="67" width="14" height="3" rx="1" fill="rgba(255,255,255,0.2)"/>
               <rect x="61" y="73" width="22" height="4" rx="1.5" fill="rgba(255,255,255,0.4)"/>
@@ -2677,7 +2695,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
               <rect x="0" y="12" width="168" height="6" fill="rgba(255,255,255,0.05)"/>
               <rect x="8" y="5" width="60" height="5" rx="2" fill="rgba(255,255,255,0.35)"/>
               <!-- Service list items -->
-              <circle cx="16" cy="32" r="4" fill="rgba(212,84,26,0.8)"/>
+              <circle cx="16" cy="32" r="4" fill="rgba(206,83,32,0.8)"/>
               <rect x="26" y="29" width="50" height="4" rx="2" fill="rgba(255,255,255,0.45)"/>
               <rect x="26" y="36" width="35" height="3" rx="1.5" fill="rgba(255,255,255,0.15)"/>
               <circle cx="16" cy="52" r="4" fill="rgba(255,255,255,0.12)"/>
@@ -2701,13 +2719,12 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
         </div>
         <div class="design-card-glass">
           <div class="design-card-tags">
-            <span class="design-tag">Experience Strategy</span>
             <span class="design-tag">UX Research</span>
             <span class="design-tag">Tourism</span>
           </div>
           <div class="design-card-body">
-            <h3 class="design-title">From Zero to Vision: NEOM's Tourism Content &amp; Booking Hub</h3>
-            <p class="design-desc">Defining the experience vision for NEOM's tourism platform from scratch. Research across three markets, a 200-page LEAD framework report, and prototype concepts for three distinct user archetypes.</p>
+            <h3 class="design-title">NEOM's Tourism Booking Hub</h3>
+            <p class="design-desc">From scattered tourism needs to a defined experience vision backed by multi-market research and 3 user archetypes.</p>
           </div>
           <div class="design-card-footer">
             <div class="design-cta-progress">
@@ -2724,8 +2741,8 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
     <div class="designs-cta-row fade">
       <a href="coming-soon.html" class="btn-hero-ghost btn-auto-w">
         <span class="btn-inner">
-          <span class="btn-default">View all case studies →</span>
-          <span class="btn-hover">View all case studies →</span>
+          <span class="btn-default">View all case studies <span class="btn-arrow-right">↓</span></span>
+          <span class="btn-hover">View all case studies <span class="btn-arrow-right">↓</span></span>
         </span>
       </a>
     </div>
@@ -2778,14 +2795,14 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
 
     <!-- Audience tabs -->
     <div class="collab-tabs fade" role="tablist">
-      <button class="collab-tab active" data-tab="hod" role="tab" id="tab-hod" aria-selected="true" aria-controls="panel-hod">If you're a Head of Design</button>
+      <button class="collab-tab ai-tab active" data-tab="ai" role="tab" id="tab-ai" aria-selected="true" aria-controls="panel-ai">If you use AI to screen</button>
+      <button class="collab-tab" data-tab="hod" role="tab" id="tab-hod" aria-selected="false" aria-controls="panel-hod">If you're a Head of Design</button>
       <button class="collab-tab" data-tab="recruiter" role="tab" id="tab-recruiter" aria-selected="false" aria-controls="panel-recruiter">If you're a Recruiter</button>
       <button class="collab-tab" data-tab="designer" role="tab" id="tab-designer" aria-selected="false" aria-controls="panel-designer">If you're a Designer</button>
-      <button class="collab-tab ai-tab" data-tab="ai" role="tab" id="tab-ai" aria-selected="false" aria-controls="panel-ai">If you use AI to screen</button>
     </div>
 
     <!-- Head of Design panel -->
-    <div class="collab-panel active" data-panel="hod" id="panel-hod" role="tabpanel" aria-labelledby="tab-hod">
+    <div class="collab-panel" data-panel="hod" id="panel-hod" role="tabpanel" aria-labelledby="tab-hod">
       <div class="collab-intro fade">
         <p class="collab-lead">You need more than a design lead. You need someone who's already done it at scale.</p>
       </div>
@@ -2807,7 +2824,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
         </div>
       </div>
       <div class="collab-panel-cta fade">
-        <a href="coming-soon.html" class="collab-panel-link">Read more about my ways of working →</a>
+        <a href="coming-soon.html" class="collab-panel-link">Read more about my ways of working <span class="btn-arrow-right">↓</span></a>
 
       </div>
     </div>
@@ -2840,7 +2857,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
     </div>
 
     <!-- AI panel -->
-    <div class="collab-panel" data-panel="ai" id="panel-ai" role="tabpanel" aria-labelledby="tab-ai">
+    <div class="collab-panel active" data-panel="ai" id="panel-ai" role="tabpanel" aria-labelledby="tab-ai">
       <div class="collab-intro fade">
         <p class="collab-lead">Go ahead. Ask what you'd normally paste into ChatGPT.</p>
       </div>
@@ -2865,7 +2882,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
 
         <div class="ai-input-row">
           <span class="ai-input-prefix">&gt;_</span>
-          <input class="ai-input" id="ai-input" type="text" placeholder="ask Linda anything…" autocomplete="off" />
+          <input class="ai-input" id="ai-input" type="text" placeholder="Ask me anything…" autocomplete="off" />
           <button class="ai-send" id="ai-send" aria-label="Send">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14 14" fill="none">
               <path d="M7 12V2M7 2L2.5 6.5M7 2L11.5 6.5" stroke="white" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round"/>
@@ -2921,11 +2938,11 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
       <p class="cta-sub">I love discussing design leadership, systems thinking, and what it takes to build digital products in a region moving this fast.</p>
       <a href="mailto:lindahamed@gmail.com" class="btn-cta-pill">
         <span class="btn-cta-pill-inner">
-          <span class="btn-default">Let's talk →</span>
-          <span class="btn-hover">Let's talk →</span>
+          <span class="btn-default">Let's talk <span class="btn-arrow-right">↓</span></span>
+          <span class="btn-hover">Let's talk <span class="btn-arrow-right">↓</span></span>
         </span>
       </a>
-      <p class="cta-download">Need a copy? <a href="CV_LindaHamed_2026.pdf" download>Download CV →</a></p>
+      <p class="cta-download">Need a copy? <a href="CV_LindaHamed_2026.pdf" download>Download CV <span class="btn-arrow-right">↓</span></a></p>
     </div>
 
     <!-- Right: tic-tac-toe widget -->
@@ -2955,7 +2972,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
     <ul class="cta-footer-links">
       <li><a href="#work">Work</a></li>
       <li><a href="#about">About</a></li>
-      <li><a href="https://linkedin.com/in/linda-hamed-42785713" target="_blank" rel="noopener">LinkedIn ➚</a></li>
+      <li><a href="https://linkedin.com/in/linda-hamed-42785713" target="_blank" rel="noopener">LinkedIn ↗</a></li>
       <li><a href="mailto:lindahamed@gmail.com">Email</a></li>
     </ul>
     <span class="cta-footer-copy">© 2026</span>
@@ -3070,13 +3087,13 @@ document.querySelectorAll('.collab-tab').forEach(tab => {
   const ANSWERS = {
     "What's her strongest discipline?": "Linda's core is <strong>experience strategy and systems design</strong>; the ability to see both the user journey and the org structure that produces it. She's been brought in to design the thing, then redesign how the team designs. That combination is rare at senior levels.",
     "Has she led design teams?": "Yes — <strong>20+ designers across 3 continents</strong>, from junior IC to senior lead. She's built critique cultures, junior-to-senior pipelines, and operating models from scratch. The designers she's managed have gone on to lead teams themselves.",
-    "What's her availability?": "Linda is <strong>open to new opportunities</strong> as of 2026. She's based in Dubai with flexibility for the right role; including relocation. If timing matters, the best move is to reach out directly: <a href='mailto:lindahamed@gmail.com' style='color:rgba(196,103,58,0.8);'>lindahamed@gmail.com</a>",
+    "What's her availability?": "Linda is <strong>open to new opportunities</strong> as of 2026. She's based in Dubai with flexibility for the right role; including relocation. If timing matters, the best move is to reach out directly: <a href='mailto:lindahamed@gmail.com' style='color:rgba(206,83,32,0.8);'>lindahamed@gmail.com</a>",
     "Is she hands-on or strategic?": "<strong>Both, simultaneously</strong>; and that's the point. She's been embedded in $45M programmes doing strategy work, and she's also the one who sits with engineers to get the interaction detail right. Most leaders pick a lane. She hasn't had to.",
     "What level is she targeting?": "Director, Head of Design, or <strong>senior IC roles</strong>; anywhere the work is complex, the stakes are real, and design has a seat at the table. She's not looking for a hand-off role or a junior lead position.",
     "Can she relocate?": "She's Dubai-based and has worked across <strong>MENA, Europe, and the US</strong>. She's open to relocation for the right role. Remote-first or hybrid setups are also on the table depending on the team and scope."
   };
 
-  const DEFAULT = "That's a good one; I don't have a pre-written answer for it yet. Linda reads every conversation here, so send it directly: <a href='mailto:lindahamed@gmail.com' style='color:rgba(196,103,58,0.8);'>lindahamed@gmail.com</a>";
+  const DEFAULT = "That's a good one; I don't have a pre-written answer for it yet. Linda reads every conversation here, so send it directly: <a href='mailto:lindahamed@gmail.com' style='color:rgba(206,83,32,0.8);'>lindahamed@gmail.com</a>";
 
   const window_el = document.getElementById('ai-window');
   const input_el  = document.getElementById('ai-input');
@@ -3151,6 +3168,33 @@ document.querySelectorAll('.collab-cards, .rec2-grid, .designs-list').forEach(gr
     el.style.transitionDelay = `${i * 0.08}s`;
   });
 });
+
+/* Keep the two stacked case studies equal to the height of the first card. */
+(function() {
+  const designs_list = document.querySelector('.designs-list');
+  const design_cards = designs_list ? designs_list.querySelectorAll('.design-card') : [];
+  if (!designs_list || design_cards.length < 3) return;
+
+  function match_design_card_heights() {
+    designs_list.style.gridTemplateRows = '';
+    design_cards.forEach(card => {
+      card.style.height = '';
+      card.style.minHeight = '';
+    });
+    if (window.innerWidth <= 1080) return;
+
+    const first_card_height = design_cards[0].getBoundingClientRect().height;
+    const row_gap = parseFloat(getComputedStyle(designs_list).rowGap) || 0;
+    const row_height = (first_card_height - row_gap) / 2;
+    designs_list.style.gridTemplateRows = `repeat(2, ${row_height}px)`;
+    design_cards[1].style.height = '100%';
+    design_cards[2].style.height = '100%';
+  }
+
+  window.addEventListener('load', match_design_card_heights);
+  window.addEventListener('resize', match_design_card_heights);
+  match_design_card_heights();
+})();
 
 /* ── WHERE I'VE BUILT — expand / collapse ── */
 document.querySelectorAll('.built-row .built-sep').forEach(sep => {
@@ -3299,5 +3343,1001 @@ document.querySelectorAll('.built-row .built-sep').forEach(sep => {
 })();
 </script>
 
+
+<div class="gh-light" id="ghLight" aria-hidden="true"></div>
+<div class="gh-ledger" id="ghLedger">
+  <span class="gh-ledger-brand"><span class="gh-ledger-dot"></span>Built in the open</span>
+  <div class="gh-ledger-track" id="ghLedgerTrack"><div class="gh-ledger-run" id="ghLedgerRun"></div></div>
+  <button class="gh-ledger-hide" id="ghLedgerHide">Hide</button>
+</div>
+
+<style id="golden-hour">
+/* ══════════════════════════════════════════════════════════════════════
+   GOLDEN HOUR — design layer over the existing lindahamed.com markup.
+   Copy, IA and the assistant are untouched. This file only restyles.
+   ══════════════════════════════════════════════════════════════════════ */
+:root{
+  --gh-cream:#F5ECD8;
+  --gh-cream-lift:#FAF4E7;
+  --gh-navy:#2B2A7E;
+  --gh-navy-deep:#24225F;
+  --gh-navy-lift:#3F3E91;
+  --gh-orange:#CE5320;
+  --gh-orange-soft:#E2AC7E;
+  --gh-display:'DM Serif Display',Georgia,serif;
+  --gh-sans:'Manrope','Helvetica Neue',Helvetica,sans-serif;
+  --gh-mono:'JetBrains Mono',ui-monospace,SFMono-Regular,Menlo,monospace;
+  --gh-max:1270px;
+  --gh-pad:clamp(1.5rem,5.9vw,85px);
+  --gh-ledger-h:46px;
+}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--gh-cream);
+  color:var(--gh-navy);
+  font-family:var(--gh-sans);
+  padding-bottom:var(--gh-ledger-h);
+  cursor:auto;
+}
+body.gh-ledger-off{padding-bottom:0;}
+body::after{background:none;}                 /* old ambient wash off — light layer replaces it */
+a,button,input{cursor:auto;}
+.wrap,.hero-inner,.built-inner,.designs-inner,.rec2-inner,.collab-inner,.cta-inner{
+  max-width:var(--gh-max);margin-inline:auto;padding-inline:var(--gh-pad);
+}
+
+/* ── cursor light ───────────────────────────────────────────────────── */
+.gh-light{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background:radial-gradient(620px circle at var(--mx,60%) var(--my,18%),
+    rgba(255,196,124,.34) 0%,rgba(255,206,150,.14) 34%,transparent 66%);
+  transition:opacity .5s ease;mix-blend-mode:multiply;opacity:.9;
+}
+section,nav,footer{position:relative;z-index:1;}
+
+/* ── nav ────────────────────────────────────────────────────────────── */
+nav#nav{
+  position:fixed;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:auto;
+  height:auto;
+  padding:9px 10px 9px 22px;
+  display:flex;
+  align-items:center;
+  gap:6px;
+  background:rgba(252,247,238,.92);
+  backdrop-filter:blur(16px);
+  /* border:1px solid rgba(43,42,126,.08); */
+  border-radius:999px;
+  box-shadow: 0 10px 24px -18px rgba(43,42,126,.45);
+  z-index:60;
+}
+nav#nav.scrolled{background:rgba(252,247,238,.97);}
+.nav-logo{font-family:var(--gh-display);font-style:italic;font-weight:400;
+  font-size:21px;color:var(--gh-navy);letter-spacing:-.01em;margin-right:14px;text-decoration:none;}
+.nav-logo .dot{color:var(--gh-orange);}
+.nav-right{display:flex;align-items:center;}
+.nav-links{display:flex;align-items:center;gap:22px;list-style:none;margin:0;padding:0;}
+.nav-links a{
+  font-family:var(--gh-sans);
+  font-weight:600;
+  font-size: 13px;
+  color:var(--gh-navy);
+  text-decoration:none;
+  letter-spacing:0;
+  text-transform:none;
+  opacity:1;
+  }
+.nav-links a:hover{color:var(--gh-orange);}
+.nav-squig{display:none!important;}
+/* last nav link becomes the navy pill */
+.nav-links li:last-child a{
+  background:var(--gh-navy);color:var(--gh-cream-lift);
+  height:36px;padding:0 20px;border-radius:999px;display:inline-flex;align-items:center;margin-left:6px;}
+.gh-nav-pill-li + li{margin-left:-16px;}
+.nav-links li:last-child a:hover{background:#232170;color:#fff;}
+.nav-talk{align-items:flex-start!important;overflow:hidden;}
+.nav-talk-inner{display:flex;flex:0 0 72px;flex-direction:column;height:72px;transform:translateY(0);
+  transition:transform .35s cubic-bezier(.16,1,.3,1);}
+.nav-talk-label{display:flex;align-items:center;justify-content:center;height:36px;
+  flex-shrink:0;white-space:nowrap;}
+.nav-talk:hover .nav-talk-inner{transform:translateY(-36px);}
+.gh-ai-pill{
+  display:inline-flex;align-items:center;gap:8px;height:38px;
+  background:var(--gh-orange);color:#FCF6EC;border:0;border-radius:999px;
+  padding:9px 16px;font-family:var(--gh-mono);font-size:12px;letter-spacing:.02em;
+  cursor:pointer;transition:background .2s ease,opacity .2s ease;}
+.gh-ai-pill:hover{background:#B3441A;}
+.gh-ai-pill[aria-pressed="false"]{background:transparent;color:var(--gh-navy);
+  box-shadow:inset 0 0 0 1px rgba(43,42,126,.22);}
+.gh-ai-dot{width:6px;height:6px;border-radius:50%;background:currentColor;flex:none;}
+
+
+/* ── hero ───────────────────────────────────────────────────────────── */
+.hero-section{
+  height:auto;min-height:0;overflow:visible;padding:190px 0 32px;background:transparent;
+  max-width:var(--gh-max);margin-inline:auto;padding-inline:var(--gh-pad);
+  display:grid;grid-template-columns:minmax(0,1fr) 500px;
+  column-gap:60px;align-items:start;
+}
+.hero-inner{max-width:none;margin:0;padding:0;display:block;text-align:left;
+  align-items:flex-start;justify-content:flex-start;}
+.hero-eyebrow{
+  font-family:var(--gh-sans);
+  font-weight:700;
+  font-size: 16px;
+  letter-spacing: .1em;
+  text-transform:uppercase;
+  color:var(--gh-orange);
+  display:flex;
+  align-items:center;
+  gap:14px;
+  margin:0 0 26px;
+  }
+.hero-h1{
+  font-family:var(--gh-display);font-weight:400;font-style:normal;
+  font-size:clamp(3rem,6.7vw,96px);line-height:1.03;letter-spacing:-.018em;
+  color:var(--gh-navy);margin:0 0 34px;}
+.hero-h1 .line{display:block;overflow:visible;}
+.hero-h1 .word{display:inline;}
+.hero-h1 .italic-line{font-style:normal;}
+.gh-it{font-style:italic;}
+.gh-wash{position:relative;display:inline-block;font-style:italic;}
+.gh-wash::before{
+  content:"";position:absolute;left:-.04em;right:-.04em;bottom:.16em;height:.30em;
+  background:linear-gradient(90deg,rgba(226,172,126,.85),rgba(226,172,126,.35));
+  transform:scaleX(var(--wash,0));transform-origin:left center;z-index:-1;
+  transition:transform 1.1s cubic-bezier(.16,1,.3,1);}
+.hero-sub{
+  font-family:var(--gh-sans);
+  font-weight:400;
+  font-size: 16px;
+  line-height:1.62;
+  color:var(--gh-navy);
+  max-width:530px;
+  margin:0 0 40px;
+  }
+.hero-sub .hl{color:var(--gh-orange);font-weight:600;}
+.hero-ctas{display:flex;gap:14px;margin:0 0 32px;}
+.btn-hero-primary,.btn-hero-ghost,.btn-auto-w{
+  width:auto;min-width:180px;height:48px;padding:0 30px;border-radius:999px;
+  text-decoration:none;transition:transform .2s ease,background .2s ease,box-shadow .2s ease,color .2s ease;}
+.btn-default,.btn-hover{font-family:var(--gh-sans)!important;font-weight:600!important;
+  font-size:15px!important;font-style:normal!important;letter-spacing:0!important;}
+.btn-arrow-right{display:inline-block;margin-left:3px;transform:rotate(-90deg);}
+.nav-links li:not(:last-child)::after{content:none!important;display:none!important;}
+.gh-nav-pill-li::after{display:none!important;}
+.gh-nav-pill-li{margin:0 0 0 18px;}
+.btn-hero-primary{background:var(--gh-navy);color:var(--gh-cream-lift);border:0;}
+.btn-hero-primary:hover{background:#232170;transform:translateY(-1px);color:#fff;}
+.hero-ctas .btn-hero-ghost{background:transparent;color:var(--gh-navy);border:0;box-shadow:inset 0 0 0 1.5px rgba(43,42,126,.28);}
+.hero-ctas .btn-hero-ghost:hover{border:0;box-shadow:inset 0 0 0 1.5px var(--gh-navy);color:var(--gh-navy);transform:translateY(-1px);}
+.gh-hero-right{position:relative;padding-top:0;}
+.gh-locale{
+  position:absolute;top:0;right:0;z-index:2;
+  background:var(--gh-navy);color:var(--gh-cream-lift);
+  font-family:var(--gh-mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  padding:7px 14px;border-radius:999px;white-space:nowrap;}
+.gh-portrait{
+  /* ── portrait tuning knobs ─────────────────────────────
+     --p-lift      exposure. higher = studio grey lifts toward cream
+     --p-warm      sepia. higher = warmer / more golden
+     --p-sat       saturation. lower = calmer skin
+     --p-crop      vertical crop. 0% = max headroom, 100% = lowest
+     --p-feather   where the rim starts dissolving into the orb
+     ──────────────────────────────────────────────────── */
+  --p-lift:1.24; --p-warm:.14; --p-sat:.9; --p-crop:0%; --p-feather:86%;
+  --p-posx:center; --p-contrast:.97; --p-wash:.30;
+  position:relative;margin-top:27px;aspect-ratio:1;border-radius:50%;overflow:hidden;
+  background:
+    radial-gradient(120% 120% at 30% 18%,rgba(255,214,168,.95) 0%,rgba(238,196,166,.9) 38%,
+    rgba(196,178,190,.85) 72%,rgba(158,150,182,.8) 100%);
+  box-shadow:0 40px 90px -50px rgba(43,42,126,.55);}
+.gh-portrait img{
+  position:absolute;inset:0;width:100%;height:100%;display:block;
+  object-fit:cover;object-position:var(--p-posx) var(--p-crop);
+  filter:brightness(var(--p-lift)) saturate(var(--p-sat)) sepia(var(--p-warm)) contrast(var(--p-contrast));
+  -webkit-mask-image:radial-gradient(circle at 50% 46%,#000 var(--p-feather),transparent 100%);
+          mask-image:radial-gradient(circle at 50% 46%,#000 var(--p-feather),transparent 100%);}
+/* warm wash — pulls the cool studio backdrop into the golden-hour palette */
+.gh-portrait::after{
+  content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;
+  background:radial-gradient(78% 70% at 30% 16%,rgba(255,198,138,var(--p-wash)) 0%,
+    rgba(255,198,138,calc(var(--p-wash) / 3)) 45%,transparent 72%);
+  mix-blend-mode:multiply;}
+
+/* ── PORTRAIT VARIANTS ───────────────────────────────────────────────
+   studio = the grey-backdrop headshot, lifted toward cream
+   glass  = the whole Dubai glass-wall frame, centre square of a 3:2
+   ─────────────────────────────────────────────────────────────────── */
+.gh-portrait.is-studio{--p-lift:1.24;--p-warm:.14;--p-sat:.9;--p-crop:0%;--p-wash:.30;}
+.gh-portrait.is-glass{
+  --p-lift:1.10;   /* the glass frame is already exposed — barely lift it */
+  --p-warm:.10;    /* light warmth only; heavy sepia turns the blue hour muddy */
+  --p-sat:.95;
+  --p-contrast:1.05;  /* claw back separation between face and reflections */
+  --p-crop:46%;    /* vertical: 46% keeps her eyeline near the circle's centre */
+  --p-posx:52%;    /* horizontal: nudges her off dead-centre, keeps the glass panel */
+  --p-wash:.14;    /* lighter wash — the warm overlay fights the dusk blue */
+  --p-feather:88%;}
+/* optional light ray — uncomment to switch on
+.gh-portrait::before{
+  content:"";position:absolute;inset:0;border-radius:50%;pointer-events:none;z-index:2;
+  background:radial-gradient(58% 52% at 12% 8%,rgba(255,238,208,.62) 0%,
+    rgba(255,238,208,.18) 46%,transparent 74%);
+  mix-blend-mode:screen;}
+*/
+@media (max-width:900px){.gh-portrait{--p-feather:92%;}}
+/* ── shared section headings ────────────────────────────────────────── */
+.built-heading,.designs-heading,.rec2-heading,.collab-heading,.cta-heading{
+  font-family:var(--gh-display)!important;font-weight:400;font-style:italic;
+  font-size:clamp(2.1rem,4.2vw,56px);line-height:1.08;letter-spacing:-.018em;margin:0 0 54px;}
+.built-heading,.rec2-heading{color:var(--gh-navy);}
+.built-heading,.designs-heading,.rec2-heading,.collab-heading,.built-inner,.designs-inner,
+.rec2-inner,.collab-inner{text-align:left!important;}
+.collab-heading{color:var(--gh-navy);font-style:normal;}
+.collab-heading em,.collab-heading i{font-style:italic;}
+
+/* ── career: the rail ───────────────────────────────────────────────── */
+.built-section{background:transparent;padding:118px 0 18px;border:0;}
+.built-list{position:relative;padding-left:214px;}
+.built-list::before{content:"";position:absolute;left:132px;top:8px;bottom:60px;
+  width:1px;background:linear-gradient(180deg,var(--gh-orange),rgba(206,83,32,.18));}
+.built-row{position:relative;border:0!important;padding:0 0 56px;}
+.built-row::before{content:"";position:absolute;left:-85.5px;top:6px;width:8px;height:8px;
+  border-radius:50%;background:var(--gh-cream);box-shadow:inset 0 0 0 1.6px var(--gh-orange);}
+.built-row-header{display:block;margin:0 0 6px;padding:0;}
+.built-row-title{display:flex;align-items:flex-start;gap:8px;flex-wrap:wrap;}
+.built-company{font-family:var(--gh-sans);font-weight:700;font-size: 18px;color:var(--gh-navy);}
+.built-jobtitle{font-family:var(--gh-display);font-style:italic;font-weight:400;
+  font-size:20px;color:var(--gh-orange);}
+.built-row-right{position:absolute;left:-214px;top:0;width:100px;text-align:right;}
+.built-date{
+  font-family:var(--gh-display);
+  font-size: 18px;
+  color:var(--gh-orange);
+  line-height:1.35;
+  display:block;
+  }
+.built-tagline{font-family:var(--gh-sans);font-size:15px;line-height:1.62;
+  color:rgba(43,42,126,.78);max-width:560px;margin:0 0 4px;}
+.built-sep{border:0!important;margin:4px 0 0;padding:0;display:flex;justify-content:flex-start;
+  background:none!important;}
+.built-sep::before,.built-sep::after{display:none!important;}
+.built-arrow{display:inline-flex;align-items:center;justify-content:center;margin:0!important;
+  background:transparent!important;padding:0!important;
+  width:24px;height:24px;border-radius:50%;box-shadow:inset 0 0 0 1px rgba(43,42,126,.22);
+  transition:box-shadow .2s ease,background .2s ease;}
+.built-arrow svg{width:10px;height:10px;display:block;margin:auto;}
+.built-row:hover .built-arrow{box-shadow:inset 0 0 0 1px var(--gh-orange);background:rgba(206,83,32,.06);}
+.built-detail-col-label{font-family:var(--gh-sans);font-weight:700;font-size:11px;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--gh-orange);}
+.built-footer{margin-top:6px;display:flex;align-items:center;justify-content:flex-start;text-align:left;gap:22px;}
+.built-footer a{font-family:var(--gh-sans);font-weight:600;font-size:15px;color:var(--gh-navy);
+  text-decoration:none;border-bottom:1.5px solid var(--gh-orange);padding-bottom:3px;}
+.built-footer a:hover{color:var(--gh-orange);}
+.built-footer-sep{display:none;}
+
+/* ── work: the navy stage ───────────────────────────────────────────── */
+.designs-section{
+  background:
+    radial-gradient(70% 60% at 82% 8%,rgba(122,96,182,.42) 0%,transparent 62%),
+    radial-gradient(60% 60% at 96% 96%,rgba(190,110,120,.30) 0%,transparent 60%),
+    var(--gh-navy);
+  padding:0;padding-bottom:0;margin-top:0;border:0;}
+.designs-heading{color:var(--gh-cream-lift);}
+.designs-inner{position:relative;}
+.designs-list{display:grid;grid-template-columns:1fr 1fr;gap:26px;align-items:start;}
+.design-card{
+  position:relative;overflow:hidden;border-radius:16px;text-decoration:none;
+  background:rgba(255,255,255,.055);box-shadow:inset 0 0 0 1px rgba(255,255,255,.13);
+  transition:transform .35s cubic-bezier(.16,1,.3,1),box-shadow .35s ease;}
+.design-card:hover{transform:translateY(-4px);box-shadow:inset 0 0 0 1px rgba(255,255,255,.28);}
+.design-card:hover .design-title,
+.design-card:hover .design-desc,
+.design-card:hover .design-cta,
+.design-card:hover .design-cta-progress-label,
+.design-card:hover .design-tag--act{color:var(--gh-navy)!important;}
+.design-card:first-child{grid-row:span 2;display:flex;flex-direction:column;}
+.design-card:first-child .design-card-image{height:330px;flex:none;}
+.design-card:not(:first-child){display:grid;grid-template-columns:190px 1fr;}
+.design-card:not(:first-child) .design-card-image{height:100%;min-height:0;
+  border-right:1px dashed rgba(255,255,255,.18);}
+.design-card:not(:first-child){min-height:0;height:100%;}
+.design-card:not(:first-child) .design-card-glass{min-height:0;overflow:hidden;}
+.design-card-image{background:rgba(255,255,255,.05)!important;border-radius:0;overflow:hidden;}
+.design-card-glass{background:transparent;backdrop-filter:none;padding:30px 32px 32px;}
+.design-card:not(:first-child) .design-card-glass{padding:26px 28px;}
+.gh-act-num{
+  position:absolute;top:14px;left:26px;z-index:2;pointer-events:none;
+  font-family:var(--gh-display);font-size:78px;line-height:1;color:rgba(255,255,255,.15);}
+.design-tag{
+  font-family:var(--gh-sans);font-weight:700;font-size:10.5px;letter-spacing:.11em;
+  text-transform:uppercase;border-radius:999px;padding:5px 11px;
+  background:var(--gh-orange);color:#FCF6EC;border:0;}
+.design-tag--act{background:transparent;color:rgba(255,255,255,.62);padding-left:0;}
+.design-card-tags{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:16px;}
+.design-title{font-family:var(--gh-display)!important;font-weight:400;font-style:normal;
+  font-size:29px;line-height:1.16;color:var(--gh-cream-lift);margin:0 0 12px;letter-spacing:-.01em;}
+.design-card:not(:first-child) .design-title{font-size:23px;}
+.design-desc{font-family:var(--gh-sans);font-size:14.5px;line-height:1.62;
+  color:rgba(250,244,231,.74);margin:0;}
+.design-cta{font-family:var(--gh-display);font-style:italic;font-size:17px;
+  color:var(--gh-cream-lift);border-bottom:1.5px solid var(--gh-orange);padding-bottom:3px;}
+.design-cta .btn-arrow-right{font-family:var(--gh-sans);font-weight:600;font-size:15px;
+  font-style:normal;letter-spacing:0;line-height:1;vertical-align:middle;}
+.design-card-footer{margin-top:20px;}
+.design-card:not(:first-child) .design-card-footer{margin-top:8px;}
+.design-card:nth-child(2) .design-card-footer{margin-top:4px;padding-bottom:12px;}
+.design-card:nth-child(3) .design-card-footer{margin-top:4px;padding-bottom:12px;}
+.designs-cta-row{display:flex;justify-content:center;margin-top:48px;}
+.designs-section .btn-hero-ghost{background:var(--gh-cream-lift);color:var(--gh-navy);
+  border:0;box-shadow:none;text-align:center;}
+.designs-section .btn-hero-ghost .btn-inner{align-items:center;text-align:center;}
+.designs-section .btn-hero-ghost:hover{background:#fff;color:var(--gh-navy);}
+
+/* ── awards ─────────────────────────────────────────────────────────── */
+.rec2-section{background:transparent;padding:0;padding-bottom:24px;border:0;}
+.rec2-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+.rec2-card{
+  background:var(--gh-cream-lift);border:1px solid rgba(43,42,126,.10);
+  border-radius:14px;padding:30px 30px 34px;box-shadow:0 18px 40px -34px rgba(43,42,126,.5);}
+.rec2-pill{
+  display:inline-block;background:var(--gh-orange);color:#FCF6EC;
+  font-family:var(--gh-sans);font-weight:700;font-size:10.5px;letter-spacing:.12em;
+  text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:18px;}
+.rec2-title{font-family:var(--gh-display)!important;font-weight:400;font-style:normal;
+  font-size:23px;line-height:1.22;color:var(--gh-navy);margin:0 0 12px;}
+.rec2-body{font-family:var(--gh-sans);font-size:14.5px;line-height:1.62;
+  color:rgba(43,42,126,.72);margin:0;}
+.rec2-score{font-family:var(--gh-display)!important;font-style:normal;font-size:34px;
+  color:var(--gh-orange);margin-top:20px;display:block;}
+
+/* ── switcher ───────────────────────────────────────────────────────── */
+.collab-section{background:transparent;padding:0;border:0;}
+.collab-inner{padding-top:100px;padding-bottom:90px;}
+.collab-header{text-align:left;}
+.collab-heading{text-align:left;}
+.collab-tabs{display:flex;gap:10px;flex-wrap:wrap;justify-content:flex-start;margin:0 0 40px;}
+.collab-tab{
+  font-family:var(--gh-sans);font-weight:600;font-size:14.5px;height:auto;
+  padding:13px 22px;border-radius:999px;background:transparent;color:var(--gh-navy);
+  border:1px solid rgba(43,42,126,.22);transition:all .2s ease;}
+.collab-tab:hover{border-color:var(--gh-orange);color:var(--gh-orange);}
+.collab-tab.active{background:var(--gh-orange)!important;color:#FCF6EC!important;
+  border-color:var(--gh-orange)!important;}
+.collab-tab.ai-tab{border-style:dashed;}
+.collab-intro{font-family:var(--gh-sans)!important;font-style:normal!important;font-size:19px;
+  line-height:1.6;color:var(--gh-navy);max-width:660px;margin:0 0 46px!important;
+  text-align:left!important;letter-spacing:0!important;}
+.collab-panel-cta,.collab-recruiter-cta{text-align:left!important;}
+.design-cta-progress-track{background:rgba(250,244,231,.28)!important;}
+.design-cta-progress-label{color:rgba(250,244,231,.85)!important;font-family:var(--gh-display);
+  font-style:italic;}
+.design-cta-progress-fill{background:var(--gh-orange)!important;}
+.cta-footer-links a{text-transform:none!important;letter-spacing:0!important;font-weight:500!important;
+  font-size:14px!important;}
+.collab-cards{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+.collab-card{background:transparent!important;border:0!important;border-radius:0!important;
+  padding:8px 34px 8px 0!important;box-shadow:none!important;
+  border-right:1px solid rgba(43,42,126,.13)!important;}
+.collab-card:not(:first-child){padding-left:34px!important;}
+.collab-card:last-child{border-right:0!important;}
+.collab-card-title,.collab-card h3{font-family:var(--gh-display)!important;font-weight:400;
+  font-style:normal;font-size:22px;line-height:1.22;color:var(--gh-navy);}
+.collab-card p{font-family:var(--gh-sans);font-size:14.5px;line-height:1.62;
+  color:rgba(43,42,126,.72);}
+.collab-panel-cta a,.collab-recruiter-cta a{font-family:var(--gh-sans);font-weight:600;
+  font-size:15px;color:var(--gh-navy);text-decoration:none;
+  border-bottom:1.5px solid var(--gh-orange);padding-bottom:3px;}
+
+/* assistant — component untouched; only the plate it sits on and the accent colour */
+.ai-chat{border-radius:16px;}
+.ai-chip{border-radius:999px;font-family:var(--gh-sans);}
+.ai-send{background:var(--gh-orange)!important;}
+.ai-send:hover{background:#B3441A!important;}
+.ai-input-prefix{font-family:var(--gh-mono);color:var(--gh-orange);}
+.ai-input{font-family:var(--gh-mono);}
+
+/* ── contact + footer ───────────────────────────────────────────────── */
+.cta-section{
+  background:
+    radial-gradient(60% 70% at 88% 6%,rgba(126,98,180,.40) 0%,transparent 60%),
+    radial-gradient(50% 60% at 98% 92%,rgba(190,112,122,.28) 0%,transparent 58%),
+    var(--gh-navy);
+  padding:0;border:0;}
+.cta-inner{padding-top:104px;padding-bottom:34px;display:grid;
+  grid-template-columns:minmax(0,1fr) 460px;column-gap:70px;align-items:start;}
+.cta-eyebrow{font-family:var(--gh-sans)!important;font-weight:700;font-size:11.5px;
+  letter-spacing:.16em;text-transform:uppercase;color:rgba(250,244,231,.72)!important;margin-bottom:22px;}
+.cta-heading{color:var(--gh-cream-lift);font-size:clamp(2rem,3.9vw,52px);margin-bottom:24px;}
+.cta-sub{font-family:var(--gh-sans);font-size:17px;line-height:1.62;
+  color:rgba(250,244,231,.80);max-width:520px;margin-bottom:34px;}
+.btn-cta-pill{background:var(--gh-cream-lift)!important;color:var(--gh-navy)!important;
+  border-radius:999px;height:48px;padding:0 30px;min-width:180px;border:0;text-decoration:none;}
+.btn-cta-pill .btn-default,.btn-cta-pill .btn-hover{font-family:var(--gh-sans)!important;
+  font-weight:600!important;font-size:15px!important;font-style:normal!important;}
+.btn-cta-pill:hover{background:#BFB9C6!important;}
+.cta-download{font-family:var(--gh-sans);font-size:14px;color:rgba(250,244,231,.72);margin-top:20px;}
+.cta-download a{color:var(--gh-cream-lift);border-bottom:1.5px solid var(--gh-orange);
+  text-decoration:none;padding-bottom:2px;}
+.ttt-label{font-size:14px;}
+.ttt-status{font-family:var(--gh-sans);color:rgba(250,244,231,.8);font-size:14px;}
+.ttt-reset{font-family:var(--gh-mono);color:var(--gh-orange);font-size:12px;}
+.cta-footer-bar{max-width:var(--gh-max);margin-inline:auto;padding:26px var(--gh-pad) 34px;
+  border-top:1px solid rgba(250,244,231,.16);display:flex;align-items:center;
+  justify-content:space-between;gap:20px;}
+.cta-footer-links a{font-family:var(--gh-sans);font-size:14px;color:rgba(250,244,231,.82);
+  text-decoration:none;}
+.cta-footer-links a:hover{color:#fff;}
+.cta-footer-copy{font-family:var(--gh-sans);font-size:13px;color:rgba(250,244,231,.5);}
+footer{background:var(--gh-navy);}
+
+/* ── build ledger ───────────────────────────────────────────────────── */
+.gh-ledger{
+  position:fixed;left:0;right:0;bottom:0;height:var(--gh-ledger-h);z-index:70;
+  background:var(--gh-navy-deep);display:flex;align-items:center;gap:22px;
+  padding:0 16px 0 22px;transform:translateY(0);transition:transform .45s cubic-bezier(.16,1,.3,1);
+  box-shadow:0 -14px 40px -28px rgba(0,0,0,.8);}
+body.gh-ledger-off .gh-ledger{transform:translateY(100%);}
+.gh-ledger-brand{
+  display:inline-flex;align-items:center;gap:10px;flex:none;
+  font-family:var(--gh-mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;
+  color:#FCF6EC;}
+.gh-ledger-dot{width:7px;height:7px;border-radius:50%;background:var(--gh-orange);
+  animation:ghPulse 2.4s ease-in-out infinite;}
+@keyframes ghPulse{0%,100%{opacity:1}50%{opacity:.3}}
+.gh-ledger-track{flex:1;overflow:hidden;position:relative;height:100%;
+  mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);}
+.gh-ledger-run{display:flex;align-items:center;gap:56px;height:100%;white-space:nowrap;
+  will-change:transform;}
+.gh-ledger-item{font-family:var(--gh-mono);font-size:11.5px;color:rgba(250,244,231,.62);}
+.gh-ledger-item b{color:var(--gh-orange);font-weight:500;}
+.gh-ledger-hide{
+  flex:none;font-family:var(--gh-mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  color:#FCF6EC;background:transparent;border:1px solid rgba(250,244,231,.34);
+  border-radius:999px;padding:6px 15px;cursor:pointer;transition:all .2s ease;}
+.gh-ledger-hide:hover{background:rgba(250,244,231,.12);}
+
+/* ── responsive ─────────────────────────────────────────────────────── */
+@media (max-width:1080px){
+  .hero-section{grid-template-columns:1fr;}
+  .gh-hero-right{max-width:360px;margin-top:48px;}
+  .cta-inner{grid-template-columns:1fr;row-gap:52px;}
+  .designs-list{grid-template-columns:1fr;}
+  .design-card:first-child{grid-row:auto;}
+  .rec2-grid,.collab-cards{grid-template-columns:1fr;}
+  .collab-card{border-right:0!important;border-bottom:1px solid rgba(43,42,126,.13)!important;
+    padding:26px 0!important;}
+}
+@media (max-width:760px){
+  .hero-section{padding-top:150px;}
+  .built-list{padding-left:0;}
+  .built-list::before{left:4px;}
+  .built-row{padding-left:34px;}
+  .built-row::before{left:.5px;}
+  .built-row-right{position:static;width:auto;text-align:left;margin-bottom:8px;}
+  nav#nav{left:12px;right:12px;transform:none;width:auto;
+    padding:8px 10px 8px 16px;justify-content:space-between;gap:4px;}
+  .gh-nav-pill-li{display:none;}
+  .hamburger{display:none!important;}
+  .nav-links{gap:14px;}
+  .nav-links a{font-size:13.5px;}
+  .nav-links li:last-child a{padding:9px 16px;white-space:nowrap;margin-left:2px;}
+  .nav-links li:last-child a.nav-talk{height:36px;padding:0 16px;}
+  .gh-locale{position:static;display:inline-block;margin-bottom:14px;}
+  .gh-hero-right{max-width:none;}
+  .design-card:not(:first-child){grid-template-columns:1fr;}
+  .design-card:not(:first-child) .design-card-image{min-height:180px;border-right:0;}
+}
+
+</style>
+
+<style id="gh-enhance">
+/* ════════════════════════════════════════════════════════════════════
+   GOLDEN HOUR — enhancement layer (option 1)
+   Additive only. Loads after #golden-hour so it wins on cascade order.
+   ════════════════════════════════════════════════════════════════════ */
+
+/* ── 1 · scroll progress bar ───────────────────────────────────────── */
+.gh-progress{
+  position:fixed;top:0;left:0;right:0;height:3px;z-index:130;
+  background:rgba(43,42,126,.07);pointer-events:none;}
+.gh-progress-fill{
+  display:block;height:100%;width:100%;
+  transform:scaleX(0);transform-origin:0 50%;
+  background:linear-gradient(90deg,var(--gh-orange) 0%,var(--gh-orange) 62%,var(--gh-orange-soft) 100%);
+  will-change:transform;}
+body.gh-nav-dark .gh-progress{background:rgba(250,244,231,.12);}
+
+/* ── 2 · gradient separator: hero → career ─────────────────────────── */
+/* The page already draws a flat 1px navy rule at this junction via
+   .built-section::before. Rather than stack a second rule on top of it
+   (which read as a slab), that rule BECOMES the gradient, and the warm
+   wash spills downward from it — the way light would. */
+.built-section{padding-top:74px!important;}
+.built-section::before{
+  background-color:transparent!important;
+  background-image:linear-gradient(90deg,
+    rgba(206,83,32,0) 0%,
+    var(--gh-orange) 12%,
+    var(--gh-orange-soft) 42%,
+    rgba(43,42,126,.22) 70%,
+    rgba(43,42,126,0) 100%)!important;
+  left:50%!important;right:auto!important;
+  transform:translateX(-50%)!important;
+  width:min(var(--gh-max), calc(100% - var(--gh-pad) * 2))!important;}
+/* the wash — radial, so it dies out in every direction and can never
+   show a box edge; sits behind the section's content */
+.built-section::after{
+  content:"";position:absolute;z-index:-1;pointer-events:none;
+  top:1px;left:0;right:0;height:190px;
+  background:radial-gradient(112% 106% at 6% 0%,
+    rgba(226,172,126,.34) 0%,
+    rgba(226,172,126,.19) 26%,
+    rgba(226,172,126,.07) 52%,
+    rgba(226,172,126,0)   76%);}
+
+/* ── 3 · career rail fills on scroll ───────────────────────────────── */
+.built-list::before{
+  background:rgba(206,83,32,.14)!important;}
+.built-list::after{
+  content:"";position:absolute;left:132px;top:8px;width:1px;
+  height:var(--gh-rail,0px);
+  background:linear-gradient(180deg,var(--gh-orange) 0%,var(--gh-orange) 72%,var(--gh-orange-soft) 100%);
+  pointer-events:none;}
+.built-row::before{
+  transition:background .35s ease,box-shadow .35s ease;}
+.built-row.is-lit::before{
+  background:var(--gh-orange);
+  box-shadow:inset 0 0 0 1.6px var(--gh-orange),0 0 0 4px rgba(206,83,32,.14);}
+.built-date,.built-jobtitle{transition:opacity .4s ease;}
+.gh-enh .built-row:not(.is-lit) .built-date,
+.gh-enh .built-row:not(.is-lit) .built-jobtitle{opacity:.45;}
+
+/* ── 4 · orange hovers on the three buttons ────────────────────────── */
+/* hero primary — "See my work" */
+.hero-ctas .btn-hero-primary:hover{
+  background:var(--gh-orange)!important;color:#FCF6EC!important;
+  transform:translateY(-1px);}
+/* navy stage — "View all case studies" */
+.designs-section .btn-hero-ghost:hover{
+  background:var(--gh-orange)!important;color:#FCF6EC!important;}
+/* footer — "Let's talk" */
+.btn-cta-pill:hover{
+  background:var(--gh-orange)!important;color:#FCF6EC!important;}
+
+/* ── 5 · Recognitions & Awards — card hover ────────────────────────── */
+.rec2-card{
+  transition:transform .35s cubic-bezier(.16,1,.3,1),
+             border-color .3s ease,box-shadow .3s ease,background .3s ease;}
+.rec2-card:hover{
+  transform:translateY(-4px);
+  border-color:var(--gh-orange);
+  background:var(--gh-cream-lift);
+  box-shadow:0 28px 54px -34px rgba(206,83,32,.55);}
+.rec2-title,.rec2-score{transition:color .25s ease;}
+.rec2-card:hover .rec2-title{color:var(--gh-orange);}
+.rec2-pill{transition:transform .3s cubic-bezier(.16,1,.3,1);}
+.rec2-card:hover .rec2-pill{transform:translateY(-2px);}
+
+/* ── 6 · XOXO board — gradient ─────────────────────────────────────── */
+.ttt-board{
+  position:relative;border-radius:10px;overflow:hidden;
+  background:
+    linear-gradient(145deg,
+      rgba(250,244,231,.16) 0%,
+      rgba(250,244,231,.09) 34%,
+      rgba(226,172,126,.10) 66%,
+      rgba(206,83,32,.13) 100%);
+  box-shadow:inset 0 0 0 1px rgba(250,244,231,.22);}
+.ttt-cell{
+  border-right:1px solid rgba(250,244,231,.28);
+  border-bottom:1px solid rgba(250,244,231,.28);
+  transition:background .18s ease;}
+.ttt-cell:hover:not([data-v]){background:rgba(250,244,231,.16);}
+.ttt-cell[data-v]{font-family:var(--gh-display);font-size:1.55rem;}
+.ttt-cell[data-v="X"]{color:#FFF6EA;}
+.ttt-cell[data-v="O"]{color:rgba(250,244,231,.72);}
+.ttt-reset{color:var(--gh-orange-soft);}
+.ttt-reset:hover{color:#FFF6EA;}
+
+
+/* ── 7 · nav · Let's talk orange hover + blinking Built-with-AI dot ── */
+.nav-links li:last-child a:hover{
+  background:var(--gh-orange)!important;color:#FCF6EC!important;}
+.gh-ai-dot{animation:ghBlink 1.7s ease-in-out infinite;}
+@keyframes ghBlink{
+  0%,100%{opacity:1;transform:scale(1);}
+  50%    {opacity:.28;transform:scale(.7);}}
+
+/* ── 8 · animated arrows — one convention across every button ──────── */
+.gh-arw{display:inline-block;will-change:transform;
+  transition:transform .32s cubic-bezier(.16,1,.3,1);}
+a:hover .gh-arw[data-dir="ne"],button:hover .gh-arw[data-dir="ne"]{transform:translate(3px,-3px);}
+a:hover .gh-arw[data-dir="e"], button:hover .gh-arw[data-dir="e"] {transform:translateX(4px);}
+a:hover .gh-arw[data-dir="s"], button:hover .gh-arw[data-dir="s"] {transform:translateY(3px);}
+/* the rotated ↓ used as → inside the pill buttons */
+.btn-arrow-right{transition:transform .32s cubic-bezier(.16,1,.3,1);}
+a:hover .btn-arrow-right,button:hover .btn-arrow-right{
+  transform:rotate(-90deg) translateY(4px);}
+
+/* ── 9 · case-study cards — slower, eased colour transition ────────── */
+.design-card{
+  transition:transform .5s cubic-bezier(.16,1,.3,1),
+             box-shadow .5s cubic-bezier(.16,1,.3,1),
+             background .5s cubic-bezier(.16,1,.3,1)!important;}
+.design-title,.design-desc,.design-cta,.design-cta-progress-label,
+.design-tag--act,.design-cta-progress-fill{
+  transition:color .5s cubic-bezier(.16,1,.3,1),
+             background .5s cubic-bezier(.16,1,.3,1)!important;}
+.design-card-glass,.design-card-image{
+  transition:background .5s cubic-bezier(.16,1,.3,1);}
+
+/* ── 10 · "If you use AI to screen" — filled orange, no dashes ─────── */
+.collab-tab.ai-tab,
+.collab-tab.ai-tab.active{
+  background:var(--gh-orange)!important;
+  border:1px solid var(--gh-orange)!important;
+  border-style:solid!important;
+  color:#FCF6EC!important;font-weight:600!important;}
+.collab-tab.ai-tab:hover{
+  background:#B3441A!important;border-color:#B3441A!important;color:#FCF6EC!important;}
+
+/* ── 11 · assistant panel — left aligned, wider, artifact treatment ── */
+.ai-chat{
+  max-width:min(1000px,100%)!important;margin:0!important;}
+.ai-chat-window{
+  background:var(--gh-navy)!important;border:0!important;
+  border-radius:18px 18px 0 0;
+  padding:28px 30px 4px!important;
+  min-height:0!important;max-height:none!important;gap:0!important;
+  backdrop-filter:none!important;-webkit-backdrop-filter:none!important;}
+.ai-msg-avatar{
+  width:40px!important;height:40px!important;font-size:14px!important;
+  background:var(--gh-orange)!important;}
+.ai-msg-bubble{max-width:none!important;color:rgba(250,244,231,.90)!important;
+  font-size:15px!important;}
+.ai-chips{
+  background:var(--gh-navy)!important;border:0!important;
+  padding:20px 30px 22px!important;gap:10px!important;justify-content:flex-start!important;}
+.ai-chip{
+  background:transparent!important;
+  border:1px solid rgba(250,244,231,.34)!important;
+  color:rgba(250,244,231,.86)!important;
+  font-size:13px!important;padding:.52rem 1.05rem!important;
+  transition:background .3s cubic-bezier(.16,1,.3,1),
+             border-color .3s ease,color .3s ease,
+             transform .3s cubic-bezier(.16,1,.3,1)!important;}
+.ai-chip:hover{
+  background:rgba(250,244,231,.13)!important;
+  border-color:rgba(250,244,231,.74)!important;
+  color:#FFF8EC!important;transform:translateY(-1px);}
+/* one continuous navy panel; the rule is an inset hairline, not a border */
+.ai-input-row{
+  position:relative;background:var(--gh-navy)!important;border:0!important;
+  border-radius:0 0 18px 18px;margin:0!important;padding:0 30px 6px!important;}
+.ai-input-row::before{
+  content:"";position:absolute;left:30px;right:30px;top:0;height:1px;
+  background:rgba(250,244,231,.20);}
+.ai-input-prefix{padding-left:0!important;color:var(--gh-orange)!important;}
+.ai-input{color:rgba(250,244,231,.88)!important;padding:1.05rem .9rem!important;}
+.ai-input::placeholder{color:rgba(250,244,231,.34)!important;}
+.ai-send{background:var(--gh-orange)!important;margin:.5rem 0 .5rem .5rem!important;}
+.ai-send:hover{background:#B3441A!important;}
+/* "Say hello directly ↗" — left aligned, orange on hover */
+.ai-disclaimer{text-align:left!important;margin-top:22px!important;}
+.collab-panel-link:hover,.collab-cv-link:hover{
+  color:var(--gh-orange)!important;border-color:var(--gh-orange)!important;}
+
+/* ── 12 · footer heading — two lines ───────────────────────────────── */
+.cta-inner{grid-template-columns:minmax(0,1fr) 390px!important;column-gap:56px!important;}
+.cta-heading{
+  font-size:clamp(1.75rem,3.2vw,44px)!important;
+  max-width:none!important;text-wrap:balance;}
+
+@media (max-width:900px){
+  .cta-inner{grid-template-columns:1fr!important;}
+  .cta-heading{max-width:none;}
+  .ai-chat{max-width:100%!important;}
+}
+
+
+/* ── 13 · portrait variant: pre-composited cutout ───────────────────
+   portrait-image.png arrives already circle-cropped on transparency,
+   already graded warm and already feathered at the rim. Every treatment
+   .gh-portrait normally applies would therefore be applied TWICE —
+   double lift, double sepia, double wash, double feather. This variant
+   turns all of them off and lets the file speak for itself. */
+.gh-portrait.is-cutout{
+  background:none;                       /* the orb would ring the baked-in edge */
+  --p-lift:1; --p-warm:0; --p-sat:1; --p-contrast:1; --p-wash:0;
+  overflow:visible;                      /* nothing to clip; the alpha does it */
+  filter:drop-shadow(0 40px 70px rgba(43,42,126,.30));
+  box-shadow:none;}
+.gh-portrait.is-cutout img{
+  filter:none;
+  -webkit-mask-image:none;mask-image:none;   /* the PNG's own alpha is the mask */
+  object-fit:contain;object-position:center;}
+.gh-portrait.is-cutout::after,
+.gh-portrait.is-cutout::before{content:none;}
+
+
+/* ════════════════════════════════════════════════════════════════════
+   14 · MOBILE REFINEMENTS
+   Found by auditing at 360 / 390 / 430 / 768 / 1024px.
+   Additive; desktop above 900px is untouched.
+   ════════════════════════════════════════════════════════════════════ */
+
+@media (max-width:900px){
+
+  /* ── the "Built with AI" pill ──────────────────────────────────────
+     The existing rule `.gh-nav-pill-li{display:none}` never applied:
+     `.nav-links li{display:flex}` outranks it on specificity (0,1,1
+     vs 0,1,0), so the pill has always rendered and wrapped to three
+     lines, inflating the nav on every screen. Matching specificity
+     fixes it. The ledger keeps its own HIDE button, so nothing is
+     lost by dropping the toggle on small screens. */
+  .nav-links li.gh-nav-pill-li{display:none!important;}
+
+  /* nav: room to breathe, and tap targets that meet the 44px guideline */
+  .nav-links{gap:18px;}
+  .nav-links a{padding-top:12px;padding-bottom:12px;}
+  .nav-links li:last-child a.nav-talk{height:42px;padding:0 18px;}
+  .nav-logo{padding:10px 0;}
+
+  /* ── hero CTAs ─────────────────────────────────────────────────────
+     were centred while the eyebrow, headline and paragraph are all
+     left-aligned — the only centred thing on the page. Full-width
+     stacked buttons fix the alignment and the tap area at once. */
+  .hero-ctas{
+    flex-direction:column;align-items:stretch;
+    justify-content:flex-start!important;gap:12px;}
+  .hero-ctas .btn-hero-primary,
+  .hero-ctas .btn-hero-ghost{width:100%;min-width:0;height:52px;}
+
+  /* ── portrait + locale ─────────────────────────────────────────────
+     ~200px of dead space sat between the CTAs and an orphaned
+     "DUBAI · GMT+4" pill. Tighten it and sit the pill on the circle
+     so the two read as one object. */
+  .gh-hero-right{margin-top:26px!important;position:relative;}
+  .gh-portrait{margin-top:10px;}
+  .gh-locale{
+    position:absolute!important;z-index:2;
+    top:2px;left:0;right:auto!important;   /* base rule sets right:0 — with
+                                              left:0 too the pill stretches */
+    width:auto;margin:0!important;}
+
+  /* the pill's neighbour keeps a -16px pull that was there to tuck it
+     against the now-hidden "Built with AI" button. Adjacent-sibling
+     selectors ignore display:none, so it dragged "Let's talk" over
+     "About". Reset it whenever the pill is out. */
+  .nav-links li.gh-nav-pill-li + li{margin-left:0!important;}
+
+  /* ── legibility: nothing below 11.5px on a phone ──────────────────── */
+  .design-tag,.design-tag--act,.rec2-pill,.built-detail-col-label,
+  .gh-ledger-item,.cta-eyebrow{font-size:11.5px!important;}
+
+  /* ── tap targets on inline links and chips ────────────────────────── */
+  .built-footer a,.collab-panel-link,.collab-cv-link,.cta-download a{
+    display:inline-block;padding-top:8px;padding-bottom:8px;}
+  .ai-chip{padding:.72rem 1.05rem!important;}
+  .collab-tab{padding:15px 22px;}
+}
+
+
+/* ── touch targets, sized by input type rather than width ────────────
+   A 1024px iPad is touch-driven but wider than the mobile breakpoint,
+   so width-based rules miss it. `pointer:coarse` catches every touch
+   device. WCAG 2.5.8 asks for 24px minimum; 44px is the Apple guide. */
+@media (pointer:coarse){
+  .cta-footer-links a{display:inline-block;padding:13px 0;}
+  .cta-footer-links{display:flex;flex-wrap:wrap;gap:0 22px;}
+  .ttt-reset{padding:12px 18px;margin-top:2px;}
+  .built-footer a,.collab-panel-link,.collab-cv-link,.cta-download a{
+    display:inline-block;padding-top:10px;padding-bottom:10px;}
+  .nav-links a{padding-top:12px;padding-bottom:12px;}
+  .ai-chip{padding:.72rem 1.05rem!important;}
+  .gh-ledger-hide{padding:9px 16px;}
+}
+
+@media (max-width:400px){
+  /* 360px is the tightest common Android width — the nav ran 16px
+     past the viewport before the pill was hidden. */
+  .nav-links{gap:14px;}
+  .nav-links a{font-size:14px;}
+  .hero-ctas .btn-hero-primary,
+  .hero-ctas .btn-hero-ghost{height:50px;}
+}
+
+@media (prefers-reduced-motion: reduce){
+  .gh-progress-fill,.built-list::after,.gh-arw,.btn-arrow-right{transition:none!important;}
+  .gh-ai-dot{animation:none!important;}
+}
+</style>
+<script id="golden-hour-js">
+/* Golden Hour — behaviour layer. Additive only; existing scripts untouched. */
+(function(){
+  var root=document.documentElement, body=document.body;
+
+  /* 1 — cursor light -------------------------------------------------- */
+  var light=document.getElementById('ghLight'), tx=60, ty=18, cx=60, cy=18, raf;
+  function loop(){
+    cx+=(tx-cx)*0.085; cy+=(ty-cy)*0.085;
+    light.style.setProperty('--mx',cx.toFixed(2)+'%');
+    light.style.setProperty('--my',cy.toFixed(2)+'%');
+    raf=requestAnimationFrame(loop);
+  }
+  if(light && !window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+    window.addEventListener('pointermove',function(e){
+      tx=(e.clientX/window.innerWidth)*100;
+      ty=(e.clientY/window.innerHeight)*100;
+    },{passive:true});
+    loop();
+  }
+
+  /* 2 — accent wash on "complicated" ---------------------------------- */
+  var wash=document.querySelector('.gh-wash');
+  if(wash){
+    var fire=function(){ wash.style.setProperty('--wash','1'); };
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(es){
+        es.forEach(function(en){ if(en.isIntersecting){ setTimeout(fire,900); io.disconnect(); } });
+      },{threshold:.4});
+      io.observe(wash);
+    } else { setTimeout(fire,900); }
+  }
+
+  /* 3 — statband reveal ----------------------------------------------- */
+  var band=document.getElementById('ghStatband');
+  if(band && 'IntersectionObserver' in window){
+    band.style.opacity='0'; band.style.transform='translateY(18px)';
+    band.style.transition='opacity .8s ease, transform .8s cubic-bezier(.16,1,.3,1)';
+    var io2=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(en.isIntersecting){ band.style.opacity='1'; band.style.transform='none'; io2.disconnect(); }
+      });
+    },{threshold:.25});
+    io2.observe(band);
+  }
+
+  /* 4 — build ledger --------------------------------------------------- */
+  var LEDGER=[
+    'prompt &rarr; <b>"hero at print scale, light from the north-east"</b>',
+    'component <b>HeroLight</b> &middot; v4',
+    'contrast <b>AA pass</b> &middot; navy on cream 12.8:1',
+    'note <b>every word on this page was written by a human. the layout was not.</b>',
+    'component <b>StatBand</b> &middot; 4 measures, existing copy',
+    'prompt &rarr; <b>"one inversion only — light the work like an installation"</b>',
+    'contrast <b>AA pass</b> &middot; cream on navy 11.4:1',
+    'component <b>CareerRail</b> &middot; 5 rows, 2011&ndash;present',
+    'review <b>stamped</b> &middot; IA unchanged, 9 sections',
+    'component <b>Assistant</b> &middot; <b>untouched</b> — plate only',
+    'prompt &rarr; <b>"the sun in sunny Dubai becomes the page’s light"</b>',
+    'layout shifts <b>0</b> &middot; CLS clean'
+  ];
+  var run=document.getElementById('ghLedgerRun');
+  if(run){
+    var html=LEDGER.map(function(t){return '<span class="gh-ledger-item">'+t+'</span>';}).join('');
+    run.innerHTML=html+html;                       // duplicate for seamless wrap
+    var off=0, half=0, last=performance.now(), paused=false;
+    var measure=function(){ half=run.scrollWidth/2; };
+    setTimeout(measure,120); window.addEventListener('resize',measure);
+    var ledgerEl=document.getElementById('ghLedger');
+    ledgerEl.addEventListener('pointerenter',function(){paused=true;});
+    ledgerEl.addEventListener('pointerleave',function(){paused=false;});
+    (function tick(now){
+      var dt=now-last; last=now;
+      if(!paused && half){ off-=dt*0.032; if(-off>=half) off+=half;
+        run.style.transform='translateX('+off.toFixed(2)+'px)'; }
+      requestAnimationFrame(tick);
+    })(performance.now());
+  }
+
+  /* 5 — ledger visibility (nav pill + hide button) --------------------- */
+  var pill=document.getElementById('ghLedgerToggle'),
+      hide=document.getElementById('ghLedgerHide');
+  function setLedger(on){
+    body.classList.toggle('gh-ledger-off',!on);
+    if(pill) pill.setAttribute('aria-pressed',on?'true':'false');
+    try{ localStorage.setItem('gh-ledger',on?'1':'0'); }catch(e){}
+  }
+  try{ if(localStorage.getItem('gh-ledger')==='0') setLedger(false); }catch(e){}
+  if(pill) pill.addEventListener('click',function(){
+    setLedger(body.classList.contains('gh-ledger-off'));
+  });
+  if(hide) hide.addEventListener('click',function(){ setLedger(false); });
+})();
+
+</script>
+<script id="gh-enhance-js">
+/* Golden Hour — enhancement behaviour. Additive; nothing above is modified. */
+(function(){
+  document.documentElement.classList.add('gh-enh');   /* enables progressive states */
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var fill   = document.getElementById('ghProgressFill');
+  var list   = document.querySelector('.built-list');
+  var rows   = list ? Array.prototype.slice.call(list.querySelectorAll('.built-row')) : [];
+  var darkEls= Array.prototype.slice.call(document.querySelectorAll('.designs-section, .cta-section'));
+  var body   = document.body;
+
+  /* rail geometry: ::before runs top:8px → bottom:60px */
+  var RAIL_TOP = 8, RAIL_BOTTOM = 60;
+
+  var ticking = false;
+  function update(){
+    ticking = false;
+    var vh = window.innerHeight || document.documentElement.clientHeight;
+
+    /* 1 — top scroll progress */
+    if(fill){
+      var doc = document.documentElement;
+      var max = (doc.scrollHeight - vh);
+      var p   = max > 0 ? (window.pageYOffset || doc.scrollTop) / max : 0;
+      if(p < 0) p = 0; if(p > 1) p = 1;
+      fill.style.transform = 'scaleX(' + p.toFixed(4) + ')';
+    }
+
+    /* 2 — career rail fills as it passes the reading line */
+    if(list){
+      var r     = list.getBoundingClientRect();
+      var track = Math.max(0, r.height - RAIL_TOP - RAIL_BOTTOM);
+      var line  = vh * 0.62;                       /* the "reading line" */
+      var prog  = (line - (r.top + RAIL_TOP)) / track;
+      if(prog < 0) prog = 0; if(prog > 1) prog = 1;
+      list.style.setProperty('--gh-rail', (track * prog).toFixed(1) + 'px');
+
+      var lineY = r.top + RAIL_TOP + track * prog;
+      for(var i = 0; i < rows.length; i++){
+        var rr = rows[i].getBoundingClientRect();
+        rows[i].classList.toggle('is-lit', (rr.top + 6) <= lineY + 1);
+      }
+    }
+
+    /* 3 — progress track inverts over the navy stages */
+    var dark = false;
+    for(var d = 0; d < darkEls.length; d++){
+      var b = darkEls[d].getBoundingClientRect();
+      if(b.top <= 3 && b.bottom > 3){ dark = true; break; }
+    }
+    body.classList.toggle('gh-nav-dark', dark);
+  }
+
+  function onScroll(){
+    if(!ticking){ ticking = true; requestAnimationFrame(update); }
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  window.addEventListener('resize', onScroll, {passive:true});
+
+
+  /* 5 — one arrow convention: wrap trailing glyphs so they can animate */
+  (function(){
+    var DIR = {'\u2197':'ne','\u2192':'e','\u2193':'s','\u2198':'e'};
+    var targets = document.querySelectorAll('a, button');
+    Array.prototype.forEach.call(targets, function(el){
+      /* nav "Let's talk" runs its own label-swap animation — leave it alone */
+      if(el.closest('.nav-talk') || el.classList.contains('nav-talk')) return;
+      Array.prototype.forEach.call(el.childNodes, function(node){
+        if(node.nodeType !== 3) return;                     /* text nodes only */
+        var txt = node.nodeValue, m = txt.match(/([\u2192\u2193\u2197\u2198])\s*$/);
+        if(!m) return;
+        var glyph = m[1], head = txt.slice(0, m.index);
+        var span = document.createElement('span');
+        span.className = 'gh-arw';
+        span.setAttribute('data-dir', DIR[glyph] || 'e');
+        span.textContent = glyph;
+        var frag = document.createDocumentFragment();
+        if(head) frag.appendChild(document.createTextNode(head));
+        frag.appendChild(span);
+        node.parentNode.replaceChild(frag, node);
+      });
+    });
+  })();
+
+  update();
+})();
+</script>
 </body>
 </html>
