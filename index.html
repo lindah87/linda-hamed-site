@@ -1659,7 +1659,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
     <!-- H1: all lines roman -->
     <h1 class="hero-h1">
       <span class="line"><span class="word" id="w1">and I make</span></span>
-      <span class="line"><span class="word italic-line" id="w2"><span class="gh-wash gh-it">complicated</span><br>things <span class="gh-it">work.</span></span></span>
+      <span class="line"><span class="word italic-line" id="w2"><span class="gh-wash gh-it">complicated</span> <br class="mobile-break">things <span class="gh-it">work.</span></span></span>
     </h1>
 
     <!-- Sub: bold + orange for specific phrases -->
@@ -3406,8 +3406,7 @@ body.gh-ledger-off .gh-ledger{transform:translateY(100%);}
     padding-left:12px;
     padding-right:12px;
     overflow:visible;}
-  /* collapse the forced <br> so "complicated things work." stays on one line */
-  .hero-h1 br{display:none;}
+  .mobile-break{display:none;}
   .built-list{padding-left:0;}
   .built-list::before{left:4px;}
   .built-row{padding-left:34px;}
@@ -3452,10 +3451,10 @@ body.gh-nav-dark .gh-progress{background:rgba(250,249,246,.12);}
   content:''!important;
   position:absolute!important;
   top:0!important;
+  height:1px!important;
   background:rgba(20,20,61,0.12)!important;
   background-image:none!important;
   left:0!important;right:0!important;
-  height:1px!important;
   transform:none!important;
   width:100%!important;
   z-index:2!important;
@@ -3647,9 +3646,6 @@ a:hover .gh-arw[data-dir="s"], button:hover .gh-arw[data-dir="s"] {transform:tra
      Padding expands the paintable area; negative margin keeps visual position. */
   padding:50px 60px 80px 60px;
   margin:-50px -60px -80px -60px;}
-@media(max-width:900px){
-  .gh-portrait.is-cutout{padding-bottom:0;margin-bottom:0;}
-}
 .gh-portrait.is-cutout img{
   filter:none;
   -webkit-mask-image:none;mask-image:none;   /* the PNG's own alpha is the mask */
@@ -3697,6 +3693,7 @@ a:hover .gh-arw[data-dir="s"], button:hover .gh-arw[data-dir="s"] {transform:tra
      so the two read as one object. */
   .gh-hero-right{margin-top:26px!important;position:relative;}
   .gh-portrait{margin-top:0;}
+  .gh-portrait.is-cutout{padding-bottom:0!important;margin-bottom:0!important;}
   .gh-locale{
     position:static!important;
     display:inline-block!important;
