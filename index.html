@@ -2082,7 +2082,6 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
     </div>
   </div>
     <div class="gh-hero-right">
-      <span class="gh-locale">Dubai · GMT+4</span>
       <div class="gh-portrait is-cutout">
         <!-- SWITCH THE PORTRAIT: uncomment one <img>, and set the matching
              class on the div above.
@@ -2093,6 +2092,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
         <!-- <img src="portrait-glass.jpg" alt="Linda Hamed sketching on a glass wall in Dubai" width="1800" height="1200" decoding="async"> -->
         <!-- <img src="portrait-linda.jpg" alt="Linda Hamed" width="1667" height="2500" decoding="async"> -->
       </div>
+      <span class="gh-locale">Dubai · GMT+4</span>
     </div>
 </section>
 
@@ -3845,7 +3845,7 @@ body.gh-ledger-off .gh-ledger{transform:translateY(100%);}
   .nav-links a{font-size:13.5px;}
   .nav-links li:last-child a{padding:9px 16px;white-space:nowrap;margin-left:2px;}
   .nav-links li:last-child a.nav-talk{height:36px;padding:0 16px;}
-  .gh-locale{position:static;display:inline-block;margin-bottom:14px;}
+  .gh-locale{position:static;display:inline-block;margin:10px 0 0;}
   .gh-hero-right{max-width:none;}
   .design-card:not(:first-child){grid-template-columns:1fr;}
   .design-card:not(:first-child) .design-card-image{min-height:180px;border-right:0;}
@@ -3870,23 +3870,14 @@ body.gh-ledger-off .gh-ledger{transform:translateY(100%);}
   will-change:transform;}
 body.gh-nav-dark .gh-progress{background:rgba(250,244,231,.12);}
 
-/* ── 2 · gradient separator: hero → career ─────────────────────────── */
-/* The page already draws a flat 1px navy rule at this junction via
-   .built-section::before. Rather than stack a second rule on top of it
-   (which read as a slab), that rule BECOMES the gradient, and the warm
-   wash spills downward from it — the way light would. */
+/* ── 2 · separator: hero → career ──────────────────────────────────── */
 .built-section{padding-top:74px!important;}
 .built-section::before{
-  background-color:transparent!important;
-  background-image:linear-gradient(90deg,
-    rgba(206,83,32,0) 0%,
-    var(--gh-orange) 12%,
-    var(--gh-orange-soft) 42%,
-    rgba(43,42,126,.22) 70%,
-    rgba(43,42,126,0) 100%)!important;
-  left:50%!important;right:auto!important;
-  transform:translateX(-50%)!important;
-  width:min(var(--gh-max), calc(100% - var(--gh-pad) * 2))!important;}
+  background:rgba(20,20,61,0.12)!important;
+  background-image:none!important;
+  left:0!important;right:0!important;
+  transform:none!important;
+  width:100%!important;}
 /* the wash — radial, so it dies out in every direction and can never
    show a box edge; sits behind the section's content */
 .built-section::after{
@@ -4140,13 +4131,13 @@ a:hover .btn-arrow-right,button:hover .btn-arrow-right{
 
   /* ── portrait + locale ─────────────────────────────────────────────
      Portrait is 30% larger on mobile (max 468px cap → set in 1080px block).
-     Locale pill reverts to static so it sits above the portrait, not on it. */
+     Locale pill is static below the portrait in DOM order. */
   .gh-hero-right{margin-top:26px!important;position:relative;}
-  .gh-portrait{margin-top:16px;} /* gap below locale chip */
+  .gh-portrait{margin-top:0;}
   .gh-locale{
-    position:static!important;      /* override base absolute — sits above portrait */
+    position:static!important;
     display:inline-block!important;
-    margin:0 0 0 0!important;
+    margin:12px 0 0!important;
     width:auto;}
 
   /* the pill's neighbour keeps a -16px pull that was there to tuck it
