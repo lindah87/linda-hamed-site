@@ -889,7 +889,8 @@ nav.scrolled {
   min-height: 1.5em;
 }
 .ttt-reset {
-  display: block; margin: 0.375rem auto 0;
+  display: none; /* hidden until game starts — JS shows it on first move */
+  margin: 0.375rem auto 0;
   font-family: var(--sans); font-size: 10px; font-weight: 600;
   letter-spacing: 0.08em; text-transform: uppercase;
   color: rgba(245,240,232,0.65); background: none; border: none; cursor: pointer;
@@ -3276,6 +3277,7 @@ document.querySelectorAll('.built-row .built-sep').forEach(sep => {
     humanTurn = true; gameOver = false;
     cells.forEach(c => { c.textContent = ''; c.removeAttribute('data-v'); });
     status.textContent = 'Your move — you\'re X';
+    reset.style.display = 'none'; // hide reset until game starts
   }
 
   function winner(b) {
@@ -3337,6 +3339,7 @@ document.querySelectorAll('.built-row .built-sep').forEach(sep => {
     cell.addEventListener('click', () => {
       const i = +cell.dataset.i;
       if (!humanTurn || gameOver || board[i]) return;
+      reset.style.display = 'block'; // show reset once game has started
       render(i, 'X');
       const w = winner(board);
       if (w) { end(w); return; }
@@ -3812,7 +3815,7 @@ body.gh-ledger-off .gh-ledger{transform:translateY(100%);}
 /* ── responsive ─────────────────────────────────────────────────────── */
 @media (max-width:1080px){
   .hero-section{grid-template-columns:1fr;}
-  .gh-hero-right{max-width:360px;margin-top:48px;}
+  .gh-hero-right{max-width:468px;margin-top:48px;} /* 30% larger portrait cap */
   .cta-inner{grid-template-columns:1fr;row-gap:52px;}
   .designs-list{grid-template-columns:1fr;}
   .design-card:first-child{grid-row:auto;}
@@ -3822,6 +3825,13 @@ body.gh-ledger-off .gh-ledger{transform:translateY(100%);}
 }
 @media (max-width:760px){
   .hero-section{padding-top:150px;}
+  /* hero H1 full-bleed: extend H1 to screen edges, 12px inner breathing room */
+  .hero-h1{
+    margin-left:calc(-1 * var(--gh-pad));
+    margin-right:calc(-1 * var(--gh-pad));
+    padding-left:12px;
+    padding-right:12px;
+    overflow:visible;}
   .built-list{padding-left:0;}
   .built-list::before{left:4px;}
   .built-row{padding-left:34px;}
@@ -3930,6 +3940,23 @@ body.gh-nav-dark .gh-progress{background:rgba(250,244,231,.12);}
 .rec2-card:hover .rec2-title{color:var(--gh-orange);}
 .rec2-pill{transition:transform .3s cubic-bezier(.16,1,.3,1);}
 .rec2-card:hover .rec2-pill{transform:translateY(-2px);}
+
+/* ── 5b · section separators — same gradient as built-section ──────── */
+/* All section ::before lines get the same gradient so every divider
+   looks identical whether it separates light, dark, or transitional zones */
+.designs-section::before,
+.rec2-section::before,
+.collab-section::before{
+  background-color:transparent!important;
+  background-image:linear-gradient(90deg,
+    rgba(206,83,32,0) 0%,
+    var(--gh-orange) 12%,
+    var(--gh-orange-soft) 42%,
+    rgba(43,42,126,.22) 70%,
+    rgba(43,42,126,0) 100%)!important;
+  left:50%!important;right:auto!important;
+  transform:translateX(-50%)!important;
+  width:min(var(--gh-max), calc(100% - var(--gh-pad) * 2))!important;}
 
 /* ── 6 · XOXO board — gradient ─────────────────────────────────────── */
 .ttt-board{
@@ -4112,16 +4139,15 @@ a:hover .btn-arrow-right,button:hover .btn-arrow-right{
   .hero-ctas .btn-hover{align-items:center;text-align:center;}
 
   /* ── portrait + locale ─────────────────────────────────────────────
-     ~200px of dead space sat between the CTAs and an orphaned
-     "DUBAI · GMT+4" pill. Tighten it and sit the pill on the circle
-     so the two read as one object. */
+     Portrait is 30% larger on mobile (max 468px cap → set in 1080px block).
+     Locale pill reverts to static so it sits above the portrait, not on it. */
   .gh-hero-right{margin-top:26px!important;position:relative;}
-  .gh-portrait{margin-top:10px;}
+  .gh-portrait{margin-top:16px;} /* gap below locale chip */
   .gh-locale{
-    position:absolute!important;z-index:2;
-    top:2px;left:0;right:auto!important;   /* base rule sets right:0 — with
-                                              left:0 too the pill stretches */
-    width:auto;margin:0!important;}
+    position:static!important;      /* override base absolute — sits above portrait */
+    display:inline-block!important;
+    margin:0 0 0 0!important;
+    width:auto;}
 
   /* the pill's neighbour keeps a -16px pull that was there to tuck it
      against the now-hidden "Built with AI" button. Adjacent-sibling
