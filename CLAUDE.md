@@ -4,6 +4,15 @@ Personal portfolio for Linda Hamed, Experience Design Director based in Dubai / 
 
 ---
 
+## Git Rules — MANDATORY
+
+- **main is always the source of truth.** Before editing any file, verify `index.html` contains `--navy:#14143D` and self-hosted woff2 fonts. If it does not, run `git checkout origin/main -- index.html` immediately.
+- **Never work from a feature branch that predates the current main.** Always fetch main first: `git fetch origin main`.
+- **The correct site tokens are:** `--navy:#14143D`, `--orange:#CD533B`, `--coral:#F48668`, `--cream:#FAF9F6`, fonts loaded from `fonts/` directory as woff2.
+- **The old/wrong site has:** Gloock, Cabinet Grotesk, `--bg:#F0F0F0`, `--ink:#0D0D0D`, `--terracotta`. If you see these in index.html, stop and restore from main immediately.
+
+---
+
 ## Project Structure
 
 ```
