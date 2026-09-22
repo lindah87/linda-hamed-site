@@ -3403,16 +3403,9 @@ body.gh-ledger-off .gh-ledger{transform:translateY(100%);}
 }
 @media (max-width:760px){
   .hero-section{padding-top:150px;}
-  /* hero text: right-align on mobile */
-  .hero-eyebrow,.hero-sub,.hero-ctas{text-align:right;justify-content:flex-end;}
-  /* hero H1 full-bleed: break out of section padding to hit screen edges */
-  .hero-h1{
-    text-align:right;
-    margin-left:calc(-1 * var(--gh-pad));
-    margin-right:calc(-1 * var(--gh-pad));
-    padding-left:12px;
-    padding-right:12px;
-    overflow:visible;}
+  /* hero text: left-align on mobile */
+  .hero-eyebrow,.hero-sub,.hero-ctas{text-align:left;justify-content:flex-start;}
+  .hero-h1{text-align:left;}
   .mobile-break{display:none;}
   .built-list{padding-left:0;}
   .built-list::before{left:4px;}
@@ -3470,7 +3463,7 @@ body.gh-nav-dark .gh-progress{background:rgba(250,249,246,.12);}
    show a box edge; sits behind the section's content */
 .built-section::after{
   content:"";position:absolute;z-index:-1;pointer-events:none;
-  top:1px;left:0;right:0;height:190px;
+  top:32px;left:0;right:0;height:190px;
   background:radial-gradient(112% 106% at 6% 0%,
     rgba(244,134,104,.34) 0%,
     rgba(244,134,104,.19) 26%,
@@ -3769,11 +3762,15 @@ a:hover .gh-arw[data-dir="s"], button:hover .gh-arw[data-dir="s"] {transform:tra
   .btn-cta-pill-inner,
   .nav-talk-label,
   .collab-tab{align-items:center;text-align:center;}
+  /* hero CTAs stay left-aligned */
+  .hero-ctas .btn-inner,
+  .hero-ctas .btn-default,
+  .hero-ctas .btn-hover{align-items:flex-start;text-align:left;}
   .collab-panel p{text-align:left!important;}
   .collab-card,
   .collab-card:not(:first-child){padding-left:0!important;padding-right:0!important;}
-  
-  
+
+
   .nav-talk:hover .nav-talk-inner{transform:translateY(-42px);}
   .built-list::after{left:4px;}
   .designs-section .btn-hero-ghost .btn-inner,
