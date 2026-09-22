@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon — Linda Hamed</title>
+<meta name="description" content="Case study coming soon.">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F5ECD8'/%3E%3Ctext x='5' y='23' font-family='Georgia%2C serif' font-size='18' font-weight='400' font-style='italic' fill='%232B2A7E' letter-spacing='-0.5'%3Elh%3C/text%3E%3Ccircle cx='27' cy='22' r='2.5' fill='%23C4673A'/%3E%3C/svg%3E">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@500&display=swap" rel="stylesheet">
+
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
+  background: #f5ecd8;
+  font-family: 'Manrope', Helvetica, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  cursor: none;
+  overflow: hidden;
+}
+
+/* ── CURSOR ── */
+.cursor {
+  position: fixed;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: #2B2A7E;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, border 0.2s ease;
+}
+.cursor.hovering {
+  width: 40px; height: 40px;
+  background: transparent;
+  border: 1.5px solid #d4541a;
+  mix-blend-mode: normal;
+}
+
+/* ── LAYOUT ── */
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  gap: 0;
+}
+
+/* ── HEADING ── */
+.heading {
+  font-family: 'DM Serif Display', Georgia, serif;
+  font-size: clamp(3rem, 8vw, 85px);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.05;
+  color: #d4541a;
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+
+/* ── BODY ── */
+.body {
+  font-family: 'Manrope', Helvetica, sans-serif;
+  font-size: clamp(15px, 1.5vw, 18px);
+  font-weight: 500;
+  line-height: 1.6;
+  color: #1c1c1d;
+  max-width: 552px;
+  margin: 0 auto 2.5rem;
+}
+
+/* ── BUTTONS ── */
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  font-family: 'Manrope', Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1;
+  padding: 0 1.5rem;
+  height: 48px;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Filled — "Say hello →" */
+.btn-filled {
+  background: #d4541a;
+  color: #f5ecd8;
+  border: 1.5px solid #d4541a;
+  min-width: 160px;
+}
+.btn-filled:hover {
+  background: #bf4916;
+  border-color: #bf4916;
+}
+
+/* Outlined — "Go back to homepage →" */
+.btn-outlined {
+  background: transparent;
+  color: #d4541a;
+  border: 1.5px solid #d4541a;
+  min-width: 204px;
+}
+.btn-outlined:hover {
+  background: rgba(212, 84, 26, 0.06);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 480px) {
+  .btn-group { flex-direction: column; width: 100%; max-width: 300px; }
+  .btn { width: 100%; }
+}
+</style>
+</head>
+<body>
+
+<div class="cursor" id="cursor"></div>
+
+<div class="page">
+  <h1 class="heading">Coming soon</h1>
+  <p class="body">This one's being written carefully. Check back soon, or reach out if you'd like to hear it in person.</p>
+  <div class="btn-group">
+    <a href="mailto:lindahamed@gmail.com" class="btn btn-filled">Say hello &nbsp;→</a>
+    <a href="index.html" class="btn btn-outlined">Go back to homepage →</a>
+  </div>
+</div>
+
+<script>
+(function() {
+  const c = document.getElementById('cursor');
+  let mx = -100, my = -100, cx = -100, cy = -100;
+  function lerp(a,b,t){return a+(b-a)*t;}
+  function tick(){
+    cx = lerp(cx, mx, 0.35);
+    cy = lerp(cy, my, 0.35);
+    c.style.left = cx + 'px';
+    c.style.top  = cy + 'px';
+    requestAnimationFrame(tick);
+  }
+  tick();
+  window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, {passive:true});
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('a, button')) c.classList.add('hovering');
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest('a, button')) c.classList.remove('hovering');
+  });
+})();
+</script>
+</body>
+</html>

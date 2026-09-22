@@ -1,0 +1,326 @@
+/* ═══════════════════════════════════════════════════════════════════════
+   lindahamed.com · shared design system
+   Loaded by every page. Page files hold layout for their own sections only;
+   anything that appears on more than one page lives here.
+
+   1  Fonts          5  Buttons & links     9  Ledger
+   2  Tokens         6  Nav                10  Back to top
+   3  Base           7  Footer bar         11  Ambient layers
+   4  Dark ground    8  Tags & icons       12  Reveal & motion
+   ═══════════════════════════════════════════════════════════════════════ */
+
+/* ── 1 · Fonts ─────────────────────────────────────────────────────────
+   Self-hosted, SIL OFL. Only these two families and these weights ship. */
+@font-face{font-family:'DM Serif Display';font-weight:400;font-display:swap;
+  src:url('../fonts/DM_Serif_Display/DMSerifDisplay-Regular.woff2') format('woff2');}
+@font-face{font-family:'Manrope';font-weight:400;font-display:swap;
+  src:url('../fonts/Manrope/Manrope-400.woff2') format('woff2');}
+@font-face{font-family:'Manrope';font-weight:600;font-display:swap;
+  src:url('../fonts/Manrope/Manrope-600.woff2') format('woff2');}
+@font-face{font-family:'Manrope';font-weight:700;font-display:swap;
+  src:url('../fonts/Manrope/Manrope-700.woff2') format('woff2');}
+@font-face{font-family:'Manrope';font-weight:800;font-display:swap;
+  src:url('../fonts/Manrope/Manrope-800.woff2') format('woff2');}
+
+/* ── 2 · Tokens ────────────────────────────────────────────────────────── */
+:root{
+  /* palette: four colours, nothing else anywhere */
+  --cream:#FAF9F6;
+  --navy:#14143D;
+  --orange:#CD533B;
+  --coral:#F48668;            /* on navy only (2.4:1 on cream) */
+
+  /* semantic, light ground. .on-dark redefines the same names. */
+  --bg:var(--cream);
+  --fg:var(--navy);                       /* 16.7:1 */
+  --fg-2:rgba(20,20,61,.78);              /* secondary copy, 8.5:1 */
+  --fg-3:rgba(20,20,61,.62);              /* meta, notes, 4.9:1 */
+  --line:rgba(20,20,61,.12);              /* rules, card borders */
+  --line-2:rgba(20,20,61,.25);            /* control borders */
+  --surface:var(--cream);                 /* card fill */
+  --accent:var(--orange);                 /* fills, rules, numbers */
+  --accent-fg:var(--orange);              /* accent text + hover text */
+
+  /* type */
+  --display:'DM Serif Display',serif;
+  --sans:'Manrope',sans-serif;
+  --fs-d1:clamp(2.6rem,5.6vw,4.875rem);   /* hero */
+  --fs-d2:clamp(2.1rem,4.2vw,3.5rem);     /* full-width section title */
+  --fs-d3:clamp(2.1rem,3.2vw,2.625rem);   /* statements, feature heads */
+  --fs-d4:clamp(2.1rem,2.9vw,2.35rem);    /* rail section title */
+  --fs-fig:clamp(2rem,3vw,2.75rem);       /* figures */
+  --fs-d5:1.625rem;                       /* card heading, 26 */
+  --fs-d6:1.375rem;                       /* small card heading, 22 */
+  --fs-lead:1.25rem;                      /* 20 */
+  --fs-body:1rem;                         /* 16 */
+  --fs-ui:.9375rem;                       /* 15: links, buttons, card copy */
+  --fs-sm:.875rem;                        /* 14: notes, chips */
+  --fs-label:.71875rem;                   /* 11.5: uppercase labels */
+  --lh-tight:1.1;
+  --lh-snug:1.22;
+  --lh-body:1.65;
+  --track-label:.14em;
+
+  /* space: 4px base */
+  --s-1:4px; --s-2:8px; --s-3:12px; --s-4:16px; --s-5:24px;
+  --s-6:32px; --s-7:48px; --s-8:64px; --s-9:96px;
+  --section-y:clamp(4rem,8vw,7rem);
+
+  /* layout */
+  --max:1270px;
+  --pad:clamp(1.5rem,5.9vw,85px);
+  --rail:clamp(210px,21vw,290px);
+  --rail-gap:clamp(36px,4.5vw,76px);
+  --ledger-h:46px;
+
+  /* shape */
+  --r-sm:10px;
+  --r-md:16px;
+  --r-lg:28px;
+  --r-pill:999px;
+  --border:1.5px;
+
+  /* depth */
+  --shadow-sm:0 12px 32px -18px rgba(20,20,61,.2);
+  --shadow-md:0 18px 40px -30px rgba(20,20,61,.55);
+  --shadow-warm:0 28px 54px -34px rgba(205,83,59,.5);
+  --drop:drop-shadow(0 24px 36px rgba(20,20,61,.16));
+
+  /* motion */
+  --ease:cubic-bezier(.16,1,.3,1);
+  --t-color:.25s ease;
+  --t-move:.45s var(--ease);
+}
+
+/* ── 3 · Base ──────────────────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;}
+body,h1,h2,h3,p,ul,ol,dl,dd,figure,blockquote{margin:0;}
+ul,ol{padding:0;list-style:none;}
+img,video,svg{display:block;max-width:100%;}
+button,input{font:inherit;color:inherit;}
+button{cursor:pointer;}
+a{color:inherit;text-decoration:none;}
+em,i{font-style:normal;}           /* every display line on the site is roman */
+
+html{scroll-behavior:smooth;scroll-padding-top:96px;}
+body{
+  background:var(--bg);color:var(--fg);
+  font-family:var(--sans);font-size:var(--fs-body);line-height:var(--lh-body);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;
+  padding-bottom:var(--ledger-h);
+}
+body.ledger-off{padding-bottom:0;}
+main,footer,section{position:relative;z-index:1;}
+
+.wrap{max-width:var(--max);margin-inline:auto;padding-inline:var(--pad);}
+.visually-hidden{position:absolute!important;width:1px;height:1px;overflow:hidden;
+  clip:rect(0 0 0 0);white-space:nowrap;}
+
+h1,h2,h3{font-family:var(--display);font-weight:400;letter-spacing:-.018em;
+  line-height:var(--lh-tight);text-wrap:balance;}
+
+/* uppercase label: eyebrows, captions, column labels */
+.label{font-family:var(--sans);font-size:var(--fs-label);font-weight:700;
+  letter-spacing:var(--track-label);text-transform:uppercase;line-height:1.4;
+  color:var(--accent-fg);}
+
+/* focus: one ring, everywhere; the system cursor stays visible */
+:focus{outline:none;}
+:focus-visible{outline:2px solid var(--accent-fg);outline-offset:3px;border-radius:4px;}
+.skip-link{position:fixed;top:-100px;left:var(--s-4);z-index:300;
+  background:var(--navy);color:var(--cream);padding:var(--s-2) var(--s-4);
+  border-radius:var(--r-pill);font-size:var(--fs-sm);font-weight:700;}
+.skip-link:focus{top:var(--s-4);}
+
+/* ── 4 · Dark ground ──────────────────────────────────────────────────────
+   Put .on-dark on any navy band. Every component below reads the semantic
+   tokens, so it switches to its on-navy treatment with no extra rules.
+   .wash adds the warm corner light used on the navy stages. */
+.on-dark{
+  --bg:var(--navy);
+  --fg:var(--cream);
+  --fg-2:rgba(250,249,246,.8);            /* 10.9:1 */
+  --fg-3:rgba(250,249,246,.62);           /* 7.0:1 */
+  --line:rgba(250,249,246,.16);
+  --line-2:rgba(250,249,246,.35);
+  --surface:rgba(250,249,246,.055);
+  --accent-fg:var(--coral);               /* 7.1:1 */
+  background-color:var(--bg);color:var(--fg);
+}
+.wash{background-image:radial-gradient(60% 60% at 96% 96%,rgba(205,83,59,.3) 0%,transparent 60%);
+  background-repeat:no-repeat;}
+/* a light card sitting inside a navy band */
+.on-light{--bg:var(--cream);--fg:var(--navy);--fg-2:rgba(20,20,61,.78);--fg-3:rgba(20,20,61,.62);
+  --line:rgba(20,20,61,.12);--line-2:rgba(20,20,61,.25);--surface:var(--cream);--accent-fg:var(--orange);
+  background-color:var(--bg);color:var(--fg);}
+
+/* ── 5 · Buttons & links ─────────────────────────────────────────────────
+   Hover is a colour change only. Arrows nudge in their own direction. */
+.btn{
+  display:inline-flex;align-items:center;justify-content:center;gap:0;
+  height:48px;padding:0 28px;border-radius:var(--r-pill);
+  border:var(--border) solid var(--btn-line);background:var(--btn-bg);color:var(--btn-fg);
+  font-family:var(--sans);font-size:var(--fs-ui);font-weight:600;line-height:1;white-space:nowrap;
+  transition:background-color var(--t-color),color var(--t-color),border-color var(--t-color);
+}
+.btn-primary{--btn-bg:var(--fg);--btn-fg:var(--bg);--btn-line:var(--fg);}
+.btn-primary:hover,.btn-primary:focus-visible{--btn-bg:var(--orange);--btn-fg:var(--cream);--btn-line:var(--orange);}
+.btn-secondary{--btn-bg:transparent;--btn-fg:var(--fg);--btn-line:var(--line-2);}
+.btn-secondary:hover,.btn-secondary:focus-visible{--btn-fg:var(--accent-fg);--btn-line:var(--accent-fg);}
+.btn-sm{height:38px;padding:0 18px;}
+
+/* selected state for button-styled toggles and tabs */
+.btn-secondary[aria-selected="true"]{--btn-bg:var(--fg);--btn-fg:var(--bg);--btn-line:var(--fg);}
+.btn-secondary[aria-selected="true"]:hover{--btn-bg:var(--orange);--btn-fg:var(--cream);--btn-line:var(--orange);}
+
+/* text link. Add .link-u for the underlined inline form. */
+.link{font-family:var(--sans);font-size:var(--fs-ui);font-weight:600;color:var(--fg);
+  transition:color var(--t-color),border-color var(--t-color);}
+.link:hover,.link:focus-visible,.link[aria-current="page"]{color:var(--accent-fg);}
+.link-u{border-bottom:var(--border) solid var(--accent);padding-bottom:3px;}
+
+/* ── 6 · Nav ─────────────────────────────────────────────────────────────
+   Floating pill. Frosted once scrolled, light on every ground.
+   Hides on scroll down, returns on scroll up (site.js). */
+.nav{
+  position:fixed;top:18px;left:50%;z-index:60;
+  width:50%;transform:translateX(-50%);
+  display:flex;align-items:center;gap:6px;
+  padding:9px 10px 9px 22px;border-radius:var(--r-pill);
+  background:rgba(250,249,246,.92);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);
+  color:var(--navy);
+  transition:translate var(--t-move),background-color .35s ease,box-shadow .35s ease;
+}
+.nav.is-scrolled{background:rgba(250,249,246,.55);box-shadow:var(--shadow-sm);
+  backdrop-filter:blur(22px) saturate(1.8);-webkit-backdrop-filter:blur(22px) saturate(1.8);}
+.nav.is-hidden{translate:0 calc(-100% - 30px);}
+.nav-logo{font-family:var(--display);font-size:21px;line-height:1;letter-spacing:-.01em;margin-right:14px;}
+.nav-logo span,.nav-logo .dot{color:var(--orange);}
+.nav-links{display:flex;align-items:center;gap:22px;margin-left:auto;}
+.nav-links .nav-talk{
+  display:inline-flex;align-items:center;justify-content:center;
+  height:36px;padding:0 20px;margin-left:6px;border-radius:var(--r-pill);
+  background:var(--navy);color:var(--cream);border:1.5px solid var(--navy);
+  font-family:var(--sans);font-size:15px;font-weight:600;line-height:1;white-space:nowrap;
+  transition:background-color var(--t-color),color var(--t-color),border-color var(--t-color);
+}
+.nav-links .nav-talk:hover,.nav-links .nav-talk:focus-visible{
+  background:var(--orange);color:var(--cream);border-color:var(--orange);
+}
+.nav-links .link[aria-current="page"]{position:relative;}
+.nav-links .link[aria-current="page"]::after{content:"";position:absolute;left:0;right:0;bottom:-5px;
+  height:var(--border);border-radius:2px;background:var(--orange);}
+.ai-dot{width:6px;height:6px;margin-right:8px;border-radius:50%;background:currentColor;
+  animation:blink 1.7s ease-in-out infinite;}
+
+@media (max-width:900px){
+  .nav-ai,.nav-links li.nav-ai,.nav-links li.gh-nav-pill-li{display:none!important;}
+  .nav-links{gap:18px;}
+  .nav-links .btn-sm,
+  .nav-links .nav-talk{height:42px;padding:0 18px;}
+  .nav-links .link{padding-top:12px;padding-bottom:12px;}
+}
+@media (max-width:760px){
+  .nav{left:12px;right:12px;width:auto;transform:none;padding:8px 10px 8px 16px;justify-content:space-between;gap:4px;}
+  .nav-links{gap:14px;}
+  .nav-links .link{font-size:14px;}
+}
+@media (max-width:400px){ .nav-links{gap:14px;} }
+@media (pointer:coarse){ .nav-links .link{padding-block:12px;} }
+
+/* ── 7 · Footer bar ────────────────────────────────────────────────────── */
+.foot-bar{display:flex;align-items:center;justify-content:space-between;gap:var(--s-5);flex-wrap:wrap;
+  padding:26px 0 34px;border-top:1px solid var(--line);}
+.foot-bar ul{display:flex;flex-wrap:wrap;gap:0 26px;}
+.foot-bar small{font-size:var(--fs-sm);color:var(--fg-3);}
+@media (pointer:coarse){ .foot-bar .link{display:inline-block;padding-block:12px;} }
+@media (max-width:760px){ .foot-bar{flex-direction:column;align-items:flex-start;gap:var(--s-3);} }
+
+/* ── 8 · Tags & icons ──────────────────────────────────────────────────── */
+.tag{display:inline-flex;align-items:center;height:26px;padding:0 12px;border-radius:var(--r-pill);
+  background:var(--orange);color:var(--cream);white-space:nowrap;
+  font-family:var(--sans);font-size:var(--fs-label);font-weight:700;letter-spacing:var(--track-label);
+  text-transform:uppercase;line-height:1;}
+.tag-outline{background:transparent;color:var(--accent-fg);box-shadow:inset 0 0 0 1px currentColor;
+  text-transform:none;letter-spacing:0;font-weight:600;font-size:var(--fs-sm);height:32px;padding:0 16px;}
+
+/* inline SVG icons take the text colour. Manrope has no arrow glyphs. */
+.i-arw,.i-ico,.i-lock{display:inline-block;flex:none;width:.85em;height:.85em;vertical-align:-.08em;
+  fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;}
+.i-arw{margin-left:.35em;transition:transform .3s var(--ease);}
+.i-lock{margin-right:.35em;}
+.i-ico .fill{fill:currentColor;}
+:is(a,button):is(:hover,:focus-visible) .i-arw.e{transform:translateX(3px);}
+:is(a,button):is(:hover,:focus-visible) .i-arw.ne{transform:translate(2px,-2px);}
+:is(a,button):is(:hover,:focus-visible) .i-arw.s{transform:translateY(2px);}
+:is(a,button):is(:hover,:focus-visible) .i-arw.n{transform:translateY(-2px);}
+
+/* ── 9 · Ledger — "built in the open" ticker ───────────────────────────── */
+.ledger{position:fixed;left:0;right:0;bottom:0;z-index:70;height:var(--ledger-h);
+  display:flex;align-items:center;gap:22px;padding:0 16px 0 22px;
+  box-shadow:0 -14px 40px -28px rgba(20,20,61,.8);
+  transition:transform var(--t-move);}
+body.ledger-off .ledger{transform:translateY(100%);}
+.ledger-brand{display:inline-flex;align-items:center;gap:10px;flex:none;color:var(--fg);}
+.ledger-brand::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--orange);
+  animation:blink 2.4s ease-in-out infinite;}
+.ledger-track{flex:1;height:100%;overflow:hidden;
+  -webkit-mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);
+          mask-image:linear-gradient(90deg,transparent,#000 5%,#000 95%,transparent);}
+.ledger-run{display:flex;align-items:center;gap:56px;height:100%;white-space:nowrap;will-change:transform;}
+.ledger-run span{font-size:var(--fs-label);color:var(--fg-3);}
+.ledger-run b{font-weight:600;color:var(--accent-fg);}
+.ledger .btn{height:30px;padding:0 15px;font-size:var(--fs-label);letter-spacing:.1em;text-transform:uppercase;}
+@media (pointer:coarse){ .ledger .btn{height:44px;} }
+
+/* ── 10 · Back to top ──────────────────────────────────────────────────────
+   Orange, not coral: coral fails 3:1 against cream (2.4:1) and the button
+   crosses both grounds. Orange holds 4.1:1 on cream and on navy. */
+.back-top{position:fixed;right:40px;bottom:calc(var(--ledger-h) + 26px);z-index:200;
+  display:grid;place-items:center;width:52px;height:52px;border:0;border-radius:50%;
+  background:var(--orange);color:var(--cream);
+  opacity:0;pointer-events:none;transform:translateY(12px);
+  transition:opacity .3s ease,transform .3s ease,background-color var(--t-color),box-shadow var(--t-color);}
+body.ledger-off .back-top{bottom:40px;}
+.back-top.is-visible{opacity:1;pointer-events:auto;transform:none;}
+.back-top:hover,.back-top:focus-visible{background:var(--navy);box-shadow:inset 0 0 0 1px rgba(250,249,246,.35);}
+.back-top svg{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;transition:transform .25s var(--ease);}
+.back-top:hover svg{transform:translateY(-3px);}
+@media (max-width:760px){
+  .back-top{right:24px;width:44px;height:44px;bottom:calc(var(--ledger-h) + 16px);}
+  body.ledger-off .back-top{bottom:24px;}
+}
+
+/* ── 11 · Ambient layers: halo, grain, cursor, scroll progress ─────────── */
+.halo{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.9;mix-blend-mode:multiply;
+  background:radial-gradient(620px circle at var(--mx,60%) var(--my,18%),
+    rgba(244,134,104,.26) 0%,rgba(244,134,104,.09) 34%,transparent 66%);}
+.grain{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.05;mix-blend-mode:multiply;
+  background-size:200px 200px;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");}
+.cursor{position:fixed;top:0;left:0;z-index:250;pointer-events:none;
+  width:7px;height:7px;border-radius:50%;background:var(--navy);opacity:0;transition:opacity .3s ease;}
+body.cursor-live .cursor{opacity:1;}
+body.on-dark-top .cursor{background:var(--cream);}
+.progress{position:fixed;top:0;left:0;right:0;z-index:130;height:3px;pointer-events:none;
+  background:rgba(20,20,61,.07);}
+body.on-dark-top .progress{background:rgba(250,249,246,.12);}
+.progress span{display:block;height:100%;transform:scaleX(0);transform-origin:0 50%;will-change:transform;
+  background:linear-gradient(90deg,var(--orange) 62%,var(--coral));}
+@media (hover:none),(pointer:coarse){ .cursor{display:none;} }
+
+/* ── 12 · Reveal & motion ──────────────────────────────────────────────────
+   .reveal fades up once, when it enters the viewport. Without JS, or with
+   reduced motion, content is simply there. */
+.js .reveal{opacity:0;transform:translateY(16px);
+  transition:opacity .7s ease,transform .7s var(--ease);}
+.js .reveal.is-in{opacity:1;transform:none;}
+@keyframes blink{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.28;transform:scale(.7);}}
+@keyframes float{0%,100%{transform:none;}50%{transform:translate3d(0,var(--float,-10px),0) rotate(var(--tilt,0deg));}}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto;}
+  *,*::before,*::after{animation:none!important;transition:none!important;}
+  .js .reveal{opacity:1;transform:none;}
+}

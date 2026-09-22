@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Coming Soon — Linda Hamed</title>
+<meta name="description" content="Case study coming soon.">
+
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="favicon.svg">
+<link rel="apple-touch-icon" href="favicon.svg">
+
+<style>
+@font-face{font-family:'Manrope';font-weight:400;font-display:swap;src:url('fonts/Manrope/Manrope-400.woff2') format('woff2');}
+@font-face{font-family:'Manrope';font-weight:600;font-display:swap;src:url('fonts/Manrope/Manrope-600.woff2') format('woff2');}
+@font-face{font-family:'DM Serif Display';font-weight:400;font-display:swap;src:url('fonts/DM_Serif_Display/DMSerifDisplay-Regular.woff2') format('woff2');}
+
+:root{
+  --cream:#FAF9F6;
+  --navy:#14143D;
+  --orange:#CD533B;
+  --coral:#F48668;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html, body { height: 100%; }
+
+body {
+  background: var(--cream);
+  font-family: 'Manrope', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  cursor: none;
+  overflow: hidden;
+}
+
+/* ── HALO ── coral light that follows the cursor, as on the homepage */
+.halo{position:fixed;inset:0;z-index:0;pointer-events:none;mix-blend-mode:multiply;
+  background:radial-gradient(620px circle at var(--mx,60%) var(--my,30%),
+    rgba(244,134,104,.26) 0%,rgba(244,134,104,.09) 34%,transparent 66%);}
+.page{position:relative;z-index:1;}
+@media (hover:none),(pointer:coarse){body,.btn{cursor:auto;} .cursor{display:none;}}
+
+/* ── CURSOR ── */
+.cursor {
+  position: fixed;
+  width: 10px; height: 10px;
+  border-radius: 50%;
+  background: var(--navy);
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
+  transition: width 0.2s ease, height 0.2s ease, background 0.2s ease, border 0.2s ease;
+}
+.cursor.hovering {
+  width: 40px; height: 40px;
+  background: transparent;
+  border: 1.5px solid var(--orange);
+  mix-blend-mode: normal;
+}
+
+/* ── LAYOUT ── */
+.page {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 2rem;
+  gap: 0;
+}
+
+/* ── HEADING ── */
+.heading {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(2.6rem, 6vw, 78px);
+  font-weight: 400;
+  font-style: normal;
+  line-height: 1.05;
+  color: var(--orange);
+  letter-spacing: -0.01em;
+  margin-bottom: 1rem;
+}
+
+/* ── BODY ── */
+.body {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(15px, 1.5vw, 18px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--navy);
+  max-width: 552px;
+  margin: 0 auto 2.5rem;
+}
+
+/* ── BUTTONS ── */
+.btn-group {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.btn {
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1;
+  padding: 0 1.5rem;
+  height: 48px;
+  border-radius: 50px;
+  text-decoration: none;
+  cursor: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+  white-space: nowrap;
+}
+
+/* Filled — "Say hello →" */
+.btn-filled {
+  background: var(--orange);
+  color: #FAF9F6;
+  border: 1.5px solid var(--orange);
+  min-width: 160px;
+}
+.btn-filled:hover {
+  background: var(--navy);
+  border-color: var(--navy);
+}
+
+/* Outlined — "Go back to homepage →" */
+.btn-outlined {
+  background: transparent;
+  color: var(--orange);
+  border: 1.5px solid var(--orange);
+  min-width: 204px;
+}
+.btn-outlined:hover {
+  background: rgba(205,83,59,0.07);
+}
+
+/* ── MOBILE ── */
+@media (max-width: 480px) {
+  .btn-group { flex-direction: column; width: 100%; max-width: 300px; }
+  .btn { width: 100%; }
+}
+
+/* ═══ DESIGN SYSTEM · links and buttons ════════════════════════════════
+   One definition for every text link and every button on the site.
+   Palette: #FAF9F6 cream · #14143D navy · #CD533B orange · #F48668 coral.
+   Coral is only for hover/accent on navy. Do not restyle these locally. */
+button,input,textarea,select{font-family:inherit;}
+.i-arw,.i-ico,.i-star,.i-lock{display:inline-block;width:.85em;height:.85em;vertical-align:-.08em;
+  fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+.i-arw{margin-left:.35em;transition:transform .3s cubic-bezier(.16,1,.3,1);}
+.i-ico .fill{fill:currentColor;}
+.i-star{fill:currentColor;stroke:none;width:.7em;height:.7em;vertical-align:.02em;}
+.i-lock{margin-right:.35em;}
+a:hover .i-arw.e,button:hover .i-arw.e,a:focus-visible .i-arw.e{transform:translateX(3px);}
+a:hover .i-arw.ne,button:hover .i-arw.ne,a:focus-visible .i-arw.ne{transform:translate(2px,-2px);}
+a:hover .i-arw.s,button:hover .i-arw.s,a:focus-visible .i-arw.s{transform:translateY(2px);}
+
+html body:not(#_) .btn-filled, html body:not(#_) .btn-outlined{font-family:'Manrope',sans-serif!important;font-weight:600!important;font-style:normal!important;
+  border-style:solid!important;border-width:1.5px!important;border-radius:999px!important;box-shadow:none!important;
+  transition:background-color .25s ease,color .25s ease,border-color .25s ease!important;}
+html body:not(#_) .btn-filled, html body:not(#_) .btn-outlined{display:inline-flex!important;align-items:center!important;justify-content:center!important;height:48px!important;padding:0 28px!important;font-size:15px!important;line-height:1!important;overflow:visible!important;}
+html body:not(#_) .btn-filled{background:var(--navy)!important;color:var(--cream)!important;border-color:var(--navy)!important;}
+html body:not(#_) .btn-filled:hover, html body:not(#_) .btn-filled:focus-visible{background:var(--orange)!important;color:var(--cream)!important;border-color:var(--orange)!important;}
+html body:not(#_) .btn-outlined{background:transparent!important;color:var(--navy)!important;border-color:rgba(20,20,61,.25)!important;}
+html body:not(#_) .btn-outlined:hover, html body:not(#_) .btn-outlined:focus-visible{background:transparent!important;color:var(--orange)!important;border-color:var(--orange)!important;}
+html body .back-top svg{stroke:currentColor!important;}
+/* current page in the nav stays orange */
+html body:not(#_):not(#__) .nav-links a[aria-current="page"],html body:not(#_):not(#__) .nav-links a.is-active{color:var(--orange)!important;}
+/* nav pill text matches the nav links */
+html body:not(#_) .ai-pill,html body:not(#_) .gh-ai-pill,html body:not(#_) .collab-tab{font-size:15px!important;}
+/* the "next case study" title keeps its display size but shares the link hover */
+html body:not(#_) .foot-next a.big{color:var(--cream)!important;transition:color .25s ease!important;}
+html body:not(#_) .foot-next a.big:hover,html body:not(#_) .foot-next a.big:focus-visible{color:var(--coral)!important;}
+/* ═══ /DESIGN SYSTEM ═════════════════════════════════════════════════ */
+</style>
+</head>
+<body>
+
+<div class="halo" id="halo" aria-hidden="true"></div>
+<div class="cursor" id="cursor"></div>
+
+<div class="page">
+  <h1 class="heading">Coming soon</h1>
+  <p class="body">This one's being written carefully. Check back soon, or reach out if you'd like to hear it in person.</p>
+  <div class="btn-group">
+    <a href="mailto:lindahamed@gmail.com" class="btn btn-filled">Say hello<svg class="i-arw e" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8h10.5M9 4l4 4-4 4"/></svg></a>
+    <a href="index.html" class="btn btn-outlined">Go back to homepage<svg class="i-arw e" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M2.5 8h10.5M9 4l4 4-4 4"/></svg></a>
+  </div>
+</div>
+
+<script>
+(function() {
+  const c = document.getElementById('cursor');
+  let mx = -100, my = -100, cx = -100, cy = -100;
+  function lerp(a,b,t){return a+(b-a)*t;}
+  function tick(){
+    cx = lerp(cx, mx, 0.35);
+    cy = lerp(cy, my, 0.35);
+    c.style.left = cx + 'px';
+    c.style.top  = cy + 'px';
+    requestAnimationFrame(tick);
+  }
+  tick();
+  const h = document.getElementById('halo');
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    h.style.setProperty('--mx', (e.clientX/innerWidth*100).toFixed(1)+'%');
+    h.style.setProperty('--my', (e.clientY/innerHeight*100).toFixed(1)+'%');
+  }, {passive:true});
+  document.addEventListener('mouseover', e => {
+    if (e.target.closest('a, button')) c.classList.add('hovering');
+  });
+  document.addEventListener('mouseout', e => {
+    if (e.target.closest('a, button')) c.classList.remove('hovering');
+  });
+})();
+</script>
+</body>
+</html>
