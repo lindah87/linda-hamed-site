@@ -1057,7 +1057,10 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
    visible card rect: values are % of the two-card group (644 x 410). */
 .card-stack img{position:absolute;display:block;height:auto;max-width:none;}
 .card-stack .card-back{left:-2.28%;top:-21.0%;width:126.35%;box-shadow:0 4px 50px 0 rgba(43,42,126,0.20);}
-.card-stack .card-front{left:-18.46%;top:-27.88%;width:100.87%;z-index:1;box-shadow:0 4px 50px 0 rgba(43,42,126,0.20);}
+.card-stack .card-front{left:-18.46%;top:-27.88%;width:100.87%;z-index:1;
+  border-radius:1.25rem;
+  border:5px solid rgba(234,110,0,0.05);
+  box-shadow:0 4px 100px 0 rgba(206,83,32,0.15);}
 .card-stack .card-check{left:70.96%;top:22.93%;width:10.87%;z-index:2;}
 .feature:has(.card-stack){overflow-x:clip;}
 .feature:hover .card-stack{transform:translateY(-6px);}
