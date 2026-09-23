@@ -1048,7 +1048,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .card-stack .card-back{animation:cs-float-b 7.5s ease-in-out infinite;animation-delay:-2s;will-change:transform;}
 .card-stack .card-check{animation:cs-float-c 5s ease-in-out infinite;animation-delay:-1s;will-change:transform;}
 @media (prefers-reduced-motion:reduce){.card-stack img{animation:none;}}
-.feature-visual:has(.card-stack){min-width:0;justify-content:center;padding-top:6rem;}
+.feature-visual:has(.card-stack){min-width:0;justify-content:center;}
 @media (max-width:900px){
   .feature-visual:has(.card-stack){justify-content:center;}
   .card-stack{width:min(392px,82vw);margin:8% auto 4%;}
@@ -1056,12 +1056,12 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 /* PNGs carry their own Figma shadow padding, so each image is placed by its
    visible card rect: values are % of the two-card group (644 x 410). */
 .card-stack img{position:absolute;display:block;height:auto;max-width:none;}
-.card-stack .card-back{left:-2.28%;top:-21.0%;width:126.35%;}
-.card-stack .card-front{left:-18.46%;top:-27.88%;width:100.87%;z-index:1;
+.card-stack .card-back{left:-2.28%;top:-7.0%;width:126.35%;}
+.card-stack .card-front{left:-18.46%;top:-13.88%;width:100.87%;z-index:1;
   border-radius:1.25rem;
   border:5px solid rgba(234,110,0,0.05);
   box-shadow:0 4px 100px 0 rgba(206,83,32,0.15);}
-.card-stack .card-check{left:70.96%;top:22.93%;width:10.87%;z-index:2;}
+.card-stack .card-check{left:70.96%;top:36.93%;width:10.87%;z-index:2;}
 .feature:has(.card-stack){overflow-x:clip;}
 .feature:hover .card-stack{transform:translateY(-6px);}
 /* Autopay: settings card + floating "active" badge. % of the visible group
@@ -1864,7 +1864,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     </div>
     <div class="feature-visual rev">
         <div class="card-stack">
-          <img class="card-back" src="img/Card 2 1.png" width="2108" height="1908" style="width:100%;height:100%;border-radius:1.25rem;"
+          <img class="card-back" src="img/Card 03 2.png" style="width:100%;height:auto;border-radius:1.25rem;"
                alt="" aria-hidden="true" loading="lazy" decoding="async">
           <img class="card-front" src="img/Card 5.png" width="1683" height="1284" style="width:100%;height:100%;border-radius:20px;"
                alt="Two bills grouped by phone number, each showing the billing month, total due and a link to the invoice PDF." loading="lazy" decoding="async">
