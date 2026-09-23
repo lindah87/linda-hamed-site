@@ -242,7 +242,7 @@ a:hover .arw[data-dir="s"], button:hover .arw[data-dir="s"] {transform:translate
 .sec-num{font-family:var(--sans);font-size:15.5px;letter-spacing:0;
   color:var(--orange-deep);font-weight:700;line-height:1;
   font-variant-numeric:tabular-nums;}
-h2{font-family:var(--display);font-weight:400;font-style:italic;
+h2{font-family:var(--display);font-weight:400;font-style:normal;
   font-size:var(--t-title);line-height:1.1;letter-spacing:-.018em;
   margin:0 0 18px;}
 h3{font-family:var(--display);font-weight:400;font-style:normal;
@@ -262,7 +262,7 @@ p{margin:0 0 18px;}
 .sec-head > h2 + .lede{margin:20px 0 0;}
 .findings-intro{margin:0;padding-top:0;}
 .findings-intro .findings-title{position:relative;top:-7.8px;}
-.findings-intro .findings-title{font-family:var(--display);font-style:italic;font-weight:400;font-size:36px;line-height:1.1;letter-spacing:-.018em;color:var(--orange);max-width:180px;}
+.findings-intro .findings-title{font-family:var(--display);font-style:normal;font-weight:400;font-size:36px;line-height:1.1;letter-spacing:-.018em;color:var(--orange);max-width:180px;}
 .findings{--fgap:18px;display:flex;flex-direction:column;gap:var(--fgap);margin-top:0;}
 .finding{position:relative;display:grid;grid-template-columns:minmax(0,.72fr) minmax(0,1fr);gap:clamp(18px,1.8vw,26px);align-items:center;min-width:0;padding:24px;border:1px solid rgba(20,20,61,.14);border-radius:28px;background:rgba(255,255,255,.34);overflow:hidden;}
 .finding-plate{position:relative;aspect-ratio:1.55/1;width:100%;max-width:none;min-width:0;}
@@ -308,7 +308,7 @@ h1{font-family:var(--display);font-weight:400;font-style:normal;
   font-size:var(--t-statement);line-height:1.06;letter-spacing:-.02em;
   margin:0 0 26px;max-width:1120px;text-wrap:balance;}
 h1 em{font-style:italic;color:var(--orange);}
-.hero-deck{font-size:var(--t-body);line-height:1.6;color:var(--ink-78);max-width:72ch;margin:0;}
+.hero-deck{font-size:1.2rem;line-height:1.6;color:var(--ink-78);max-width:72ch;margin:0;}
 
 /* meta strip - four cells, mono labels */
 .meta{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:52px;
@@ -675,7 +675,7 @@ a:hover .btn-arrow-right,button:hover .btn-arrow-right{transform:rotate(-90deg) 
 .led li b{display:block;margin-bottom:7px;color:var(--cream-lift);font-weight:700;}
 
 .close{margin-top:104px;}
-.close p{font-family:var(--display);font-style:italic;
+.close p{font-family:var(--display);font-style:normal;
   font-size:var(--t-statement);line-height:1.34;
   color:var(--cream-lift);max-width:26ch;margin:0;}
 .close .kicker{font-family:var(--sans);font-size:var(--t-label);letter-spacing:.16em;
@@ -693,10 +693,10 @@ footer{background:var(--navy-deep);color:var(--cream-lift);padding:78px 0 0;}
 .foot-next .btn{margin-top:calc(11.5px * 1.65 + 14px);}
 .foot-next .k{font-family:var(--sans);font-size:var(--t-label);letter-spacing:.16em;
   text-transform:uppercase;color:rgba(250,244,231,.5);display:block;margin-bottom:14px;}
-.foot-next a.big{font-family:var(--display);font-style:italic;
+.foot-next a.big{font-family:var(--display);font-style:normal;
   font-size:30px;line-height:1.16;color:var(--cream-lift);
   text-decoration:none;display:inline-block;transition:color .3s ease;}
-.foot-next a.big:hover{color:var(--ochre);}
+.foot-next a.big:hover{color:#F48668;}
 .btn{display:inline-flex;align-items:center;gap:10px;height:48px;padding:0 28px;
   border-radius:999px;background:var(--cream-lift);color:var(--navy);
   font-family:var(--sans);font-weight:600;font-size:var(--t-body);text-decoration:none;
@@ -779,7 +779,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .prov-inner{position:relative;z-index:2;max-width:1100px;margin-inline:auto;
   padding-block:clamp(1rem,2.5vw,2rem);
   padding-inline:clamp(1.5rem,5vw,5rem);text-align:center;}
-.prov-quote{font-family:var(--display);font-style:italic;font-weight:400;
+.prov-quote{font-family:var(--display);font-style:normal;font-weight:400;
   font-size:40px;line-height:1.18;letter-spacing:-.022em;
   color:var(--cream-lift);margin:0;}
 .prov-quote em{color:var(--ochre);font-style:normal;}
@@ -836,7 +836,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .cin{padding-bottom:clamp(40px,5vw,72px);}
 .cin-label{font-family:var(--sans);font-size:var(--t-label);letter-spacing:.2em;text-transform:uppercase;
   color:rgba(250,244,231,.45);margin:0 0 22px;}
-.cin-h{font-family:var(--display);font-style:italic;font-weight:400;
+.cin-h{font-family:var(--display);font-style:normal;font-weight:400;
   font-size:var(--t-statement);line-height:1.14;letter-spacing:-.024em;
   color:var(--cream-lift);max-width:760px;margin:0 auto 54px;}
 .cin-h em{color:var(--orange);font-style:normal;}
@@ -896,7 +896,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
   border-radius:16px;padding:16px 20px 18px;
   transform:translateY(-50%);
   box-shadow:0 18px 40px -30px rgba(20,19,43,.8);}
-.annot-note h3{font-family:var(--display);font-style:italic;font-weight:400;
+.annot-note h3{font-family:var(--display);font-style:normal;font-weight:400;
   font-size:20px;line-height:1.2;color:var(--navy);margin:0 0 8px;text-wrap:balance;}
 .annot-note p{font-family:var(--sans);font-size:14px;line-height:1.5;
   color:var(--navy);margin:0;}
@@ -938,7 +938,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
   font-family:var(--sans);font-size:10.5px;color:var(--ink-45);}
 .scr-back{font-family:var(--sans);font-size:10px;letter-spacing:.08em;text-transform:uppercase;
   color:var(--ink-45);display:flex;align-items:center;gap:6px;margin-bottom:18px;}
-.scr-title{font-family:var(--display);font-style:italic;font-weight:400;font-size:1.35rem;
+.scr-title{font-family:var(--display);font-style:normal;font-weight:400;font-size:1.35rem;
   color:var(--navy);margin:0 0 4px;line-height:1.2;}
 .scr-sub{font-family:var(--sans);font-size:10.5px;color:var(--ink-45);margin:0 0 22px;}
 .bill-card{background:var(--cream-lift);border:1px solid var(--ink-12);border-radius:13px;
@@ -998,7 +998,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .feature.flip .feature-inner{grid-template-columns:var(--col-b) var(--col-a);}
 .feature.flip .feature-copy{order:2;}
 .feature.flip .feature-visual{order:1;}
-.feature-h{font-family:var(--display);font-style:italic;font-weight:400;
+.feature-h{font-family:var(--display);font-style:normal;font-weight:400;
   font-size:42px;line-height:1.16;letter-spacing:-.024em;
   color:var(--navy);margin:0 0 22px;}
 .feature-body{font-size:var(--t-body);line-height:1.7;color:var(--ink-78);max-width:none;margin:0 0 18px;}
@@ -1037,7 +1037,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
    peeking out behind it, and the confirmation checkbox floating at the seam
    where they meet. All three are pre-rendered SVGs (not live UI), sized and
    offset by their own natural proportions. */
-.card-stack{position:relative;width:clamp(300px,36vw,560px);aspect-ratio:644/410;
+.card-stack{position:relative;width:clamp(210px,25.2vw,392px);aspect-ratio:644/410;
   margin-left:clamp(0px,2vw,32px);transition:transform .55s cubic-bezier(.16,1,.3,1);}
 /* Slow, offset float: each layer drifts on its own period so the stack
    never moves in lockstep. Only transform animates (GPU, no layout). */
@@ -1051,13 +1051,13 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .feature-visual:has(.card-stack){min-width:0;justify-content:flex-start;}
 @media (max-width:900px){
   .feature-visual:has(.card-stack){justify-content:center;}
-  .card-stack{width:min(560px,82vw);margin:8% auto 4%;}
+  .card-stack{width:min(392px,82vw);margin:8% auto 4%;}
 }
 /* PNGs carry their own Figma shadow padding, so each image is placed by its
    visible card rect: values are % of the two-card group (644 x 410). */
 .card-stack img{position:absolute;display:block;height:auto;max-width:none;}
-.card-stack .card-back{left:-2.28%;top:-21.0%;width:126.35%;}
-.card-stack .card-front{left:-18.46%;top:-27.88%;width:100.87%;z-index:1;}
+.card-stack .card-back{left:-2.28%;top:-21.0%;width:126.35%;box-shadow:0 4px 50px 0 rgba(43,42,126,0.20);}
+.card-stack .card-front{left:-18.46%;top:-27.88%;width:100.87%;z-index:1;box-shadow:0 4px 50px 0 rgba(43,42,126,0.20);}
 .card-stack .card-check{left:70.96%;top:22.93%;width:10.87%;z-index:2;}
 .feature:has(.card-stack){overflow-x:clip;}
 .feature:hover .card-stack{transform:translateY(-6px);}
@@ -1067,6 +1067,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
   margin-right:clamp(0px,2vw,32px);}
 .ap-stack img{position:absolute;display:block;height:auto;max-width:none;will-change:transform;}
 .ap-stack .ap-card{left:-23.6%;top:-36.6%;width:135.2%;
+  box-shadow:0 4px 50px 0 rgba(43,42,126,0.20);
   animation:cs-float 6.5s ease-in-out infinite;}
 .ap-stack .ap-badge{left:51.5%;top:10.7%;width:48.5%;z-index:1;
   border-radius:9px;box-shadow:0 14px 30px -10px rgba(20,20,61,.35);
@@ -1081,8 +1082,9 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
   margin-left:clamp(0px,2vw,32px);}
 .sp-stack img{position:absolute;display:block;height:auto;max-width:none;will-change:transform;}
 .sp-stack .sp-card{left:6.87%;top:-22.5%;width:115.3%;
+  box-shadow:0 4px 50px 0 rgba(43,42,126,0.20);
   animation:cs-float-b 7s ease-in-out infinite;animation-delay:-2s;}
-.sp-stack .sp-alert{left:-21.5%;top:-41.4%;width:78.8%;z-index:1;
+.sp-stack .sp-alert{left:-21.5%;top:-41.4%;width:78.8%;z-index:2;
   animation:cs-float 5.5s ease-in-out infinite;}
 .feature:has(.sp-stack){overflow-x:clip;}
 @media (max-width:900px){.sp-stack{width:min(500px,76vw);margin:12% auto 4%;}}
@@ -1095,7 +1097,10 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 @media (max-width:900px){.work-grid > .sec-head .lede{max-width:none;}}
 .work-phones{display:grid;grid-template-columns:repeat(3,minmax(0,322px));gap:clamp(14px,2.4vw,40px);align-items:start;justify-content:center;}
 .work-phones img{display:block;width:100%;height:auto;
-  filter:drop-shadow(0 30px 40px rgba(20,20,61,.18));}
+  filter:drop-shadow(0 30px 40px rgba(20,20,61,.18));
+  transition:transform .55s cubic-bezier(.16,1,.3,1),filter .55s ease;}
+.work-phones img:hover{transform:translateY(-8px);
+  filter:drop-shadow(0 40px 52px rgba(20,20,61,.28));}
 @media (max-width:760px){
   .work-phones{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(280px,72%);
     overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;
@@ -1133,7 +1138,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .closer .wrap{padding-inline:clamp(1.75rem,13vw,210px);}
 /* same type as .prov-quote, so the page's opening and closing statements
    are set identically: 40px / 1.18 / -.022em. */
-.closer-statement{font-family:var(--display);font-style:italic;font-weight:400;
+.closer-statement{font-family:var(--display);font-style:normal;font-weight:400;
   font-size:40px;line-height:1.18;letter-spacing:-.022em;
   color:var(--navy);max-width:52ch;margin:0 auto;text-align:center;
   text-wrap:balance;}
@@ -1635,7 +1640,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 
     <div class="hero-copy">
     <div class="hero-eyebrow">
-      <p class="eyebrow hero-kicker">Omantel <span aria-hidden="true">✦</span> CEP Super App <span aria-hidden="true">✦</span> Act 1</p>
+      <p class="eyebrow hero-kicker">Omantel | CEP Super App | Act 1</p>
     </div>
 
     <h1>Redesigning Telco Bill Payment for a Super App</h1>
@@ -1680,11 +1685,11 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 
     <div class="rev rail-body">
       <div class="work-phones">
-        <img src="img/work-bills.png" width="732" height="1500" loading="lazy" decoding="async"
+        <img src="img/Work - Screen1.png" width="732" height="1500" loading="lazy" decoding="async"
              alt="Omantel bills screen: an autopay prompt, two bills with one selected, and a Confirm and pay bar showing OMR 49.33.">
-        <img src="img/work-autopay-limit.png" width="732" height="1500" loading="lazy" decoding="async"
+        <img src="img/Work - Screen2.png" width="732" height="1500" loading="lazy" decoding="async"
              alt="Autopay settings for one account: a payment limit being set with quick amounts of OMR 5, 10 and 20 above the keypad.">
-        <img src="img/work-autopayments.png" width="732" height="1500" loading="lazy" decoding="async"
+        <img src="img/Work - Screen3.png" width="732" height="1500" loading="lazy" decoding="async"
              alt="Auto payments overview: a saved payment card, one account with autopay active and one inactive.">
       </div>
     </div>
@@ -1871,7 +1876,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
   <div class="wrap feature-inner">
     <div class="feature-visual rev">
       <div class="ap-stack">
-        <img class="ap-card" src="img/Autopay Card.png" width="1764" height="1425"
+        <img class="ap-card" src="img/Card 01.svg" width="1764" height="1425"
              alt="Autopay settings for one account: an auto payment limit of OMR 48.00 and a payment date of the 5th of every month." loading="lazy" decoding="async">
         <img class="ap-badge" src="img/Autopay Badge.png" width="2110" height="440"
              alt="" aria-hidden="true" loading="lazy" decoding="async">
@@ -1904,7 +1909,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     </div>
     <div class="feature-visual rev">
       <div class="sp-stack">
-        <img class="sp-card" src="img/Suspension Card.png" width="1602" height="1170"
+        <img class="sp-card" src="img/Card 02.svg" width="1602" height="1170"
              alt="A bill card showing a total due of OMR 49.33 with a Pay now button." loading="lazy" decoding="async">
         <img class="sp-alert" src="img/Suspension Alert.png" width="1835" height="1660"
              alt="An alert reading: Please pay your closed account bills, with a Pay now button." loading="lazy" decoding="async">
