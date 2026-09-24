@@ -407,6 +407,12 @@ body.ledger-off .ledger{transform:translateY(100%);}
   transition:transform .32s cubic-bezier(.16,1,.3,1);}
 a:hover .arw[data-dir="ne"],button:hover .arw[data-dir="ne"]{transform:translate(3px,-3px);}
 
+.fw-arw{display:inline-block;width:.52em;height:.52em;vertical-align:baseline;
+  margin-left:.32em;will-change:transform;transition:transform .32s cubic-bezier(.16,1,.3,1);}
+.fw-arw svg{display:block;width:100%;height:100%;overflow:visible;}
+.fw-arw path{stroke:currentColor;stroke-width:2.1;stroke-linecap:round;stroke-linejoin:round;fill:none;}
+a:hover .fw-arw{transform:translateX(4px);}
+
 /* ── reveal animations ──────────────────────────────────────────── */
 .rev{opacity:0;transform:translateY(22px);
   transition:opacity .7s cubic-bezier(.16,1,.3,1),
