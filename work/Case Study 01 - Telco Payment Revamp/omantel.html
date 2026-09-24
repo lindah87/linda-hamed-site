@@ -1085,17 +1085,21 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 @media (max-width:900px){.ap-wrap{width:min(383px,82vw);margin:10% auto 4%;}}
 @media (prefers-reduced-motion:reduce){.ap-stack img{animation:none;}}
 /* Suspension: bill card with the red alert overlapping its top-left.
-   % of the visible group (544 x 271). */
+   % of the visible group (544 x 271). Card 02.png is 987x555; Suspension Alert.png is 1835x1660. */
 .sp-stack{position:relative;width:clamp(270px,32vw,480px);aspect-ratio:544/271;
   margin-left:clamp(0px,2vw,32px);}
 .sp-stack img{position:absolute;display:block;height:auto;max-width:none;will-change:transform;}
-.sp-stack .sp-card{left:6.87%;top:-22.5%;width:115.3%;
+.sp-stack .sp-card{left:6.87%;top:-22.5%;width:115.3%;border-radius:1.25rem;
   box-shadow:0 4px 50px 0 rgba(43,42,126,0.20);
   animation:cs-float-b 7s ease-in-out infinite;animation-delay:-2s;}
-.sp-stack .sp-alert{left:-21.5%;top:-41.4%;width:78.8%;z-index:2;
+.sp-stack .sp-alert{left:-21.5%;top:-41.4%;width:78.8%;z-index:2;border-radius:1.25rem;
   animation:cs-float 5.5s ease-in-out infinite;}
+.feature-visual:has(.sp-stack){min-width:0;padding-top:3rem;}
 .feature:has(.sp-stack){overflow-x:clip;}
-@media (max-width:900px){.sp-stack{width:min(500px,76vw);margin:12% auto 4%;}}
+@media (max-width:900px){
+  .sp-stack{width:min(500px,76vw);margin:12% auto 4%;}
+  .feature-visual:has(.sp-stack){padding-top:0;}
+}
 @media (prefers-reduced-motion:reduce){.sp-stack img{animation:none;}}
 /* 01 The work: three real screens in device frames, side by side. */
 /* 01 The work: wider gutter than the shared rail so the intro text
@@ -1920,7 +1924,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     </div>
     <div class="feature-visual rev">
       <div class="sp-stack">
-        <img class="sp-card" src="img/Card 02.png" width="1602" height="1170"
+        <img class="sp-card" src="img/Card 02.png" width="987" height="555"
              alt="A bill card showing a total due of OMR 49.33 with a Pay now button." loading="lazy" decoding="async">
         <img class="sp-alert" src="img/Suspension Alert.png" width="1835" height="1660"
              alt="An alert reading: Please pay your closed account bills, with a Pay now button." loading="lazy" decoding="async">
