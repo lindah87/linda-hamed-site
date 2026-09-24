@@ -2875,6 +2875,7 @@ document.querySelectorAll('.built-row .built-sep').forEach(sep => {
     humanTurn = true; gameOver = false;
     cells.forEach(c => { c.textContent = ''; c.removeAttribute('data-v'); });
     status.textContent = 'Your move — you\'re X';
+    reset.style.visibility = 'hidden';
   }
 
   function winner(b) {
@@ -2937,6 +2938,7 @@ document.querySelectorAll('.built-row .built-sep').forEach(sep => {
       const i = +cell.dataset.i;
       if (!humanTurn || gameOver || board[i]) return;
       render(i, 'X');
+      reset.style.visibility = 'visible';
       const w = winner(board);
       if (w) { end(w); return; }
       humanTurn = false;
