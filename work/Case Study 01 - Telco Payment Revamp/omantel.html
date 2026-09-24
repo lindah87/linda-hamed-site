@@ -1037,7 +1037,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
    peeking out behind it, and the confirmation checkbox floating at the seam
    where they meet. All three are pre-rendered SVGs (not live UI), sized and
    offset by their own natural proportions. */
-.card-stack{position:relative;width:clamp(210px,25.2vw,392px);aspect-ratio:644/410;
+.card-stack{position:relative;width:clamp(168px,20.2vw,314px);aspect-ratio:644/410;
   margin-left:clamp(0px,2vw,32px);transition:transform .55s cubic-bezier(.16,1,.3,1);}
 /* Slow, offset float: each layer drifts on its own period so the stack
    never moves in lockstep. Only transform animates (GPU, no layout). */
@@ -1062,7 +1062,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .feature-visual:has(.card-stack){min-width:0;justify-content:center;padding-top:4rem;}
 @media (max-width:900px){
   .feature-visual:has(.card-stack){justify-content:center;}
-  .card-stack{width:min(392px,82vw);margin:8% auto 4%;}
+  .card-stack{width:min(314px,82vw);margin:8% auto 4%;}
 }
 .feature:has(.card-stack){overflow-x:clip;}
 .feature:hover .card-stack{transform:translateY(-6px);}
