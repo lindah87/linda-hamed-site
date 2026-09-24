@@ -1066,11 +1066,12 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .feature:hover .card-stack{transform:translateY(-6px);}
 /* Autopay: settings card + floating "active" badge. % of the visible group
    (590 x 366); the card PNG carries shadow padding, so it's offset out. */
-.ap-stack{position:relative;width:clamp(216px,25.6vw,384px);aspect-ratio:590/366;
+.ap-stack{position:relative;width:clamp(216px,26.6vw,383px);aspect-ratio:383/270;
+  border-radius:20px;overflow:hidden;
+  box-shadow:0px 4px 100px rgba(206,83,32,0.25);
   margin-right:clamp(0px,2vw,32px);}
 .ap-stack img{position:absolute;display:block;height:auto;max-width:none;will-change:transform;}
 .ap-stack .ap-card{left:-23.6%;top:-36.6%;width:135.2%;
-  box-shadow:0 4px 50px 0 rgba(43,42,126,0.20);
   animation:cs-float 6.5s ease-in-out infinite;}
 .ap-stack .ap-badge{left:51.5%;top:10.7%;width:48.5%;z-index:1;
   border-radius:9px;box-shadow:0 14px 30px -10px rgba(20,20,61,.35);
