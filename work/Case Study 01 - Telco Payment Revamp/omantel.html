@@ -1062,7 +1062,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .feature-visual:has(.card-stack){min-width:0;justify-content:center;padding-top:4rem;}
 @media (max-width:900px){
   .feature-visual:has(.card-stack){justify-content:center;}
-  .card-stack{width:min(314px,82vw);margin:8% auto 4%;}
+  .card-stack{width:min(240px,60vw);margin:8% auto 4%;}
 }
 .feature:has(.card-stack){overflow-x:clip;}
 .feature:hover .card-stack{transform:translateY(-6px);}
@@ -1105,6 +1105,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 @media (max-width:900px){
   .sp-stack{width:min(500px,76vw);margin:12% auto 4%;}
   .feature:has(.sp-stack){padding-top:4rem;}
+  .sp-stack .sp-alert{width:140px;height:111px;}
 }
 @media (prefers-reduced-motion:reduce){.sp-stack img{animation:none;}}
 /* 01 The work: three real screens in device frames, side by side. */
@@ -1501,14 +1502,12 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
   .annot-note h3{display:flex;align-items:flex-start;gap:10px;text-wrap:initial;}
   .annot-note h3::before{
     content:attr(data-n);flex:none;
-    display:flex;align-items:center;justify-content:center;
-    width:24px;height:24px;border-radius:50%;
+    display:inline-block;
+    width:24px;height:24px;line-height:24px;
+    text-align:center;border-radius:50%;
     background:var(--orange-deep);color:#fff;
-    font-family:var(--sans);font-size:11px;font-weight:700;line-height:1;
+    font-family:var(--sans);font-size:11px;font-weight:700;
     margin-top:3px;}
-
-  /* --- card-stack: stop card-front cropping on narrow viewports ------ */
-  .card-stack .card-front{left:2%;}
 
   /* --- impact numbers and stat band ------------------------------ */
   .impact,.stage-stats,.outcomes-grid{grid-template-columns:1fr !important;}
