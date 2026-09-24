@@ -1094,11 +1094,13 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
   animation:cs-float-b 7s ease-in-out infinite;animation-delay:-2s;}
 .sp-stack .sp-alert{left:-21.5%;top:-41.4%;width:78.8%;z-index:2;border-radius:1.25rem;
   animation:cs-float 5.5s ease-in-out infinite;}
-.feature-visual:has(.sp-stack){min-width:0;padding-top:3rem;}
-.feature:has(.sp-stack){overflow-x:clip;}
+/* sp-alert overflows -99px above the sp-stack container; section padding absorbs it.
+   feature-visual has no extra padding — align-items:center handles centering. */
+.feature-visual:has(.sp-stack){min-width:0;}
+.feature:has(.sp-stack){overflow-x:clip;padding-top:5rem;}
 @media (max-width:900px){
   .sp-stack{width:min(500px,76vw);margin:12% auto 4%;}
-  .feature-visual:has(.sp-stack){padding-top:0;}
+  .feature:has(.sp-stack){padding-top:2rem;}
 }
 @media (prefers-reduced-motion:reduce){.sp-stack img{animation:none;}}
 /* 01 The work: three real screens in device frames, side by side. */
