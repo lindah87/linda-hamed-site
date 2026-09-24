@@ -1044,24 +1044,24 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 @keyframes cs-float{0%,100%{transform:translate3d(0,0,0);}50%{transform:translate3d(0,-10px,0);}}
 @keyframes cs-float-b{0%,100%{transform:translate3d(0,0,0);}50%{transform:translate3d(0,8px,0);}}
 @keyframes cs-float-c{0%,100%{transform:translate3d(0,0,0) rotate(0deg);}50%{transform:translate3d(0,-6px,0) rotate(-4deg);}}
-.card-stack .card-front{animation:cs-float 6s ease-in-out infinite;will-change:transform;}
-.card-stack .card-back{animation:cs-float-b 7.5s ease-in-out infinite;animation-delay:-2s;will-change:transform;}
-.card-stack .card-check{animation:cs-float-c 5s ease-in-out infinite;animation-delay:-1s;will-change:transform;}
-@media (prefers-reduced-motion:reduce){.card-stack img{animation:none;}}
+/* Each card sits in a wrapper (overflow:hidden) so object-fit:cover crops the
+   Figma shadow padding. Cards stack diagonally: front left-top, back right-bottom. */
+.cs-card{position:absolute;border-radius:1.25rem;overflow:hidden;width:68%;aspect-ratio:370/260;}
+.cs-card img{display:block;width:100%;height:100%;object-fit:cover;object-position:center center;}
+.cs-front{left:0;top:0;z-index:2;
+  box-shadow:0 4px 60px rgba(206,83,32,0.15);
+  animation:cs-float 6s ease-in-out infinite;will-change:transform;}
+.cs-back{left:32%;top:30%;z-index:1;
+  box-shadow:0 8px 40px rgba(0,0,0,0.09);
+  animation:cs-float-b 7.5s ease-in-out infinite;animation-delay:-2s;will-change:transform;}
+.card-stack .card-check{position:absolute;right:-2%;top:4%;width:17%;height:auto;z-index:3;
+  animation:cs-float-c 5s ease-in-out infinite;animation-delay:-1s;will-change:transform;}
+@media (prefers-reduced-motion:reduce){.cs-card,.card-stack .card-check{animation:none;}}
 .feature-visual:has(.card-stack){min-width:0;justify-content:center;padding-top:4rem;}
 @media (max-width:900px){
   .feature-visual:has(.card-stack){justify-content:center;}
   .card-stack{width:min(392px,82vw);margin:8% auto 4%;}
 }
-/* PNGs carry their own Figma shadow padding, so each image is placed by its
-   visible card rect: values are % of the two-card group (644 x 410). */
-.card-stack img{position:absolute;display:block;height:auto;max-width:none;}
-.card-stack .card-back{left:-2.28%;top:-21.0%;width:126.35%;}
-.card-stack .card-front{left:-18.46%;top:-27.88%;width:100.87%;z-index:1;
-  border-radius:1.25rem;
-  border:5px solid rgba(234,110,0,0.05);
-  box-shadow:0 4px 100px 0 rgba(206,83,32,0.15);}
-.card-stack .card-check{left:70.96%;top:22.93%;width:10.87%;z-index:2;}
 .feature:has(.card-stack){overflow-x:clip;}
 .feature:hover .card-stack{transform:translateY(-6px);}
 /* Autopay: settings card + floating "active" badge. % of the visible group
@@ -1867,10 +1867,14 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     </div>
     <div class="feature-visual rev">
         <div class="card-stack">
-          <img class="card-back" src="img/Card 03 2.png" style="border-radius:1.25rem;"
-               alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <img class="card-front" src="img/Card 5.png" width="1683" height="1284" style="width:100%;height:100%;border-radius:20px;"
-               alt="Two bills grouped by phone number, each showing the billing month, total due and a link to the invoice PDF." loading="lazy" decoding="async">
+          <div class="cs-card cs-back">
+            <img src="img/Card 2.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          </div>
+          <div class="cs-card cs-front">
+            <img src="img/Card 5.png"
+                 alt="Two bills grouped by phone number, each showing the billing month, total due and a link to the invoice PDF."
+                 loading="lazy" decoding="async">
+          </div>
           <img class="card-check" src="img/Checkboxd 1.png" width="180" height="180"
                alt="" aria-hidden="true" loading="lazy" decoding="async">
         </div>
