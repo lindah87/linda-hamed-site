@@ -1199,6 +1199,8 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
   .nav-links li.nav-pill-li + li{margin-left:0!important;}
   .nav-links{gap:18px;}
   .nav-links a{padding-top:12px;padding-bottom:12px;}
+  /* underline stays close to the word, not the nav bar bottom */
+  .nav-links a.is-active::after{bottom:4px;}
   .nav-links li:last-child a.nav-talk{height:42px;padding:0 18px;}
   .nav-logo{padding:10px 0;}
   /* the sliding label pair has to track the taller button */
@@ -1483,13 +1485,30 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
   .annot-note{position:static !important;width:100%;max-width:420px;
     top:auto !important;right:auto !important;left:auto !important;}
   .annot-note::after{display:none;}
-  .annot-marker{display:none;}
+  /* keep orange number circles on the phone image on mobile */
+  /* annot-marker stays visible — display:none removed */
   .cin{--overhang:0px;}
 
   /* --- footer: stack the next-link and the button ---------------- */
   .foot-next{flex-direction:column;align-items:flex-start;gap:22px;}
   .foot-next .btn{margin-top:0;}
   .foot-bar{flex-direction:column;align-items:flex-start;gap:14px;}
+
+  /* --- back-to-top: pull in from right so it clears the screen edge -- */
+  .back-top{right:1rem;}
+
+  /* --- annot circles: orange badge left-aligned with note headings --- */
+  .annot-note h3{display:flex;align-items:flex-start;gap:10px;text-wrap:initial;}
+  .annot-note h3::before{
+    content:attr(data-n);flex:none;
+    display:flex;align-items:center;justify-content:center;
+    width:24px;height:24px;border-radius:50%;
+    background:var(--orange-deep);color:#fff;
+    font-family:var(--sans);font-size:11px;font-weight:700;line-height:1;
+    margin-top:3px;}
+
+  /* --- card-stack: stop card-front cropping on narrow viewports ------ */
+  .card-stack .card-front{left:2%;}
 
   /* --- impact numbers and stat band ------------------------------ */
   .impact,.stage-stats,.outcomes-grid{grid-template-columns:1fr !important;}
