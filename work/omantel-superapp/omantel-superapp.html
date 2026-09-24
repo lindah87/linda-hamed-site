@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Redesigning Telco Bill Payment for a Super App · Linda Hamed</title>
-<meta name="description" content="Act 1: From a fragmented telco billing experience to a trust-first payment system that drives self-service adoption and retention.">
+<title>All-in-One Bill Payment · Linda Hamed</title>
+<meta name="description" content="Act 2: Scaling a trust-first payment model across every bill a customer manages — electricity, water, ROP fines and telco — without passing the complexity on to them.">
 
 <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='4' fill='%23F5ECD8'/%3E%3Ctext x='3' y='24' font-family='Georgia%2C serif' font-size='20' font-weight='400' font-style='italic' fill='%232B2A7E' letter-spacing='-1'%3Elh.%3C/text%3E%3C/svg%3E">
 
@@ -35,7 +35,9 @@
 
 <style>
 /* ═══════════════════════════════════════════════════════════════════
-   OMANTEL - ACT 1 · Case study
+   OMANTEL - ACT 2 · Case study
+   Stylesheet inherited verbatim from Act 1 (work/omantel/omantel.html).
+   Keep the two files in sync: fix a rule here, fix it there.
    Design system inherited from the homepage. No new hues.
    Structure: four movements. Density decelerates as contrast rises -
    tight and numeric at the top, open and quiet in the middle, and
@@ -1062,8 +1064,9 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 }
 .feature:has(.card-stack){overflow-x:clip;}
 .feature:hover .card-stack{transform:translateY(-6px);}
-/* Autopay: settings card + floating "active" badge. % of the visible group
-   (590 x 366); the card PNG carries shadow padding, so it's offset out. */
+/* Bill detail card + floating status badge. % of the visible group
+   (590 x 366); the card PNG carries shadow padding, so it's offset out.
+   Offsets are tuned to Act 1's exports — re-check once Act 2 art lands. */
 .ap-wrap{position:relative;width:clamp(216px,26.6vw,383px);
   margin-right:clamp(0px,2vw,32px);}
 .ap-stack{position:relative;width:100%;aspect-ratio:383/270;
@@ -1080,7 +1083,8 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .feature-body .hl{color:#EA3323;font-weight:600;}
 @media (max-width:900px){.ap-wrap{width:min(383px,82vw);margin:10% auto 4%;}}
 @media (prefers-reduced-motion:reduce){.ap-stack img{animation:none;}}
-/* Suspension: bill card with alert overlapping its top-left.
+/* Ecosystem card with a second card overlapping its top-left. Geometry below is
+   measured from Act 1's exports and must be re-tuned for Act 2's art.
    Card 02.png 987×555 (minimal shadow). Suspension Alert.png 1835×1660 — actual red card
    occupies ~730×515px centred in a large glow blob; shadow-left≈560px, shadow-top≈285px.
    At width:170% (816px CSS, scale≈0.445): visible card ≈325px wide, ~229px tall.
@@ -1664,33 +1668,33 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 
 <!-- ════ MOVEMENT 1 - dense, numeric ════════════════════════════════ -->
 <div class="hero-cover" aria-hidden="false">
-  <img src="img/0058_MS_IPHONE.jpg" fetchpriority="high" decoding="async"
-       alt="An iPhone showing the Omantel bill payment app resting on a concrete surface">
+  <img src="img/hero-cover.jpg" fetchpriority="high" decoding="async"
+       alt="The Omantel super app bill payment experience shown across several iPhone screens">
 </div>
 <section class="hero">
   <div class="wrap">
 
     <div class="hero-copy">
     <div class="hero-eyebrow">
-      <p class="eyebrow hero-kicker">Omantel <span style="color:#F48668">|</span> CEP Super App <span style="color:#F48668">|</span> Act 1</p>
+      <p class="eyebrow hero-kicker">Omantel <span style="color:#F48668">|</span> CEP Super App <span style="color:#F48668">|</span> Act 2</p>
     </div>
 
-    <h1>Redesigning Telco Bill Payment for a Super App</h1>
+    <h1>All-in-One Bill Payment</h1>
 
-    <p class="hero-deck">The redesign that became the foundation for Omantel’s Super App.</p>
+    <p class="hero-deck">The services existed. The adoption didn’t. Electricity, water and ROP payments were already available inside the app. Very few customers used them.</p>
 
     <dl class="meta">
       <div><dt style="font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.08em;">Role</dt><dd style="font-family: 'Manrope', sans-serif; font-weight: 400; letter-spacing: 0;">Head of UX/UI</dd></div>
       <div><dt style="font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.08em;">Platform</dt><dd style="font-family: 'Manrope', sans-serif; font-weight: 400; letter-spacing: 0;">Omantel Super App</dd></div>
-      <div><dt style="font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.08em;">Timeline</dt><dd style="font-family: 'Manrope', sans-serif; font-weight: 400; letter-spacing: 0;">Q2 2024</dd></div>
-      <div><dt style="font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.08em;">Impact area</dt><dd style="font-family: 'Manrope', sans-serif; font-weight: 400; letter-spacing: 0;">Retention</dd></div>
+      <div><dt style="font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.08em;">Status</dt><dd style="font-family: 'Manrope', sans-serif; font-weight: 400; letter-spacing: 0;">Live</dd></div>
+      <div><dt style="font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.08em;">Scope</dt><dd style="font-family: 'Manrope', sans-serif; font-weight: 400; letter-spacing: 0;">Electricity · Water · ROP Fines</dd></div>
     </dl>
 
     <div class="topline rev">
-      <div><span class="n">9<span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>5</span><span class="l">screens to pay a bill, a 44% reduction</span></div>
-      <div><span class="n">4<span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>1</span><span class="l">payment journeys to maintain, down 75%</span></div>
-      <div><span class="n">7</span><span class="l">new features added where there were none</span></div>
-      <div><span class="n">4<span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>2</span><span class="l">levels of navigation depth, halved</span></div>
+      <div><span class="n">8,002</span><span class="l">utility transactions in the first 30 days</span></div>
+      <div><span class="n">3–4×</span><span class="l">increase versus fragmented journeys</span></div>
+      <div><span class="n">44%</span><span class="l">increase in electricity payments</span></div>
+      <div><span class="n">4<span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>1</span><span class="l">bill types in one place: electricity, water, ROP and telco</span></div>
     </div>
     </div><!-- /hero-copy -->
   </div>
@@ -1699,7 +1703,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 <!-- ════ provocation ═══════════════════════════════════════════════ -->
 <section class="prov">
   <div class="prov-inner rev">
-    <p class="prov-quote">Bill payment is the highest-frequency, highest-stakes interaction in the telco relationship. <span class="prov-strong">It is the moment where trust is either built or broken.</span></p>
+    <p class="prov-quote">All-in-one bill payment rarely fails because of vision. <span class="prov-strong">It fails because complexity accumulates quietly over time, and no single team owns the full picture.</span></p>
   </div>
 </section>
 
@@ -1710,19 +1714,21 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rail-grid work-grid">
     <div class="sec-head rev">
       <span class="sec-num">01</span>
-      <h2>The work</h2>
-      <p class="lede rev">Before we dive into the details, these are some of the main screens
-        in the hands of our users today.</p>
+      <h2>Before we start</h2>
+      <p class="lede rev">This story starts where Act 1 ended. The Telco Revamp established a
+        trust-first payment model, a common interaction pattern and a single place to manage bills.
+        Act 2 asked a different question: could the same model scale across every bill a customer
+        manages?</p>
     </div>
 
     <div class="rev rail-body">
       <div class="work-phones">
-        <img src="img/Work - Screen1.png" width="732" height="1500" loading="lazy" decoding="async"
-             alt="Omantel bills screen: an autopay prompt, two bills with one selected, and a Confirm and pay bar showing OMR 49.33.">
-        <img src="img/Work - Screen2.png" width="732" height="1500" loading="lazy" decoding="async"
-             alt="Autopay settings for one account: a payment limit being set with quick amounts of OMR 5, 10 and 20 above the keypad.">
-        <img src="img/Work - Screen3.png" width="732" height="1500" loading="lazy" decoding="async"
-             alt="Auto payments overview: a saved payment card, one account with autopay active and one inactive.">
+        <img src="img/work-01-bill-overview.png" width="675" height="1389" loading="lazy" decoding="async"
+             alt="Bill overview screen: every outstanding bill in one list with a single total and a Pay bill bar.">
+        <img src="img/work-02-bill-details.png" width="675" height="1389" loading="lazy" decoding="async"
+             alt="Bill detail screen: a single bill broken down into charges before payment is confirmed.">
+        <img src="img/work-03-payment-success.png" width="675" height="1389" loading="lazy" decoding="async"
+             alt="Confirmation screen: the payment marked as complete with a per-bill status and a sticky done action.">
       </div>
     </div>
     </div><!-- /rail-grid 01 -->
@@ -1730,74 +1736,86 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rail-grid problem-grid" style="margin-top:76px;">
     <div class="sec-head rev">
       <span class="sec-num">02</span>
-      <h2>The Problem: What the data told us</h2>
+      <h2>The gap</h2>
     </div>
 
     <div class="method rev rail-body">
       <div class="prose">
-        <p class="body">To understand how customers actually interact with billing, we ran usability
-          testing using a think-aloud qualitative method across key Omantel customer segments. We
-          discovered the problem wasn't just usability. It was confidence.</p>
-        <p class="body" style="margin:0;">Participants completed real payment tasks while verbalising
-          their thoughts, which let the team identify friction points and mental-model mismatches
-          rather than opinions.</p>
+        <p class="body">Customers weren't paying one bill. They were managing multiple bills across
+          multiple systems. Each service had a different path, a different payment flow and a
+          different source of truth.</p>
+        <p class="body" style="margin:0;">The result wasn't complexity in the product. It was
+          complexity in the customer's head. Which bill is due? Have I already paid it? Where do I
+          go next? Why can't I see everything in one place? We weren't solving a payment problem.
+          We were solving a mental-model problem.</p>
       </div>
 
       <div class="segments">
-        <span class="sub-label">Segments prioritised</span>
+        <span class="sub-label">Bills spread across systems</span>
         <div class="tag-row">
-          <span class="tag">Digital Natives</span>
-          <span class="tag">Prominent Omanis</span>
+          <span class="tag">Mobile services</span>
+          <span class="tag">Home broadband</span>
+          <span class="tag">Fixed line</span>
+          <span class="tag">Additional subscriptions</span>
         </div>
-        <p class="body prose" style="margin:0;">Both groups represent significant portions of the
-          user base and sit at opposite ends of comfort with digital payments.</p>
+        <p class="body prose" style="margin:0;">Four separate journeys, each with its own rules,
+          for what the customer experienced as a single obligation.</p>
       </div>
     </div>
     </div><!-- /rail-grid 02 -->
 
     <div class="findings-layout">
       <div class="sec-head stacked rev findings-intro" style="margin-top:0;">
-        <h2 class="findings-title" style="margin:0;">Three findings that shaped everything</h2>
+        <h2 class="findings-title" style="margin:0;">What people really wanted</h2>
       </div>
 
       <div class="findings">
         <article class="finding rev">
           <div class="finding-plate">
             <div class="finding-img">
-              <img src="img/findings-01-trust-deficit.webp" width="1280" height="800" alt="An Omani customer reviewing a list of his mobile lines on his phone, each line labelled by person and phone number" loading="lazy" decoding="async">
+              <img src="img/need-01-know-what-i-owe.png" width="1280" height="800" alt="Illustration of a single itemised bill summary resolving into one total" loading="lazy" decoding="async">
             </div>
           </div>
           <div>
-            <h3>Customers were being asked to pay before they felt confident enough to do so.</h3>
-            <p>Without a
-              clear opportunity to verify the payment, many hesitated or abandoned the
-              transaction altogether.</p>
+            <h3>Know what I owe.</h3>
+            <p>One accurate total across every bill, rather than a figure the customer has to
+              assemble themselves from four different places.</p>
           </div>
         </article>
         <article class="finding rev">
           <div class="finding-plate">
             <div class="finding-img">
-              <img src="img/findings-02-mental-model.webp" width="1280" height="800" alt="An Omani customer pausing with a hand to his chin, weighing up a confirmation screen on his phone before completing it" loading="lazy" decoding="async">
+              <img src="img/need-02-stay-in-control.png" width="1280" height="800" alt="Illustration of a payment toggle letting a customer choose which bills to settle" loading="lazy" decoding="async">
             </div>
           </div>
           <div>
-            <h3>Users thought in phone numbers. The system thought in account numbers.</h3>
-            <p>People manage
-              multiple lines by person, not by account. Autopay belonged in settings, not Quick
-              Actions. Every navigation decision had been made for the system, not the user.</p>
+            <h3>Stay in control.</h3>
+            <p>Decide what, when and how to pay. Some people pay what is urgent, some pay what they
+              can afford, some split payments between salary cycles.</p>
           </div>
         </article>
         <article class="finding rev">
           <div class="finding-plate">
             <div class="finding-img">
-              <img src="img/findings-03-segment-anxiety.webp" width="1280" height="800" alt="An Omani customer standing in his living room on a call to the contact centre, gesturing as he explains a problem" loading="lazy" decoding="async">
+              <img src="img/need-03-move-on-with-life.png" width="1280" height="800" alt="Illustration of a payment confirmation marking a transaction as complete" loading="lazy" decoding="async">
             </div>
           </div>
           <div>
-            <h3>High-value customers were the quickest to abandon self-service.</h3>
-            <p>Prominent Omanis, the highest-value segment. Status labels were incomprehensible, security cues absent, OTP-less Quick Pay felt
-              like a vulnerability. Every friction point here is a call centre cost and a churn
-              risk.</p>
+            <h3>Move on with life.</h3>
+            <p>Finish quickly and feel confident it's done. A payment is complete when the person
+              believes it is, not when the system finishes processing.</p>
+          </div>
+        </article>
+        <article class="finding rev">
+          <div class="finding-plate">
+            <div class="finding-img">
+              <img src="img/need-04-avoid-surprises.png" width="1280" height="800" alt="Illustration of a transparent bill status showing what is due, paid and outstanding" loading="lazy" decoding="async">
+            </div>
+          </div>
+          <div>
+            <h3>Avoid surprises.</h3>
+            <p>Know what's due, what's paid and what needs attention, without having to check four
+              separate places to be sure.</p>
           </div>
         </article>
       </div>
@@ -1811,31 +1829,31 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rail-grid">
       <div class="sec-head rev">
         <span class="sec-num">03</span>
-        <h2>Principles behind our decisions</h2>
-        <p class="lede rev">Every design decision had to satisfy four principles
-          tied directly to trust, adoption, and retention outcomes.</p>
+        <h2>The principle</h2>
+        <p class="lede rev">One place. One action. One clear outcome. People shouldn't have to
+          understand categories, bill types or provider relationships. They should know exactly
+          what they owe, what they're paying, and whether it worked. Everything else is the
+          platform's problem.</p>
       </div>
       <div class="rail-body">
         <div class="principles rev">
       <div class="principle">
-        <h3><span class="p-ul">Trust before action</span></h3>
-        <p>Users must understand a charge before committing to it. Every payment interaction
-          increases transparency before action.</p>
+        <h3><span class="p-ul">Everything in one view</span></h3>
+        <p>One view. One total. One decision. Customers don't think in services, they think in
+          obligations. Bringing every bill into one place stopped the experience asking customers
+          to manage complexity that wasn't theirs to carry.</p>
       </div>
       <div class="principle">
-        <h3><span class="p-ul">Speak the customer's language</span></h3>
-        <p>Information architecture follows user mental models, grouping bills by phone number
-          rather than internal account structures.</p>
+        <h3><span class="p-ul">Control without complexity</span></h3>
+        <p>The experience needed to support real-life financial behaviour without turning bill
+          payment into a puzzle. Customers decide what to pay. The system handles the complexity
+          behind the scenes.</p>
       </div>
       <div class="principle">
-        <h3><span class="p-ul">Control reduces anxiety</span></h3>
-        <p>Giving users control over payment behaviour reduces anxiety and increases
-          adoption.</p>
-      </div>
-      <div class="principle">
-        <h3><span class="p-ul">Proactive over reactive</span></h3>
-        <p>The platform should surface risks early, helping users act before problems become
-          support calls.</p>
+        <h3><span class="p-ul">Success that feels finished</span></h3>
+        <p>A payment isn't complete when the system finishes processing. It's complete when the
+          person feels confident it's done. Every bill carries its own status — paid, processing
+          or failed. No guessing. No second-guessing.</p>
       </div>
         </div>
       </div>
@@ -1847,17 +1865,16 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 <!-- ════ showcase - the work itself ════════════════════════════════ -->
 <section class="cin">
   <div class="wrap">
-    <p class="cin-label rev">The bill, before the ask</p>
-    <h2 class="cin-h rev">Your bill. <em>Before</em> your confirmation.</h2>
+    <p class="cin-label rev">Every bill, one place</p>
+    <h2 class="cin-h rev">One view. <em>One</em> total. One decision.</h2>
 
     <div class="annot rev">
       <div class="phone-shell">
         <div class="phone-notch"></div>
         <div class="phone-imgwrap">
-          <img class="phone-img" src="img/Iphone.png" width="1294" height="2656"
-               alt="The Omantel bills screen: an autopay prompt, a select-all row, then two bill cards, each showing the billing month, the amount due and a link to the invoice PDF. A bar fixed to the bottom shows an editable total above a Confirm and pay button." loading="lazy" decoding="async">
-          <!-- anchors measured off the screenshot itself: the select-all
-               checkbox, card one's total due row, and the editable total -->
+          <img class="phone-img" src="img/showcase-unified-bills.png" width="1294" height="2656"
+               alt="The unified bills screen: electricity, water, ROP fines and telco bills listed together, each with its own status, above a single running total and one Pay bill action." loading="lazy" decoding="async">
+          <!-- marker positions must be re-measured against the final export -->
           <span class="annot-marker marker-left" style="top:28.6%">1</span>
           <span class="annot-marker" style="top:44.0%">2</span>
           <span class="annot-marker" style="top:78.0%">3</span>
@@ -1865,16 +1882,16 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
       </div>
 
       <div class="annot-note left" style="top:28.6%">
-        <h3 data-n="1">Two bills, one payment</h3>
-        <p>A mobile bill and a home line sit in one list under one total, instead of being paid one at a time.</p>
+        <h3 data-n="1">Every bill in one list</h3>
+        <p>Electricity, water, ROP fines and telco sit together, so the customer never has to remember which system holds which bill.</p>
       </div>
       <div class="annot-note right" style="top:44.0%">
-        <h3 data-n="2">See what you owe first</h3>
-        <p>Each bill shows the month, the amount, and a copy of the invoice. You confirm after that, not before.</p>
+        <h3 data-n="2">Pay what you choose</h3>
+        <p>Some people pay what is urgent, some pay what they can afford. Selecting bills individually supports how money actually moves.</p>
       </div>
       <div class="annot-note right" style="top:78.0%">
-        <h3 data-n="3">Edit the total before you pay</h3>
-        <p>The amount adds up as you tick bills, and you can still change it at the last step.</p>
+        <h3 data-n="3">One total, one action</h3>
+        <p>The total adds up as bills are selected, and a single confirmation settles all of them at once.</p>
       </div>
     </div>
   </div>
@@ -1884,22 +1901,24 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 <section class="feature sec">
   <div class="wrap feature-inner">
     <div class="feature-copy rev">
-      <h2 class="feature-h">The user shouldn't have to know what an account number is.</h2>
-      <p class="feature-body">Bills are now grouped by the identifier users actually know: their
-        phone number. The hierarchy shows what you owe, why, and when, in that order. No codes,
-        no backend jargon surfacing in the UI.</p>
-      <p class="feature-body">This required a data architecture change. Engineering pushed back.
-        I drove the conversation with user evidence, not design preference, and it shipped.</p>
-      <p class="feature-detail"><span>Phone number navigation</span><span>JTBD mapping</span><span>Engineering alignment</span></p>
+      <h2 class="feature-h">Customers don't think in services. They think in obligations.</h2>
+      <p class="feature-body">Electricity, water, ROP fines and telco had each been designed
+        independently, with different rules, different workflows and different technical
+        constraints. Each one made sense on its own. None had been designed to work together.</p>
+      <p class="feature-body">The challenge wasn't exposing that complexity.
+        <strong class="hl">It was absorbing it on behalf of customers.</strong> Every new bill type
+        increased complexity for the platform. The design work was making sure it never increased
+        for the person paying.</p>
+      <p class="feature-detail"><span>Unified bill model</span><span>Cross-provider alignment</span><span>One mental model</span></p>
     </div>
     <div class="feature-visual rev">
         <div class="card-stack">
-          <img class="card-back" src="img/Card 2.png"
+          <img class="card-back" src="img/feature-01-card-back.png"
                alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <img class="card-front" src="img/Card 5.png"
-               alt="Two bills grouped by phone number, each showing the billing month, total due and a link to the invoice PDF."
+          <img class="card-front" src="img/feature-01-card-front.png"
+               alt="Bills from several different providers grouped into a single list, each showing its provider, amount due and status."
                loading="lazy" decoding="async">
-          <img class="card-check" src="img/Checkboxd 1.png" width="180" height="180"
+          <img class="card-check" src="img/feature-01-check.png" width="180" height="180"
                alt="" aria-hidden="true" loading="lazy" decoding="async">
         </div>
       </div>
@@ -1911,22 +1930,22 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="feature-visual rev">
       <div class="ap-wrap">
         <div class="ap-stack">
-          <img class="ap-card" src="img/Card 01.png" width="1764" height="1425"
-               alt="Autopay settings for one account: an auto payment limit of OMR 48.00 and a payment date of the 5th of every month." loading="lazy" decoding="async">
+          <img class="ap-card" src="img/feature-02-bill-details.png" width="1764" height="1425"
+               alt="A single bill opened out into its individual charges, with the amount due and its current status." loading="lazy" decoding="async">
         </div>
-        <img class="ap-badge" src="img/Autopay Badge.png" width="2110" height="440"
+        <img class="ap-badge" src="img/feature-02-status-badge.png" width="2110" height="440"
              alt="" aria-hidden="true" loading="lazy" decoding="async">
       </div>
     </div>
     <div class="feature-copy rev">
-      <h2 class="feature-h">Set it once. Sleep through the due date.</h2>
-      <p class="feature-body">Autopay adoption was the highest-value retention lever. But it
-        required trust the previous flow hadn't earned. Users who feel exposed don't opt in,
-        they call the contact centre instead.</p>
-      <p class="feature-body">The redesign gives each phone number its own toggle, spending cap
-        and schedule. <strong class="hl">Control was the trust mechanism.</strong> When people feel in control,
-        they commit.</p>
-      <p class="feature-detail"><span>Per-number autopay</span><span>Spending caps</span><span>Flexible scheduling</span></p>
+      <h2 class="feature-h">A payment is finished when the person believes it is.</h2>
+      <p class="feature-body">A payment isn't complete when the system finishes processing. Paying
+        four bills at once creates four ways for a customer to be left wondering whether it
+        actually worked.</p>
+      <p class="feature-body">So every bill carries its own status — paid, processing or failed —
+        rather than one summary that hides what happened.
+        <strong class="hl">No guessing. No second-guessing.</strong></p>
+      <p class="feature-detail"><span>Per-bill status</span><span>Partial payment</span><span>Failure recovery</span></p>
     </div>
   </div>
 </section>
@@ -1934,21 +1953,21 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 <section class="feature sec">
   <div class="wrap feature-inner">
     <div class="feature-copy rev">
-      <h2 class="feature-h">Suspension shouldn't arrive as a surprise.</h2>
-      <p class="feature-body">Pre-suspension warnings and minimum payment alerts now surface
-        before a crisis, not during one. <strong class="hl">The moment of panic becomes a moment of action.</strong> The user
-        acts early. The contact centre stays quiet.</p>
-      <p class="feature-body">Proactive design isn't a feature, it's a signal that the platform
-        understands what the user needs before they know they need it. That's the distance
-        between a utility app and a trusted platform.</p>
-      <p class="feature-detail"><span>Proactive alerts</span><span>Minimum payment</span><span>Call deflection</span></p>
+      <h2 class="feature-h">Expansion without breaking trust.</h2>
+      <p class="feature-body">Adding new services was never the challenge. The challenge was
+        expanding the ecosystem without forcing customers to learn a new experience every time.</p>
+      <p class="feature-body">The foundation allows new bill types, partners and future services
+        to plug into the same mental model customers already understand.
+        <strong class="hl">Customers gain simplicity. The business gains flexibility.</strong> The
+        platform can keep growing without increasing cognitive load.</p>
+      <p class="feature-detail"><span>Extensible model</span><span>Partner services</span><span>Repeatable pattern</span></p>
     </div>
     <div class="feature-visual rev">
       <div class="sp-stack">
-        <img class="sp-card" src="img/Card 02.png" width="987" height="555"
-             alt="A bill card showing a total due of OMR 49.33 with a Pay now button." loading="lazy" decoding="async">
-        <img class="sp-alert" src="img/alert-card-clean.png" width="835" height="660"
-             alt="An alert reading: Please pay your closed account bills, with a Pay now button." loading="lazy" decoding="async">
+        <img class="sp-card" src="img/feature-03-ecosystem.png" width="987" height="555"
+             alt="Future services radiating from the bill payment core: education, visa services, car services, cinema, ride hailing and travel." loading="lazy" decoding="async">
+        <img class="sp-alert" src="img/feature-03-service-card.png" width="835" height="660"
+             alt="A new service category joining the platform using the same payment pattern customers already know." loading="lazy" decoding="async">
       </div>
     </div>
   </div>
@@ -1959,73 +1978,61 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rail-grid">
       <div class="sec-head rev">
         <span class="sec-num">04</span>
-        <h2>Designing the solution</h2>
-        <p class="lede rev">The billing experience was rebuilt across three
-          layers, discoverability architecture, billing information architecture, and the payment
-          interaction model.</p>
+        <h2>What made this hard</h2>
+        <p class="lede rev">Every provider had been designed independently. Each one made sense on
+          its own. None of them had been designed to work together.</p>
       </div>
       <div class="rail-body">
 
     <div class="moves">
       <article class="move rev">
         <span class="idx">01</span>
-        <h3>Discoverability architecture</h3>
-        <p>Billing became accessible wherever users naturally expected it:</p>
+        <h3>Four providers, four sets of rules</h3>
+        <p>Electricity, water, ROP fines and telco each arrived with their own logic:</p>
         <ul>
-          <li>Home screen Quick Pay</li>
-          <li>Home screen AutoPay</li>
-          <li>Profile<span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Payments</li>
-          <li>Account level actions</li>
-          <li>Contextual plan prompts</li>
+          <li>Different billing cycles</li>
+          <li>Different identifiers</li>
+          <li>Different validation rules</li>
+          <li>Different failure states</li>
+          <li>Different sources of truth</li>
         </ul>
+        <p>None of it was wrong. It had simply never been designed to sit in one list.</p>
       </article>
       <article class="move rev">
         <span class="idx">02</span>
-        <h3>Bills organised around the way people think</h3>
-        <p>Bills were restructured around phone numbers rather than account numbers. Information hierarchy prioritised:</p>
+        <h3>Absorbing complexity instead of exposing it</h3>
+        <p>The obvious route was to surface each provider's rules to the customer. We took the harder one:</p>
         <ul>
-          <li>Account status</li>
-          <li>Total due</li>
-          <li>Payment deadline</li>
-          <li>Service breakdown</li>
-          <li>Invoice details</li>
+          <li>One shared bill model</li>
+          <li>Provider logic held behind it</li>
+          <li>One interaction pattern across all types</li>
+          <li>Differences resolved by the platform</li>
         </ul>
-        <p>This removed a major cognitive barrier for multi-line customers.</p>
+        <p>Every new bill type increased complexity for us, never for the person paying.</p>
       </article>
       <article class="move rev">
         <span class="idx">03</span>
-        <h3>Trust-driven payment model</h3>
-        <p>Quick Pay was redesigned to balance speed with confidence. Key additions:</p>
+        <h3>Supporting how money actually moves</h3>
+        <p>People rarely pay everything at once. The model had to hold real financial behaviour:</p>
         <ul>
-          <li>Payment confirmation layer</li>
-          <li>Transaction breakdowns</li>
-          <li>Account-specific status indicators</li>
-          <li>Dedicated success and error states</li>
+          <li>Pay what is urgent</li>
+          <li>Pay what is affordable</li>
+          <li>Split across salary cycles</li>
+          <li>Pay on behalf of family members</li>
         </ul>
+        <p>Selection had to stay simple while the settlement behind it did not.</p>
       </article>
       <article class="move rev">
         <span class="idx">04</span>
-        <h3>Control and automation</h3>
-        <p>Autopay became configurable per phone number. Users can:</p>
+        <h3>Completion that survives multiple bills</h3>
+        <p>Paying four bills at once creates four ways to be left uncertain. Each one needed:</p>
         <ul>
-          <li>Set spending limits</li>
-          <li>Choose payment dates</li>
-          <li>Manage active plans</li>
-          <li>Adjust payment amounts</li>
+          <li>Its own status</li>
+          <li>Its own failure path</li>
+          <li>Partial success handled clearly</li>
+          <li>Recovery without starting again</li>
         </ul>
-        <p>Control became the mechanism for trust and adoption.</p>
-      </article>
-      <article class="move rev">
-        <span class="idx">05</span>
-        <h3>Scalable payment pattern</h3>
-        <p>A single payment framework was established across services. Included:</p>
-        <ul>
-          <li>Accessibility improvements</li>
-          <li>Standardised interaction model</li>
-          <li>Reusable payment flow</li>
-          <li>Consistent visual hierarchy</li>
-        </ul>
-        <p>This created a foundation reusable across future super app services.</p>
+        <p>A summary that hides what happened is not a confirmation.</p>
       </article>
     </div>
       </div>
@@ -2043,66 +2050,40 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
       <h2>Quantified impact</h2>
     </div>
 
-    <div class="impact">
-      <div class="pair rev">
-        <div class="half"><span class="st">Before</span><span class="fig">7–9</span><span class="unit">screens</span></div>
-        <div class="half"><span class="st">After</span><span class="fig">5</span><span class="unit">screens</span></div>
-        <div class="delta">↓ 44% fewer screens</div>
-      </div>
-      <div class="pair rev">
-        <div class="half"><span class="st">Before</span><span class="fig">4</span><span class="unit">journeys</span></div>
-        <div class="half"><span class="st">After</span><span class="fig">1</span><span class="unit">journey</span></div>
-        <div class="delta">↓ 75% fewer journeys</div>
-      </div>
-      <div class="pair rev">
-        <div class="half"><span class="st">Before</span><span class="fig">0</span><span class="unit">features</span></div>
-        <div class="half"><span class="st">After</span><span class="fig">7</span><span class="unit">features</span></div>
-        <div class="delta">↑ 7 new features added</div>
-      </div>
-      <div class="pair rev">
-        <div class="half"><span class="st">Before</span><span class="fig">3–4</span><span class="unit">levels</span></div>
-        <div class="half"><span class="st">After</span><span class="fig">1–2</span><span class="unit">levels</span></div>
-        <div class="delta">↓ 50% less depth</div>
-      </div>
-    </div>
-
-    <p class="impact-note rev">Note: screen counts based on flow analysis of Figma journeys.
-      Feature count reflects new sections added vs. existing.</p>
-
     <div class="stage-stats">
       <div class="rev">
-        <span class="stage-stat-n">5</span>
-        <p class="stage-stat-l">bill payment entry points introduced across the super app surface:
-          home, settings, post-plan, profile, account.</p>
+        <span class="stage-stat-n">8,002</span>
+        <p class="stage-stat-l">utility transactions in the first 30 days, through services that
+          had been available but barely used.</p>
       </div>
       <div class="rev">
-        <span class="stage-stat-n">7/10</span>
-        <p class="stage-stat-l">design quality benchmark set at CCO level. Every screen reviewed
-          against this bar before handoff.</p>
+        <span class="stage-stat-n">3–4×</span>
+        <p class="stage-stat-l">increase against the fragmented journeys these payments replaced.</p>
       </div>
       <div class="rev">
-        <span class="stage-stat-n">10</span>
-        <p class="stage-stat-l">design decisions, each traceable to a specific user research
-          finding. Nothing shipped on assumption.</p>
+        <span class="stage-stat-n">44%</span>
+        <p class="stage-stat-l">increase in electricity payments once they sat alongside every
+          other bill rather than in their own flow.</p>
       </div>
     </div>
+
+    <p class="impact-note rev">Note: figures cover the first 30 days after release, measured against
+      the equivalent period on the previous service-specific journeys.</p>
 
     <div class="led">
       <div class="rail-grid">
         <div class="sec-head rev">
           <span class="sec-num">06</span>
-          <h2>How I led this</h2>
-          <p class="lede rev">Strategic oversight and design leadership
-            across three interconnected workstreams, simultaneously.</p>
+          <h2>My role beyond the screens</h2>
+          <p class="lede rev">Most of the work sat between teams, not inside a file. Four provider
+            organisations, one customer outcome.</p>
         </div>
         <div class="rail-body">
           <ol>
-            <li class="rev"><b>Research strategy</b> Designed the research approach that uncovered why customers hesitated at the point of payment and where trust broke down.</li>
-            <li class="rev"><b>Evidence-led decisions</b> Used customer research to align stakeholders, validate priorities and guide every major design decision.</li>
-            <li class="rev"><b>Defining the MVP</b> Partnered with product teams to prioritise the highest-impact improvements and separate MVP from backlog.</li>
-            <li class="rev"><b>Aligning product and engineering</b> Led the shift from account-based to phone-number-based billing using customer evidence to challenge existing assumptions.</li>
-            <li class="rev"><b>Challenging business constraints</b> Surfaced customer-business trade-offs and helped prioritise policy-related improvements on the roadmap.</li>
-            <li class="rev"><b>Quality governance</b> Established the design principles, success criteria and review standards that governed every payment experience delivered within scope, ensuring consistency across teams and releases.</li>
+            <li class="rev"><b>Framing the problem</b> Everyone saw payment journeys. I saw a fragmentation problem. The work began by reframing service-specific experiences into a single customer outcome.</li>
+            <li class="rev"><b>Building alignment</b> Every provider came with different constraints, priorities and technical realities. My role was creating a consistent customer experience without forcing identical behaviour across fundamentally different services.</li>
+            <li class="rev"><b>Making trade-offs explicit</b> Some problems looked like UX problems. Many weren't. They were product policies, business decisions or technical constraints. Part of my role was making those trade-offs visible and keeping customer clarity as the decision-making lens.</li>
+            <li class="rev"><b>Protecting the experience</b> Expansion wasn't the challenge. Expansion without complexity was. As new services were introduced, maintaining consistency became as important as adding functionality.</li>
           </ol>
         </div>
       </div>
@@ -2114,9 +2095,9 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 <!-- ════ closer ════════════════════════════════════════════════════ -->
 <section class="closer sec">
   <div class="wrap">
-    <p class="closer-statement rev">This wasn't a payment flow redesign. It was proof that in a
-      super app, <em>every billing moment is a trust moment</em>.</p>
-    <p class="closer-sub rev">Trust isn't a UX metric. It's the foundation of retention. This redesign established the experience standard for future payment journeys across the super app.</p>
+    <p class="closer-statement rev">This wasn't a bill aggregation project. It was proof that
+      <em>complexity absorbed by design becomes confidence felt by customers</em>.</p>
+    <p class="closer-sub rev">The outcome was bigger than bill payment. It established a repeatable experience model the platform can keep growing into, without asking customers to learn it again each time.</p>
   </div>
 </section>
 
@@ -2127,7 +2108,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="foot-next">
       <div>
         <span class="k">Next</span>
-        <a href="../omantel-superapp/omantel-superapp.html" class="big">All-in-One Bill Payment<span class="fw-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span></a>
+        <a href="../../coming-soon.html" class="big">NEOM's Tourism Booking Hub<span class="fw-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span></a>
       </div>
       <a href="mailto:lindahamed@gmail.com" class="btn">Let's talk <span class="arw" data-dir="ne">↗</span></a>
     </div>
@@ -2297,13 +2278,14 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 
   /* 5 - build ledger */
   var LEDGER=[
-    'case study <b>Act 1</b> &middot; Omantel CEP',
-    'prompt &rarr; <b>"four movements: dense to open, quiet to loud"</b>',
+    'case study <b>Act 2</b> &middot; Omantel CEP',
+    'prompt &rarr; <b>"same system, new story: inherit, do not reinvent"</b>',
+    'built from <b>Act 1</b> &middot; same stylesheet, same components, same motion',
     'grid <b>9 : 7</b> &middot; asymmetric, reads as balanced',
     'contrast <b>AA pass</b> &middot; navy on cream 12.8:1',
     'note <b>every word on this page was written by a human. the layout was not.</b>',
-    'component <b>ImpactPair</b> &middot; the one form that doubles',
-    'source <b>CV_LindaHamed_2026</b> &middot; portfolio deck, 14pp',
+    'component reuse <b>&asymp;97%</b> &middot; one new modifier, zero new tokens',
+    'bill types <b>4 &rarr; 1</b> &middot; electricity, water, ROP, telco',
     'rhythm <b>76 &rarr; 150px</b> &middot; sections open as you descend',
     'layout shifts <b>0</b> &middot; CLS clean'
   ];
