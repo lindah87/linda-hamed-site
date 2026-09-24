@@ -11,9 +11,8 @@ frame `4466:76299` (Hero Section).
 |---|---|---|
 | `hero-cover.jpg` | `4466:76778` | Full-bleed hero cover. Export ~2880px wide, JPEG. |
 | `work-01-bill-overview.png` | `4466:76404` | Phone 1 — unified bill overview |
-| `work-02-select-accounts.png` | `4466:76409` | Phone 2 — account / phone-number selection |
-| `work-03-bill-details.png` | `4466:76525` | Phone 3 — bill detail |
-| `work-04-payment-success.png` | `4466:76529` | Phone 4 — success state |
+| `work-02-bill-details.png` | `4466:76525` | Phone 2 — bill detail |
+| `work-03-payment-success.png` | `4466:76529` | Phone 3 — success state |
 | `need-01-know-what-i-owe.png` | `4466:76721` | Fintech bill illustration |
 | `need-02-stay-in-control.png` | `4466:76724` | Payment toggle illustration |
 | `need-03-move-on-with-life.png` | `4466:76722` | Payment confirmation illustration |
@@ -26,6 +25,12 @@ frame `4466:76299` (Hero Section).
 | `feature-02-status-badge.png` | `4466:76738` | Inline status badge |
 | `feature-03-ecosystem.png` | `4466:76742` | Future-services ecosystem graphic |
 | `feature-03-service-card.png` | `4466:76736` | Single service category card |
+
+Figma node `4466:76409` (the account / phone-number selection screen) is
+deliberately not used. Act 1's `.work-phones` is a three-up grid; a fourth
+screen squeezed each one to 181px at 1440px and 139px at 1024px, too small to
+read. Three screens carry the same story at Act 1's scale, and the page needs
+no extra CSS as a result.
 
 ## After the exports land
 

@@ -1115,7 +1115,6 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .work-grid > .sec-head .lede{max-width:24ch;}
 @media (max-width:900px){.work-grid > .sec-head .lede{max-width:none;}}
 .work-phones{display:grid;grid-template-columns:repeat(3,minmax(0,322px));gap:clamp(14px,2.4vw,40px);align-items:start;justify-content:center;}
-.work-phones.four{grid-template-columns:repeat(4,minmax(0,322px));}
 .work-phones img{display:block;width:100%;height:auto;
   filter:drop-shadow(0 30px 40px rgba(20,20,61,.18));
   transition:transform .55s cubic-bezier(.16,1,.3,1),filter .55s ease;}
@@ -1723,14 +1722,12 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     </div>
 
     <div class="rev rail-body">
-      <div class="work-phones four">
+      <div class="work-phones">
         <img src="img/work-01-bill-overview.png" width="675" height="1389" loading="lazy" decoding="async"
              alt="Bill overview screen: every outstanding bill in one list with a single total and a Pay bill bar.">
-        <img src="img/work-02-select-accounts.png" width="675" height="1389" loading="lazy" decoding="async"
-             alt="Account selection screen: multiple phone numbers and accounts listed so the customer chooses what to pay.">
-        <img src="img/work-03-bill-details.png" width="675" height="1389" loading="lazy" decoding="async"
+        <img src="img/work-02-bill-details.png" width="675" height="1389" loading="lazy" decoding="async"
              alt="Bill detail screen: a single bill broken down into charges before payment is confirmed.">
-        <img src="img/work-04-payment-success.png" width="675" height="1389" loading="lazy" decoding="async"
+        <img src="img/work-03-payment-success.png" width="675" height="1389" loading="lazy" decoding="async"
              alt="Confirmation screen: the payment marked as complete with a per-bill status and a sticky done action.">
       </div>
     </div>
