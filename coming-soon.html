@@ -6,30 +6,47 @@
 <title>Coming Soon — Linda Hamed</title>
 <meta name="description" content="Case study coming soon.">
 
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23F5ECD8'/%3E%3Ctext x='5' y='23' font-family='Georgia%2C serif' font-size='18' font-weight='400' font-style='italic' fill='%232B2A7E' letter-spacing='-0.5'%3Elh%3C/text%3E%3Ccircle cx='27' cy='22' r='2.5' fill='%23C4673A'/%3E%3C/svg%3E">
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23FAF9F6'/%3E%3Ctext x='5' y='23' font-family='Georgia%2C serif' font-size='18' font-weight='400' font-style='italic' fill='%2314143D' letter-spacing='-0.5'%3Elh%3C/text%3E%3Ccircle cx='27' cy='22' r='2.5' fill='%23CD533B'/%3E%3C/svg%3E">
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Manrope:wght@500&display=swap" rel="stylesheet">
 
 <style>
+@font-face{font-family:'DM Serif Display';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/DM_Serif_Display/DMSerifDisplay-Regular.ttf') format('truetype');}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:400;font-display:swap;src:url('fonts/Manrope/Manrope-400.woff2') format('woff2');}
+@font-face{font-family:'Manrope';font-style:normal;font-weight:600;font-display:swap;src:url('fonts/Manrope/Manrope-600.woff2') format('woff2');}
+
+:root{
+  --cream:#FAF9F6;
+  --navy:#14143D;
+  --navy-lift:#2D2C7A;
+  --orange:#CD533B;
+  --orange-deep:#B0432D;
+  --coral:#F48668;
+}
+
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 html, body { height: 100%; }
 
 body {
-  background: #f5ecd8;
+  background: var(--cream);
   font-family: 'Manrope', Helvetica, sans-serif;
   -webkit-font-smoothing: antialiased;
   cursor: none;
   overflow: hidden;
 }
 
+/* ── HALO ── coral light that follows the cursor, as on the homepage */
+.halo{position:fixed;inset:0;z-index:0;pointer-events:none;mix-blend-mode:multiply;
+  background:radial-gradient(620px circle at var(--mx,60%) var(--my,30%),
+    rgba(244,134,104,.26) 0%,rgba(244,134,104,.09) 34%,transparent 66%);}
+.page{position:relative;z-index:1;}
+@media (hover:none),(pointer:coarse){body,.btn{cursor:auto;} .cursor{display:none;}}
+
 /* ── CURSOR ── */
 .cursor {
   position: fixed;
   width: 10px; height: 10px;
   border-radius: 50%;
-  background: #2B2A7E;
+  background: var(--navy);
   pointer-events: none;
   z-index: 9999;
   transform: translate(-50%, -50%);
@@ -39,7 +56,7 @@ body {
 .cursor.hovering {
   width: 40px; height: 40px;
   background: transparent;
-  border: 1.5px solid #d4541a;
+  border: 1.5px solid var(--orange);
   mix-blend-mode: normal;
 }
 
@@ -58,11 +75,11 @@ body {
 /* ── HEADING ── */
 .heading {
   font-family: 'DM Serif Display', Georgia, serif;
-  font-size: clamp(3rem, 8vw, 85px);
+  font-size: clamp(2.6rem, 6vw, 78px);
   font-weight: 400;
   font-style: normal;
   line-height: 1.05;
-  color: #d4541a;
+  color: var(--orange);
   letter-spacing: -0.01em;
   margin-bottom: 1rem;
 }
@@ -71,9 +88,9 @@ body {
 .body {
   font-family: 'Manrope', Helvetica, sans-serif;
   font-size: clamp(15px, 1.5vw, 18px);
-  font-weight: 500;
+  font-weight: 400;
   line-height: 1.6;
-  color: #1c1c1d;
+  color: var(--navy);
   max-width: 552px;
   margin: 0 auto 2.5rem;
 }
@@ -90,7 +107,7 @@ body {
 .btn {
   font-family: 'Manrope', Helvetica, sans-serif;
   font-size: 15px;
-  font-weight: 500;
+  font-weight: 600;
   line-height: 1;
   padding: 0 1.5rem;
   height: 48px;
@@ -106,25 +123,25 @@ body {
 
 /* Filled — "Say hello →" */
 .btn-filled {
-  background: #d4541a;
-  color: #f5ecd8;
-  border: 1.5px solid #d4541a;
+  background: var(--orange-deep);
+  color: #fff;
+  border: 1.5px solid var(--orange-deep);
   min-width: 160px;
 }
 .btn-filled:hover {
-  background: #bf4916;
-  border-color: #bf4916;
+  background: var(--navy);
+  border-color: var(--navy);
 }
 
 /* Outlined — "Go back to homepage →" */
 .btn-outlined {
   background: transparent;
-  color: #d4541a;
-  border: 1.5px solid #d4541a;
+  color: var(--orange);
+  border: 1.5px solid var(--orange);
   min-width: 204px;
 }
 .btn-outlined:hover {
-  background: rgba(212, 84, 26, 0.06);
+  background: rgba(205, 83, 59, 0.07);
 }
 
 /* ── MOBILE ── */
@@ -136,6 +153,7 @@ body {
 </head>
 <body>
 
+<div class="halo" id="halo" aria-hidden="true"></div>
 <div class="cursor" id="cursor"></div>
 
 <div class="page">
@@ -160,7 +178,12 @@ body {
     requestAnimationFrame(tick);
   }
   tick();
-  window.addEventListener('mousemove', e => { mx = e.clientX; my = e.clientY; }, {passive:true});
+  const h = document.getElementById('halo');
+  window.addEventListener('mousemove', e => {
+    mx = e.clientX; my = e.clientY;
+    h.style.setProperty('--mx', (e.clientX/innerWidth*100).toFixed(1)+'%');
+    h.style.setProperty('--my', (e.clientY/innerHeight*100).toFixed(1)+'%');
+  }, {passive:true});
   document.addEventListener('mouseover', e => {
     if (e.target.closest('a, button')) c.classList.add('hovering');
   });
