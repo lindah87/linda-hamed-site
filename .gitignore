@@ -23,5 +23,5 @@ fonts/gelica-font-family/
 archive/Thumbnail-2.jpg
 archive/Tumbnail-2.jpg
 
-# not published yet — case study stays local
-work/
+# case studies are now published via GitHub → Netlify
+# work/ is no longer ignored
