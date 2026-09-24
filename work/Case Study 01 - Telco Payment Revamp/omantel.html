@@ -1084,23 +1084,26 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .feature-body .hl{color:#EA3323;font-weight:600;}
 @media (max-width:900px){.ap-wrap{width:min(383px,82vw);margin:10% auto 4%;}}
 @media (prefers-reduced-motion:reduce){.ap-stack img{animation:none;}}
-/* Suspension: bill card with the red alert overlapping its top-left.
-   % of the visible group (544 x 271). Card 02.png is 987x555; Suspension Alert.png is 1835x1660. */
+/* Suspension: bill card with alert overlapping its top-left.
+   Card 02.png 987×555 (minimal shadow). Suspension Alert.png 1835×1660 — actual red card
+   occupies ~730×515px centred in a large glow blob; shadow-left≈560px, shadow-top≈285px.
+   At width:170% (816px CSS, scale≈0.445): visible card ≈325px wide, ~229px tall.
+   left:-56% places visible card ≈64px left of billing visible-left.
+   top:-71% aligns visible card top with billing visible top (both ≈-43px above container).
+   Section padding-top:8rem keeps the overflowing alert image inside the section boundary. */
 .sp-stack{position:relative;width:clamp(270px,32vw,480px);aspect-ratio:544/271;
   margin-left:clamp(0px,2vw,32px);}
 .sp-stack img{position:absolute;display:block;height:auto;max-width:none;will-change:transform;}
 .sp-stack .sp-card{left:6.87%;top:-22.5%;width:115.3%;border-radius:1.25rem;
   box-shadow:0 4px 50px 0 rgba(43,42,126,0.20);
   animation:cs-float-b 7s ease-in-out infinite;animation-delay:-2s;}
-.sp-stack .sp-alert{left:-21.5%;top:-41.4%;width:78.8%;z-index:2;border-radius:1.25rem;
+.sp-stack .sp-alert{left:-56%;top:-71%;width:170%;z-index:2;border-radius:1.25rem;
   animation:cs-float 5.5s ease-in-out infinite;}
-/* sp-alert overflows -99px above the sp-stack container; section padding absorbs it.
-   feature-visual has no extra padding — align-items:center handles centering. */
 .feature-visual:has(.sp-stack){min-width:0;}
-.feature:has(.sp-stack){overflow-x:clip;padding-top:5rem;}
+.feature:has(.sp-stack){overflow-x:clip;padding-top:8rem;}
 @media (max-width:900px){
   .sp-stack{width:min(500px,76vw);margin:12% auto 4%;}
-  .feature:has(.sp-stack){padding-top:2rem;}
+  .feature:has(.sp-stack){padding-top:4rem;}
 }
 @media (prefers-reduced-motion:reduce){.sp-stack img{animation:none;}}
 /* 01 The work: three real screens in device frames, side by side. */
