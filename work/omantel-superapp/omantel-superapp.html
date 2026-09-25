@@ -507,9 +507,6 @@ a:hover .btn-arrow-right,button:hover .btn-arrow-right{transform:rotate(-90deg) 
   box-shadow:0 28px 54px -34px rgba(205,83,59,.5);}
 .finding-img img{position:absolute;inset:0;display:block;
   width:100%;height:100%;object-fit:cover;}
-/* Act 2's finding art is transparent spot illustration, not photography, so it
-   sits contained inside the brand plate instead of being cropped to fill it. */
-.finding-img img{object-fit:contain;padding:clamp(20px,3.4vw,40px);}
 /* until the real photograph is dropped in, the brand plate shows through
    rather than a broken-image icon (see the img-fallback script) */
 .finding-img img[hidden]{display:none;}
@@ -1709,6 +1706,30 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
   background:var(--orange);color:#fff;padding:3px 11px 5px;border-radius:0;}
 /* the site's arrow, inverted to sit on the orange */
 .q-list .to-arw path{stroke:#fff;}
+
+/* A rail section with no 0N number: Act 1's 30px body offset exists purely to
+   clear that number, so without one it pushes the copy below the heading.
+   Reset it and let the optical correction below do the aligning. */
+.m2 > .wrap > .problem-grid:not(:has(.sec-num)) > .rail-body{padding-top:0;}
+
+/* The four needs: a centred four-up row of spot illustration, label and one
+   line of copy. The art is transparent, so it sits straight on the page
+   rather than on a plate. */
+.needs-title{font-family:var(--display);font-style:normal;font-weight:400;
+  font-size:36px;line-height:1.1;letter-spacing:-.018em;color:var(--orange);margin:0;}
+.needs-intro{margin:20px 0 0;font-size:var(--t-body);line-height:1.75;
+  color:var(--ink-78);max-width:62ch;}
+.needs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(20px,2.6vw,38px);margin-top:clamp(40px,5vw,72px);}
+.need{text-align:center;}
+.need img{display:block;width:auto;height:clamp(96px,9vw,132px);margin:0 auto 24px;
+  transition:transform .5s cubic-bezier(.16,1,.3,1);}
+.need:hover img{transform:translateY(-6px);}
+.need h3{font-family:var(--sans);font-weight:700;font-size:16px;line-height:1.3;
+  color:var(--navy);margin:0 0 9px;}
+.need p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-78);}
+@media (max-width:900px){.needs{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px;}}
+@media (max-width:430px){.needs{grid-template-columns:1fr;row-gap:34px;}}
 @media (max-width:640px){
   .note-card{flex-direction:column;align-items:flex-start;gap:1rem;min-height:0;}
   .q-list li{font-size:13px;}
@@ -1857,73 +1878,39 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     </div>
     </div><!-- /rail-grid, the question -->
 
-    <div class="findings-layout">
-      <div class="sec-head stacked rev findings-intro" style="margin-top:0;">
-        <h2 class="findings-title" style="margin:0;">What people really wanted</h2>
-      </div>
+    <div class="rail-grid problem-grid" style="margin-top:76px;">
+    <div class="sec-head rev"></div>
 
-      <div class="findings">
-        <article class="finding rev">
-          <div class="finding-plate">
-            <div class="finding-img">
-              <img src="img/Icon 01.png" width="264" height="234" alt="Illustration of a single itemised bill summary resolving into one total" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div>
-            <h3>Know what I owe.</h3>
-            <p>One accurate total across every bill, rather than a figure the customer has to
-              assemble themselves from four different places.</p>
-          </div>
+    <div class="rev rail-body">
+      <h2 class="needs-title">What people really wanted</h2>
+      <p class="needs-intro">Behind hundreds of interactions and dozens of observed behaviours,
+        four needs appeared again and again.</p>
+
+      <div class="needs">
+        <article class="need rev">
+          <img src="img/Icon 01.png" width="264" height="234" loading="lazy" decoding="async" alt="Illustration of a single itemised bill resolving into one total">
+          <h3>Know what I owe</h3>
+          <p>One accurate total across every bill.</p>
         </article>
-        <article class="finding rev">
-          <div class="finding-plate">
-            <div class="finding-img">
-              <img src="img/Icon 02.png" width="255" height="273" alt="Illustration of a payment toggle letting a customer choose which bills to settle" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div>
-            <h3>Stay in control.</h3>
-            <p>Decide what, when and how to pay. Some people pay what is urgent, some pay what they
-              can afford, some split payments between salary cycles.</p>
-          </div>
+        <article class="need rev">
+          <img src="img/Icon 02.png" width="255" height="273" loading="lazy" decoding="async" alt="Illustration of a payment toggle above a card">
+          <h3>Stay in control</h3>
+          <p>Decide what, when and how to pay.</p>
         </article>
-        <article class="finding rev">
-          <div class="finding-plate">
-            <div class="finding-img">
-              <img src="img/Icon 03.png" width="330" height="294" alt="Illustration of a payment confirmation marking a transaction as complete" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div>
-            <h3>Move on with life.</h3>
-            <p>Finish quickly and feel confident it's done. A payment is complete when the person
-              believes it is, not when the system finishes processing.</p>
-          </div>
+        <article class="need rev">
+          <img src="img/Icon 03.png" width="330" height="294" loading="lazy" decoding="async" alt="Illustration of a phone showing a completed payment check mark">
+          <h3>Move on with life</h3>
+          <p>Finish quickly and feel confident it’s done.</p>
         </article>
-        <article class="finding rev">
-          <div class="finding-plate">
-            <div class="finding-img">
-              <img src="img/Icon 04.png" width="321" height="258" alt="Illustration of a transparent bill status showing what is due, paid and outstanding" loading="lazy" decoding="async">
-            </div>
-          </div>
-          <div>
-            <h3>Avoid surprises.</h3>
-            <p>Know what's due, what's paid and what needs attention, without having to check four
-              separate places to be sure.</p>
-          </div>
+        <article class="need rev">
+          <img src="img/Icon 04.png" width="321" height="258" loading="lazy" decoding="async" alt="Illustration of a magnifier over a statement beside a shield">
+          <h3>Avoid surprises</h3>
+          <p>Know what’s due, what’s paid and what needs attention.</p>
         </article>
       </div>
     </div>
+    </div><!-- /rail-grid, the needs -->
 
-    <div class="work-phones four rev">
-      <img src="img/Phone 01.png" width="675" height="1389" loading="lazy" decoding="async"
-           alt="All-in-One Bill Payment: Omantel, Electricity, Water and ROP shown as selectable billers above a combined total due of OMR 240.000 and a Pay button.">
-      <img src="img/Phone 02.png" width="675" height="1389" loading="lazy" decoding="async"
-           alt="Add billers sheet: Omantel, Nama Electricity, Nama Water and ROP offered as bill issuers a customer can attach to the account.">
-      <img src="img/Phone 03.png" width="675" height="1389" loading="lazy" decoding="async"
-           alt="Payment sheet: OMPAY wallet, Apple Pay and a saved Bank of Muscat card, with the combined payment of OMR 350.500.">
-      <img src="img/Phone 04.png" width="675" height="1389" loading="lazy" decoding="async"
-           alt="Payment received screen: each bill listed with its own status while some are still processing, above the total amount paid.">
-    </div>
   </div><!-- /wrap -->
 </section>
 <!-- ════ MOVEMENT 3 - quiet, flowing ════════════════════════════════ -->
