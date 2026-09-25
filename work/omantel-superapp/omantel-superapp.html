@@ -1163,6 +1163,9 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .m2 + .m3::before{display:none;}
 /* the needs row follows straight on from the question, with no rule between */
 .m2 > .wrap > .problem-grid.no-rule{border-top:0;padding-top:0;}
+/* a numbered rail section in m3: the 0N sits above the heading, so the body
+   drops by the same amount to stay optically top-aligned with it. */
+.m3 > .wrap > .rail-grid:has(.sec-num) > .rail-body.stack-lines{padding-top:28px;}
 /* Staggered so the row reads as four floating screens rather than a filmstrip.
    The offset lives in a custom property so the hover lift composes with it
    instead of overwriting it. Flat on mobile, where the row is a carousel. */
@@ -1759,10 +1762,18 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
   font-size:clamp(23px,2vw,28px);line-height:1.2;letter-spacing:-.018em;
   color:var(--orange);margin:0 0 14px;}
 .note-card--principle{align-items:flex-start;min-height:0;max-width:44rem;}
+.note-card--wide{max-width:none;}
+/* the ecosystem graphic sits under the card and slightly into it */
+.ecosystem{margin-top:clamp(-26px,-2vw,-14px);display:flex;justify-content:center;}
+.ecosystem img{display:block;width:100%;max-width:clamp(320px,42vw,600px);height:auto;}
 
 .principles:has(.p-collage){max-width:none;}
+.principles .principle:last-child{padding-bottom:0;}
 .principle:has(.p-collage){display:grid;
   grid-template-columns:minmax(0,360px) minmax(0,1fr);
+  /* the collage spans all three rows; without explicit tracks its extra height
+     is shared between them and opens a gap under every heading. */
+  grid-template-rows:auto auto 1fr;
   column-gap:clamp(28px,4vw,64px);align-items:start;
   padding-bottom:clamp(56px,7vw,104px);}
 .principle:has(.p-collage) > .idx{grid-column:1;grid-row:1;}
@@ -2129,35 +2140,10 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 <section class="stage">
   <div class="wrap">
 
-    <div class="sec-head stacked rev">
-      <span class="sec-num">05</span>
-      <h2>Quantified impact</h2>
-    </div>
-
-    <div class="stage-stats">
-      <div class="rev">
-        <span class="stage-stat-n">8,002</span>
-        <p class="stage-stat-l">utility transactions in the first 30 days, through services that
-          had been available but barely used.</p>
-      </div>
-      <div class="rev">
-        <span class="stage-stat-n">3–4×</span>
-        <p class="stage-stat-l">increase against the fragmented journeys these payments replaced.</p>
-      </div>
-      <div class="rev">
-        <span class="stage-stat-n">44%</span>
-        <p class="stage-stat-l">increase in electricity payments once they sat alongside every
-          other bill rather than in their own flow.</p>
-      </div>
-    </div>
-
-    <p class="impact-note rev">Note: figures cover the first 30 days after release, measured against
-      the equivalent period on the previous service-specific journeys.</p>
-
     <div class="led">
       <div class="rail-grid">
         <div class="sec-head rev">
-          <span class="sec-num">06</span>
+          <span class="sec-num">05</span>
           <h2>My role beyond the screens</h2>
           <p class="lede rev">Most of the work sat between teams, not inside a file. Four provider
             organisations, one customer outcome.</p>
@@ -2176,12 +2162,39 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
   </div>
 </section>
 
-<!-- ════ closer ════════════════════════════════════════════════════ -->
-<section class="closer sec">
+<!-- ════ 06 - what is next ═════════════════════════════════════════ -->
+<section class="sec m3">
   <div class="wrap">
-    <p class="closer-statement rev">This wasn't a bill aggregation project. It was proof that
-      <em>complexity absorbed by design becomes confidence felt by customers</em>.</p>
-    <p class="closer-sub rev">The outcome was bigger than bill payment. It established a repeatable experience model the platform can keep growing into, without asking customers to learn it again each time.</p>
+    <div class="rail-grid">
+      <div class="sec-head rev">
+        <span class="sec-num">06</span>
+        <h2>What is<br>next?</h2>
+      </div>
+      <div class="rail-body">
+        <div class="note-card note-card--principle note-card--wide rev">
+          <div class="stack-lines">
+            <h3 class="note-title">Expansion without breaking trust.</h3>
+            <p>Adding new services was never the challenge.</p>
+            <p>The challenge was expanding the ecosystem without forcing customers to learn a new
+              experience every time.</p>
+
+            <p class="spaced">The foundation we created allows new bill types, partners, and future
+              services to plug into the same mental model customers already understand.</p>
+
+            <p class="spaced">Customers gain simplicity.</p>
+            <p>The business gains flexibility.</p>
+            <p>The platform can continue to grow without increasing cognitive load.</p>
+            <p><strong>The outcome was bigger than bill payment. We established a repeatable
+              experience model for future growth.</strong></p>
+          </div>
+        </div>
+
+        <div class="ecosystem rev">
+          <img src="img/Circle of Life.svg" width="471" height="498" loading="lazy" decoding="async"
+               alt="The customer experience platform at the centre of interconnected services: education, visa services, car services, cinema, travel and ride hailing.">
+        </div>
+      </div>
+    </div>
   </div>
 </section>
 
