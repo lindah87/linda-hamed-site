@@ -1766,7 +1766,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 .note-card--wide{max-width:none;}
 /* the ecosystem graphic sits under the card and slightly into it */
 .ecosystem{margin-top:clamp(-26px,-2vw,-14px);display:flex;justify-content:center;}
-.eco-svg{display:block;width:100%;max-width:clamp(320px,42vw,600px);height:auto;overflow:visible;}
+.eco-svg{display:block;width:100%;max-width:clamp(320px,55vw,780px);height:auto;overflow:visible;}
 /* the platform keeps growing: the marker dots drift round the rings at two
    speeds, and each service bubble breathes on its own offset. */
 .eco-dots-a,.eco-dots-b,.eco-node{transform-box:view-box;}
@@ -1781,6 +1781,9 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 }
 
 .principles:has(.p-collage){max-width:none;}
+/* the statement card sits above the list here, so Act 1's optical nudge (which
+   assumes the principles open the rail) is replaced by real clearance. */
+.note-card + .principles{top:0;margin-top:clamp(46px,5vw,76px);}
 .principles .principle:last-child{padding-bottom:0;}
 .principle:has(.p-collage){display:grid;
   grid-template-columns:minmax(0,360px) minmax(0,1fr);
@@ -1813,17 +1816,24 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 .p-collage img{position:absolute;display:block;width:auto;height:auto;
   filter:drop-shadow(0 16px 26px rgba(20,20,61,.16));}
 @media (max-width:900px){
-  .principle:has(.p-collage){grid-template-columns:1fr;row-gap:26px;}
+  /* the desktop tracks put the slack in row 3; stacked, that opens gaps
+     between the badge, the heading and the copy. */
+  .principle:has(.p-collage){grid-template-columns:1fr;grid-template-rows:none;row-gap:22px;}
   .principle:has(.p-collage) > .idx,
   .principle:has(.p-collage) > h3,
   .principle:has(.p-collage) > .stack-lines,
   .principle:has(.p-collage) > .p-collage{grid-column:1;grid-row:auto;}
+  /* stacked, the row gap is the only spacing: the desktop offsets exist to
+     align the collage beside the copy and just add dead space here. */
+  .principle:has(.p-collage) > .idx{margin-bottom:0;}
+  .principle:has(.p-collage) > .stack-lines{margin-top:0;}
+  .principle:has(.p-collage) > .p-collage{margin-top:0;}
   .p-collage{max-width:520px;}
 }
 @media (max-width:430px){.needs{grid-template-columns:1fr;row-gap:34px;}}
 @media (max-width:640px){
   .note-card{flex-direction:column;align-items:flex-start;gap:1rem;min-height:0;}
-  .q-hl{font-size:13px;}
+
 }
 </style>
 </head>
