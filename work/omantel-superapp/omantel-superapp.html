@@ -1702,11 +1702,13 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 
 /* the questions a customer is left holding: filled, arrowed, one per line */
 .q-list{display:flex;flex-direction:column;align-items:flex-start;
-  gap:5px;margin:.55em 0 0;padding:0;list-style:none;}
-.q-list li{display:inline-flex;align-items:baseline;gap:.5em;
+  gap:4px;margin:.55em 0 0;padding:0;list-style:none;}
+/* square, tight to the text: a marker stroke over the sentence, not a button */
+.q-list li{display:inline-flex;align-items:baseline;gap:.6em;
   font-family:var(--sans);font-size:var(--t-body);line-height:1.5;
-  background:var(--orange);color:#fff;padding:4px 12px 6px;border-radius:3px;}
-.q-list li::before{content:"\2192";font-weight:600;}
+  background:var(--orange);color:#fff;padding:3px 11px 5px;border-radius:0;}
+/* the site's arrow, inverted to sit on the orange */
+.q-list .to-arw path{stroke:#fff;}
 @media (max-width:640px){
   .note-card{flex-direction:column;align-items:flex-start;gap:1rem;min-height:0;}
   .q-list li{font-size:13px;}
@@ -1820,10 +1822,10 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
         source of truth.</p>
       <p>The result wasn’t complexity in the product. It was complexity in the customer’s head.</p>
       <ul class="q-list">
-        <li>Which bill is due?</li>
-        <li>Have I already paid it?</li>
-        <li>Where do I go next?</li>
-        <li>Why can’t I see everything in one place?</li>
+        <li><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Which bill is due?</li>
+        <li><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Have I already paid it?</li>
+        <li><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Where do I go next?</li>
+        <li><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Why can’t I see everything in one place?</li>
       </ul>
 
       <p class="spaced">We weren’t solving a payment problem.</p>
@@ -1839,7 +1841,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rev rail-body stack-lines">
       <p>The first question wasn’t structural. It was experiential.</p>
       <ul class="q-list">
-        <li>What would this feel like if it were crystal-clear and reassuring?</li>
+        <li><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>What would this feel like if it were crystal-clear and reassuring?</li>
       </ul>
 
       <p class="spaced">That question didn’t give us the answer. But it gave us the right filter
