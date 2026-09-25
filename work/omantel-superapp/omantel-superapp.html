@@ -680,8 +680,9 @@ a:hover .btn-arrow-right,button:hover .btn-arrow-right{transform:rotate(-90deg) 
 .impact-note{font-family:var(--sans);font-size:var(--t-body);color:rgba(250,244,231,.55);
   margin-top:28px;line-height:1.7;}
 
-.led{margin-top:88px;padding-top:78px;
-  border-top:1px solid rgba(250,244,231,.18);}
+/* the role section now opens the navy stage, so it needs neither the divider
+   nor the offset that separated it from the stats block above it. */
+.led{margin-top:0;padding-top:0;border-top:0;}
 .led .rail-grid{grid-template-columns:220px minmax(0,1fr);column-gap:52px;}
 /* one column, no rules between items: the arrow already marks each entry. */
 /* standing pattern: the first item's label is optically top-aligned with the
