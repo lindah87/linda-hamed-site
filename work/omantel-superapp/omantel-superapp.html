@@ -507,6 +507,9 @@ a:hover .btn-arrow-right,button:hover .btn-arrow-right{transform:rotate(-90deg) 
   box-shadow:0 28px 54px -34px rgba(205,83,59,.5);}
 .finding-img img{position:absolute;inset:0;display:block;
   width:100%;height:100%;object-fit:cover;}
+/* Act 2's finding art is transparent spot illustration, not photography, so it
+   sits contained inside the brand plate instead of being cropped to fill it. */
+.finding-img img{object-fit:contain;padding:clamp(20px,3.4vw,40px);}
 /* until the real photograph is dropped in, the brand plate shows through
    rather than a broken-image icon (see the img-fallback script) */
 .finding-img img[hidden]{display:none;}
@@ -1115,6 +1118,19 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .work-grid > .sec-head .lede{max-width:24ch;}
 @media (max-width:900px){.work-grid > .sec-head .lede{max-width:none;}}
 .work-phones{display:grid;grid-template-columns:repeat(3,minmax(0,322px));gap:clamp(14px,2.4vw,40px);align-items:start;justify-content:center;}
+/* Act 2 shows a four-screen flow in the full wrap width (not the narrow rail).
+   Four columns only hold up above ~900px, where each screen lands at ~249px,
+   matching Act 1's 252px; below that a fourth column squeezes them to ~156px,
+   so the flow falls back to the same scroll-snap carousel Act 1 uses on mobile.
+   Both rules are scoped to .four, which exists only on this page. */
+@media (min-width:900px){.work-phones.four{grid-template-columns:repeat(4,minmax(0,322px));}}
+@media (max-width:899px){
+  .work-phones.four{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:min(280px,72%);
+    overflow-x:auto;scroll-snap-type:x mandatory;padding-bottom:12px;
+    margin-right:-16px;padding-right:16px;}
+  .work-phones.four img{scroll-snap-align:start;}
+}
+.work-phones.four{margin-top:clamp(48px,6vw,88px);}
 .work-phones img{display:block;width:100%;height:auto;
   filter:drop-shadow(0 30px 40px rgba(20,20,61,.18));
   transition:transform .55s cubic-bezier(.16,1,.3,1),filter .55s ease;}
@@ -1668,7 +1684,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 
 <!-- ════ MOVEMENT 1 - dense, numeric ════════════════════════════════ -->
 <div class="hero-cover" aria-hidden="false">
-  <img src="img/hero-cover.jpg" fetchpriority="high" decoding="async"
+  <img src="img/Hero Header.jpg" fetchpriority="high" decoding="async"
        alt="The Omantel super app bill payment experience shown across several iPhone screens">
 </div>
 <section class="hero">
@@ -1715,20 +1731,15 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="sec-head rev">
       <span class="sec-num">01</span>
       <h2>Before we start</h2>
-      <p class="lede rev">This story starts where Act 1 ended. The Telco Revamp established a
-        trust-first payment model, a common interaction pattern and a single place to manage bills.
-        Act 2 asked a different question: could the same model scale across every bill a customer
-        manages?</p>
     </div>
 
     <div class="rev rail-body">
-      <div class="work-phones">
-        <img src="img/work-01-bill-overview.png" width="675" height="1389" loading="lazy" decoding="async"
-             alt="Bill overview screen: every outstanding bill in one list with a single total and a Pay bill bar.">
-        <img src="img/work-02-bill-details.png" width="675" height="1389" loading="lazy" decoding="async"
-             alt="Bill detail screen: a single bill broken down into charges before payment is confirmed.">
-        <img src="img/work-03-payment-success.png" width="675" height="1389" loading="lazy" decoding="async"
-             alt="Confirmation screen: the payment marked as complete with a per-bill status and a sticky done action.">
+      <div class="prose">
+        <p class="body">This story starts where Act 1 ended. The Telco Revamp established a
+          trust-first payment model, a common interaction pattern and a single place to manage
+          bills.</p>
+        <p class="body" style="margin:0;">Act 2 asked a different question: could the same model
+          scale across every bill a customer manages?</p>
       </div>
     </div>
     </div><!-- /rail-grid 01 -->
@@ -1773,7 +1784,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
         <article class="finding rev">
           <div class="finding-plate">
             <div class="finding-img">
-              <img src="img/need-01-know-what-i-owe.png" width="1280" height="800" alt="Illustration of a single itemised bill summary resolving into one total" loading="lazy" decoding="async">
+              <img src="img/Icon 01.png" width="264" height="234" alt="Illustration of a single itemised bill summary resolving into one total" loading="lazy" decoding="async">
             </div>
           </div>
           <div>
@@ -1785,7 +1796,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
         <article class="finding rev">
           <div class="finding-plate">
             <div class="finding-img">
-              <img src="img/need-02-stay-in-control.png" width="1280" height="800" alt="Illustration of a payment toggle letting a customer choose which bills to settle" loading="lazy" decoding="async">
+              <img src="img/Icon 02.png" width="255" height="273" alt="Illustration of a payment toggle letting a customer choose which bills to settle" loading="lazy" decoding="async">
             </div>
           </div>
           <div>
@@ -1797,7 +1808,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
         <article class="finding rev">
           <div class="finding-plate">
             <div class="finding-img">
-              <img src="img/need-03-move-on-with-life.png" width="1280" height="800" alt="Illustration of a payment confirmation marking a transaction as complete" loading="lazy" decoding="async">
+              <img src="img/Icon 03.png" width="330" height="294" alt="Illustration of a payment confirmation marking a transaction as complete" loading="lazy" decoding="async">
             </div>
           </div>
           <div>
@@ -1809,7 +1820,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
         <article class="finding rev">
           <div class="finding-plate">
             <div class="finding-img">
-              <img src="img/need-04-avoid-surprises.png" width="1280" height="800" alt="Illustration of a transparent bill status showing what is due, paid and outstanding" loading="lazy" decoding="async">
+              <img src="img/Icon 04.png" width="321" height="258" alt="Illustration of a transparent bill status showing what is due, paid and outstanding" loading="lazy" decoding="async">
             </div>
           </div>
           <div>
@@ -1819,6 +1830,17 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
           </div>
         </article>
       </div>
+    </div>
+
+    <div class="work-phones four rev">
+      <img src="img/Phone 01.png" width="675" height="1389" loading="lazy" decoding="async"
+           alt="All-in-One Bill Payment: Omantel, Electricity, Water and ROP shown as selectable billers above a combined total due of OMR 240.000 and a Pay button.">
+      <img src="img/Phone 02.png" width="675" height="1389" loading="lazy" decoding="async"
+           alt="Add billers sheet: Omantel, Nama Electricity, Nama Water and ROP offered as bill issuers a customer can attach to the account.">
+      <img src="img/Phone 03.png" width="675" height="1389" loading="lazy" decoding="async"
+           alt="Payment sheet: OMPAY wallet, Apple Pay and a saved Bank of Muscat card, with the combined payment of OMR 350.500.">
+      <img src="img/Phone 04.png" width="675" height="1389" loading="lazy" decoding="async"
+           alt="Payment received screen: each bill listed with its own status while some are still processing, above the total amount paid.">
     </div>
   </div><!-- /wrap -->
 </section>
@@ -1872,8 +1894,8 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
       <div class="phone-shell">
         <div class="phone-notch"></div>
         <div class="phone-imgwrap">
-          <img class="phone-img" src="img/showcase-unified-bills.png" width="1294" height="2656"
-               alt="The unified bills screen: electricity, water, ROP fines and telco bills listed together, each with its own status, above a single running total and one Pay bill action." loading="lazy" decoding="async">
+          <img class="phone-img" src="img/Phone 01.png" width="1294" height="2656"
+               alt="The All-in-One Bill Payment screen: Omantel, Electricity, Water and ROP shown as selectable billers, a select-all control, an editable custom amount and a combined total due of OMR 240.000 above the Pay button." loading="lazy" decoding="async">
           <!-- marker positions must be re-measured against the final export -->
           <span class="annot-marker marker-left" style="top:28.6%">1</span>
           <span class="annot-marker" style="top:44.0%">2</span>
@@ -1913,12 +1935,12 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     </div>
     <div class="feature-visual rev">
         <div class="card-stack">
-          <img class="card-back" src="img/feature-01-card-back.png"
+          <img class="card-back" src="img/Card 1.png"
                alt="" aria-hidden="true" loading="lazy" decoding="async">
-          <img class="card-front" src="img/feature-01-card-front.png"
-               alt="Bills from several different providers grouped into a single list, each showing its provider, amount due and status."
+          <img class="card-front" src="img/Card 2.png"
+               alt="A Nama Electricity bill card showing the account number, a total due of OMR 120.000 and an editable custom amount."
                loading="lazy" decoding="async">
-          <img class="card-check" src="img/feature-01-check.png" width="180" height="180"
+          <img class="card-check" src="img/Nama.png" width="306" height="288"
                alt="" aria-hidden="true" loading="lazy" decoding="async">
         </div>
       </div>
@@ -1930,11 +1952,11 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="feature-visual rev">
       <div class="ap-wrap">
         <div class="ap-stack">
-          <img class="ap-card" src="img/feature-02-bill-details.png" width="1764" height="1425"
-               alt="A single bill opened out into its individual charges, with the amount due and its current status." loading="lazy" decoding="async">
+          <img class="ap-card" src="img/Card 4.png" width="723" height="564"
+               alt="A failed payment summarised per bill: Omantel Postpaid, Nama Electricity and Diam Electricity each listed separately with their own amount." loading="lazy" decoding="async">
         </div>
-        <img class="ap-badge" src="img/feature-02-status-badge.png" width="2110" height="440"
-             alt="" aria-hidden="true" loading="lazy" decoding="async">
+        <img class="ap-badge" src="img/Card 5.png" width="1216" height="268"
+             alt="An in-app notice reading: You’re all set. Some bills are still being processed, please don’t retry, we’ll notify you once they’re updated." loading="lazy" decoding="async">
       </div>
     </div>
     <div class="feature-copy rev">
@@ -1964,10 +1986,10 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     </div>
     <div class="feature-visual rev">
       <div class="sp-stack">
-        <img class="sp-card" src="img/feature-03-ecosystem.png" width="987" height="555"
-             alt="Future services radiating from the bill payment core: education, visa services, car services, cinema, ride hailing and travel." loading="lazy" decoding="async">
-        <img class="sp-alert" src="img/feature-03-service-card.png" width="835" height="660"
-             alt="A new service category joining the platform using the same payment pattern customers already know." loading="lazy" decoding="async">
+        <img class="sp-card" src="img/Circle of Life.svg" width="987" height="555"
+             alt="Future services radiating out from the customer experience platform: education, visa services, car services, cinema, ride hailing and travel." loading="lazy" decoding="async">
+        <img class="sp-alert" src="img/Message 1.png" width="879" height="225"
+             alt="A biller saved under a customer's own name, “BMW Car”, rather than an account number." loading="lazy" decoding="async">
       </div>
     </div>
   </div>
