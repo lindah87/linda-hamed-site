@@ -1157,6 +1157,10 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
    padding the rail sections above it use. */
 .phones-band{border-top:1px solid var(--ink-12);
   margin-top:clamp(48px,6vw,88px);padding-top:clamp(48px,6vw,96px);}
+/* No rule under the phone flow: the band already carries its own divider above
+   it, and Act 1's .m3::before would add a second one immediately below. Only
+   the m3 that follows the phones is affected; section 04 keeps its rule. */
+.m2 + .m3::before{display:none;}
 /* Staggered so the row reads as four floating screens rather than a filmstrip.
    The offset lives in a custom property so the hover lift composes with it
    instead of overwriting it. Flat on mobile, where the row is a carousel. */
@@ -1740,6 +1744,49 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
   color:var(--navy);margin:0 0 9px;}
 .need p{margin:0;font-size:15px;line-height:1.6;color:var(--ink-78);}
 @media (max-width:900px){.needs{grid-template-columns:repeat(2,minmax(0,1fr));row-gap:40px;}}
+
+/* ═══ The principle ══════════════════════════════════════════════════
+   The statement sits in the same note card section 01 uses. Each principle
+   then pairs stacked copy with a small collage of the real interface. */
+.note-title{font-family:var(--display);font-style:normal;font-weight:400;
+  font-size:clamp(23px,2vw,28px);line-height:1.2;letter-spacing:-.018em;
+  color:var(--orange);margin:0 0 14px;}
+.note-card--principle{align-items:flex-start;min-height:0;max-width:44rem;}
+
+.principles:has(.p-collage){max-width:none;}
+.principle:has(.p-collage){display:grid;
+  grid-template-columns:minmax(0,360px) minmax(0,1fr);
+  column-gap:clamp(28px,4vw,64px);align-items:start;
+  padding-bottom:clamp(56px,7vw,104px);}
+.principle:has(.p-collage) > .idx{grid-column:1;grid-row:1;}
+.principle:has(.p-collage) > h3{grid-column:1;grid-row:2;}
+.principle:has(.p-collage) > .stack-lines{grid-column:1;grid-row:3;margin-top:18px;}
+.principle:has(.p-collage) > .p-collage{grid-column:2;grid-row:1 / span 3;}
+/* the reference sets these headings plain, without Act 1's gradient rule */
+.principle:has(.p-collage) h3{font-family:var(--display);font-size:24px;
+  line-height:1.2;color:var(--navy);margin:0;}
+/* the numbered badge is the same filled circle the solution moves already use */
+.principle:has(.p-collage) .idx{display:inline-flex;align-items:center;justify-content:center;
+  width:34px;height:34px;border-radius:50%;flex:none;
+  background:var(--orange-deep);color:#fff;
+  font-family:var(--sans);font-size:var(--t-label);font-weight:700;letter-spacing:0;
+  line-height:1;font-variant-numeric:tabular-nums;margin-bottom:16px;
+  transition:background .3s ease,transform .35s cubic-bezier(.16,1,.3,1);}
+.principle:has(.p-collage):hover .idx{background:var(--orange);transform:translateY(-2px);}
+
+.p-collage{position:relative;width:100%;}
+.p-collage::before{content:"";display:block;padding-top:var(--ar,58%);}
+.p-collage img{position:absolute;display:block;width:auto;height:auto;}
+.p-collage img.card{border-radius:10px;
+  box-shadow:0 20px 42px -28px rgba(20,20,61,.55);}
+@media (max-width:900px){
+  .principle:has(.p-collage){grid-template-columns:1fr;row-gap:26px;}
+  .principle:has(.p-collage) > .idx,
+  .principle:has(.p-collage) > h3,
+  .principle:has(.p-collage) > .stack-lines,
+  .principle:has(.p-collage) > .p-collage{grid-column:1;grid-row:auto;}
+  .p-collage{max-width:520px;}
+}
 @media (max-width:430px){.needs{grid-template-columns:1fr;row-gap:34px;}}
 @media (max-width:640px){
   .note-card{flex-direction:column;align-items:flex-start;gap:1rem;min-height:0;}
@@ -1944,49 +1991,96 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rail-grid">
       <div class="sec-head rev">
         <span class="sec-num">03</span>
-        <h2>The principle</h2>
-        <p class="lede rev">One place. One action. One clear outcome. People shouldn't have to
-          understand categories, bill types or provider relationships. They should know exactly
-          what they owe, what they're paying, and whether it worked. Everything else is the
-          platform's problem.</p>
+        <h2>The<br>principle</h2>
       </div>
       <div class="rail-body">
+        <div class="note-card note-card--principle rev">
+          <div>
+            <h3 class="note-title">One Place. One Action. One Clear Outcome.</h3>
+            <p>People shouldn’t have to understand categories, bill types or provider
+              relationships. They should know exactly what they owe, what they’re paying, and
+              whether it worked. <strong>Everything else is the platform’s problem.</strong></p>
+          </div>
+        </div>
+
         <div class="principles rev">
       <div class="principle">
-        <h3><span class="p-ul">Everything in one view</span></h3>
-        <p>One view. One total. One decision. Customers don't think in services, they think in
-          obligations. Bringing every bill into one place stopped the experience asking customers
-          to manage complexity that wasn't theirs to carry.</p>
-        <div class="principle-visual">
-          <img src="img/Message 2.png" width="879" height="225" loading="lazy" decoding="async"
-               alt="A saved biller row for Nama Electricity showing its account number, with edit and remove controls.">
-          <img src="img/Message 3.png" width="879" height="225" loading="lazy" decoding="async"
-               alt="A saved biller row for Nama Water sitting in the same list, in the same format.">
+        <span class="idx">01</span>
+        <h3>Everything in one view</h3>
+        <div class="stack-lines">
+          <p>One view.</p>
+          <p>One total.</p>
+          <p>One decision.</p>
+          <p>Customers don’t think in services.</p>
+          <p>They think in obligations.</p>
+          <p>By bringing every bill into one place, the experience stopped asking customers to
+            manage complexity that wasn’t theirs to carry.</p>
+        </div>
+        <div class="p-collage" style="--ar:52%;">
+          <img class="card" src="img/Card 1.png" width="651" height="420" loading="lazy" decoding="async"
+               style="left:0;top:0;width:52%;"
+               alt="An Omantel Fixed bill card showing the account number, a total due of OMR 120.000 and an editable custom amount.">
+          <img src="img/ROP.png" width="320" height="300" loading="lazy" decoding="async"
+               style="left:1%;top:22%;width:12%;" alt="" aria-hidden="true">
+          <img class="card" src="img/Card 2.png" width="870" height="564" loading="lazy" decoding="async"
+               style="left:29%;top:13%;width:60%;"
+               alt="A Nama Electricity bill card in the same format, with its own total due and custom amount.">
+          <img src="img/Nama.png" width="306" height="288" loading="lazy" decoding="async"
+               style="left:14%;top:72%;width:12%;" alt="" aria-hidden="true">
         </div>
       </div>
       <div class="principle">
-        <h3><span class="p-ul">Control without complexity</span></h3>
-        <p>The experience needed to support real-life financial behaviour without turning bill
-          payment into a puzzle. Customers decide what to pay. The system handles the complexity
-          behind the scenes.</p>
-        <div class="principle-visual side-by-side">
-          <img src="img/Add state.png" width="438" height="600" loading="lazy" decoding="async"
-               alt="An electricity biller offered as a tile with an Add action, before the customer attaches it.">
+        <span class="idx">02</span>
+        <h3>Control without complexity</h3>
+        <div class="stack-lines">
+          <p>People don’t always pay everything at once.</p>
+          <p>Some pay what is urgent. Some pay what they can afford. Some split payments between
+            salary cycles.</p>
+          <p>The experience needed to support real-life financial behaviour without turning bill
+            payment into a puzzle.</p>
+          <p>Customers could decide what to pay.</p>
+          <p>The system handled the complexity behind the scenes.</p>
+        </div>
+        <div class="p-collage" style="--ar:74%;">
+          <img class="card" src="img/Message 1.png" width="879" height="225" loading="lazy" decoding="async"
+               style="left:4%;top:0;width:64%;"
+               alt="A biller saved under the customer’s own name, BMW Car, with edit and remove controls.">
+          <img class="card" src="img/Message 2.png" width="879" height="225" loading="lazy" decoding="async"
+               style="left:20%;top:20%;width:64%;"
+               alt="A saved biller row for Nama Electricity in the same format.">
+          <img class="card" src="img/Message 3.png" width="879" height="225" loading="lazy" decoding="async"
+               style="left:0;top:42%;width:64%;"
+               alt="A saved biller row for Nama Water in the same format.">
           <img src="img/Normal state.png" width="450" height="600" loading="lazy" decoding="async"
-               alt="The same electricity biller once added, now showing an outstanding balance of 34.500.">
+               style="left:64%;top:58%;width:16%;"
+               alt="An electricity biller once added, showing an outstanding balance of 34.500.">
+          <img src="img/Add state.png" width="438" height="600" loading="lazy" decoding="async"
+               style="left:83%;top:58%;width:16%;"
+               alt="The same biller before it is attached, offered with an Add action.">
         </div>
       </div>
       <div class="principle">
-        <h3><span class="p-ul">Success that feels finished</span></h3>
-        <p>A payment isn't complete when the system finishes processing. It's complete when the
-          person feels confident it's done. Every bill carries its own status — paid, processing
-          or failed. No guessing. No second-guessing.</p>
-        <div class="principle-visual">
-          <img src="img/Card 5.png" width="1216" height="268" loading="lazy" decoding="async"
+        <span class="idx">03</span>
+        <h3>Success that feels finished</h3>
+        <div class="stack-lines">
+          <p>A payment isn’t complete when the system finishes processing. It’s complete when the
+            person feels confident it’s done. Every bill receives its own status:</p>
+          <p>– Paid</p>
+          <p>– Processing</p>
+          <p>– Failed</p>
+          <p>No guessing.</p>
+          <p class="spaced">No second-guessing.</p>
+        </div>
+        <div class="p-collage" style="--ar:62%;">
+          <img class="card" src="img/Card 4.png" width="723" height="564" loading="lazy" decoding="async"
+               style="left:18%;top:0;width:58%;"
+               alt="A failed payment summarised per bill: Omantel Postpaid, Nama Electricity and Diam Electricity each listed with their own amount.">
+          <img class="card" src="img/Card 5.png" width="1216" height="268" loading="lazy" decoding="async"
+               style="left:0;top:64%;width:74%;"
                alt="An in-app notice reading: You’re all set. Some bills are still being processed, please don’t retry, we’ll notify you once they’re updated.">
         </div>
       </div>
-        </div>
+        </div><!-- /principles -->
       </div>
     </div>
 
