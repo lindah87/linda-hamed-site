@@ -567,6 +567,32 @@ a:hover .btn-arrow-right,button:hover .btn-arrow-right{transform:rotate(-90deg) 
   transition:background-size .35s cubic-bezier(.16,1,.3,1);}
 .principle:hover .p-ul{background-size:100% 4px;}
 .principle p{margin:22px 0 0;font-size:var(--t-body);line-height:1.7;color:var(--ink-78);}
+/* Act 2 pairs each principle with the interface that embodies it. Act 1's
+   principles are copy-only, so the copy column keeps its exact type, rule and
+   hover treatment and a visual column is added beside it. Scoped with :has()
+   so a principle without art still renders exactly as Act 1's does. */
+.principles:has(.principle-visual){max-width:none;}
+.principle:has(.principle-visual){display:grid;
+  grid-template-columns:minmax(0,1fr) minmax(0,380px);
+  grid-template-rows:auto 1fr;
+  column-gap:clamp(28px,4vw,68px);align-items:start;padding-bottom:clamp(40px,4.4vw,62px);}
+.principle:has(.principle-visual) > h3{grid-column:1;grid-row:1;}
+.principle:has(.principle-visual) > p{grid-column:1;grid-row:2;}
+.principle:has(.principle-visual) > .principle-visual{grid-column:2;grid-row:1 / span 2;}
+.principle-visual{display:flex;flex-direction:column;gap:14px;min-width:0;}
+.principle-visual.side-by-side{flex-direction:row;align-items:flex-start;}
+.principle-visual.side-by-side img{flex:1 1 0;min-width:0;}
+.principle-visual img{display:block;width:100%;height:auto;border-radius:12px;
+  box-shadow:0 16px 34px -24px rgba(20,20,61,.5);
+  transition:transform .5s cubic-bezier(.16,1,.3,1);}
+.principle:hover .principle-visual img{transform:translateY(-4px);}
+@media (max-width:860px){
+  .principle:has(.principle-visual){grid-template-columns:1fr;grid-template-rows:none;row-gap:24px;}
+  .principle:has(.principle-visual) > h3,
+  .principle:has(.principle-visual) > p,
+  .principle:has(.principle-visual) > .principle-visual{grid-column:1;grid-row:auto;}
+  .principle-visual{max-width:460px;}
+}
 /* The principles ride the rail, so they must leave it at the same width the
    rail does. This has to sit AFTER the base .principle rule above: a media
    query adds no specificity, so the same declaration placed earlier in the
@@ -1864,18 +1890,34 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
         <p>One view. One total. One decision. Customers don't think in services, they think in
           obligations. Bringing every bill into one place stopped the experience asking customers
           to manage complexity that wasn't theirs to carry.</p>
+        <div class="principle-visual">
+          <img src="img/Message 2.png" width="879" height="225" loading="lazy" decoding="async"
+               alt="A saved biller row for Nama Electricity showing its account number, with edit and remove controls.">
+          <img src="img/Message 3.png" width="879" height="225" loading="lazy" decoding="async"
+               alt="A saved biller row for Nama Water sitting in the same list, in the same format.">
+        </div>
       </div>
       <div class="principle">
         <h3><span class="p-ul">Control without complexity</span></h3>
         <p>The experience needed to support real-life financial behaviour without turning bill
           payment into a puzzle. Customers decide what to pay. The system handles the complexity
           behind the scenes.</p>
+        <div class="principle-visual side-by-side">
+          <img src="img/Add state.png" width="438" height="600" loading="lazy" decoding="async"
+               alt="An electricity biller offered as a tile with an Add action, before the customer attaches it.">
+          <img src="img/Normal state.png" width="450" height="600" loading="lazy" decoding="async"
+               alt="The same electricity biller once added, now showing an outstanding balance of 34.500.">
+        </div>
       </div>
       <div class="principle">
         <h3><span class="p-ul">Success that feels finished</span></h3>
         <p>A payment isn't complete when the system finishes processing. It's complete when the
           person feels confident it's done. Every bill carries its own status — paid, processing
           or failed. No guessing. No second-guessing.</p>
+        <div class="principle-visual">
+          <img src="img/Card 5.png" width="1216" height="268" loading="lazy" decoding="async"
+               alt="An in-app notice reading: You’re all set. Some bills are still being processed, please don’t retry, we’ll notify you once they’re updated.">
+        </div>
       </div>
         </div>
       </div>
@@ -1955,8 +1997,6 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
           <img class="ap-card" src="img/Card 4.png" width="723" height="564"
                alt="A failed payment summarised per bill: Omantel Postpaid, Nama Electricity and Diam Electricity each listed separately with their own amount." loading="lazy" decoding="async">
         </div>
-        <img class="ap-badge" src="img/Card 5.png" width="1216" height="268"
-             alt="An in-app notice reading: You’re all set. Some bills are still being processed, please don’t retry, we’ll notify you once they’re updated." loading="lazy" decoding="async">
       </div>
     </div>
     <div class="feature-copy rev">
