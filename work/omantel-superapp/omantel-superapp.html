@@ -1654,7 +1654,7 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .prov{background:var(--navy-deep);}
 /* stats: neutral cards, navy numbers, accent kept to the arrows */
 .hero-copy .topline div{background:#fff;border:1px solid var(--ink-12);}
-.hero-copy .topline .n{color:var(--navy);}
+.hero-copy .topline .n{color:var(--orange);}
 .hero-copy .topline .l{color:var(--ink-62);}
 .hero-copy .topline .to-arw path{stroke:var(--orange);}
 /* labels grey, so the accent has one job */
@@ -1680,6 +1680,37 @@ nav#nav.scrolled{
   box-shadow:0 12px 32px -18px rgba(20,20,61,.45),inset 0 0 0 1px rgba(255,255,255,.6)!important;}
 nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 @media (prefers-reduced-motion:reduce){nav#nav{transition:none!important;}}
+
+/* ═══ Act 2 editorial components ═════════════════════════════
+   Three things the Act 2 design calls for that Act 1 has no equivalent of:
+   a bordered note card, stacked single-line copy, and the filled question
+   chips. Tokens, type scale and spacing all come from Act 1. */
+.note-card{display:flex;align-items:center;gap:2rem;
+  max-width:41.5625rem;min-height:9.5rem;padding:1.5rem;
+  border-radius:1.25rem;border:1px solid rgba(20,20,64,.10);
+  background:rgba(255,255,255,.31);}
+.note-card p{margin:0;font-size:var(--t-body);line-height:1.75;color:var(--ink-78);}
+.note-card .hl-act{color:var(--orange);}
+.note-card strong{font-weight:700;color:var(--navy);}
+
+/* short declarative lines, one per row, rather than flowing paragraphs */
+.stack-lines p{margin:0;font-size:var(--t-body);line-height:1.75;color:var(--ink-78);}
+.stack-lines p.spaced{margin-top:1.7em;}
+.stack-lines ul{margin:0;padding:0;list-style:none;}
+.stack-lines li{font-size:var(--t-body);line-height:1.75;color:var(--ink-78);}
+.stack-lines strong{font-weight:700;color:var(--navy);}
+
+/* the questions a customer is left holding: filled, arrowed, one per line */
+.q-list{display:flex;flex-direction:column;align-items:flex-start;
+  gap:5px;margin:.55em 0 0;padding:0;list-style:none;}
+.q-list li{display:inline-flex;align-items:baseline;gap:.5em;
+  font-family:var(--sans);font-size:var(--t-body);line-height:1.5;
+  background:var(--orange);color:#fff;padding:4px 12px 6px;border-radius:3px;}
+.q-list li::before{content:"\2192";font-weight:600;}
+@media (max-width:640px){
+  .note-card{flex-direction:column;align-items:flex-start;gap:1rem;min-height:0;}
+  .q-list li{font-size:13px;}
+}
 </style>
 </head>
 <body>
@@ -1729,7 +1760,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
       <div><dt style="font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.08em;">Role</dt><dd style="font-family: 'Manrope', sans-serif; font-weight: 400; letter-spacing: 0;">Head of UX/UI</dd></div>
       <div><dt style="font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.08em;">Platform</dt><dd style="font-family: 'Manrope', sans-serif; font-weight: 400; letter-spacing: 0;">Omantel Super App</dd></div>
       <div><dt style="font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.08em;">Status</dt><dd style="font-family: 'Manrope', sans-serif; font-weight: 400; letter-spacing: 0;">Live</dd></div>
-      <div><dt style="font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.08em;">Scope</dt><dd style="font-family: 'Manrope', sans-serif; font-weight: 400; letter-spacing: 0;">Electricity · Water · ROP Fines</dd></div>
+      <div><dt style="font-family: 'Manrope', sans-serif; font-weight: 800; letter-spacing: 0.08em;">Scope</dt><dd style="font-family: 'Manrope', sans-serif; font-weight: 400; letter-spacing: 0;">Electricity, Water, ROP Fines</dd></div>
     </dl>
 
     <div class="topline rev">
@@ -1756,16 +1787,15 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rail-grid work-grid">
     <div class="sec-head rev">
       <span class="sec-num">01</span>
-      <h2>Before we start</h2>
+      <h2>Before we<br>start</h2>
     </div>
 
     <div class="rev rail-body">
-      <div class="prose">
-        <p class="body">This story starts where Act 1 ended. The Telco Revamp established a
-          trust-first payment model, a common interaction pattern and a single place to manage
-          bills.</p>
-        <p class="body" style="margin:0;">Act 2 asked a different question: could the same model
-          scale across every bill a customer manages?</p>
+      <div class="note-card">
+        <p>This story starts where <span class="hl-act">Act 1</span> ended. The Telco Revamp
+          established a trust-first payment model, a common interaction pattern and a single place
+          to manage bills. <span class="hl-act">Act 2</span> asked a different question:
+          <strong>Could the same model scale across every bill a user manages?</strong></p>
       </div>
     </div>
     </div><!-- /rail-grid 01 -->
@@ -1776,30 +1806,54 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
       <h2>The gap</h2>
     </div>
 
-    <div class="method rev rail-body">
-      <div class="prose">
-        <p class="body">Customers weren't paying one bill. They were managing multiple bills across
-          multiple systems. Each service had a different path, a different payment flow and a
-          different source of truth.</p>
-        <p class="body" style="margin:0;">The result wasn't complexity in the product. It was
-          complexity in the customer's head. Which bill is due? Have I already paid it? Where do I
-          go next? Why can't I see everything in one place? We weren't solving a payment problem.
-          We were solving a mental-model problem.</p>
-      </div>
+    <div class="rev rail-body stack-lines">
+      <p>Customers weren’t paying one bill.</p>
+      <p>They were managing multiple bills across multiple systems.</p>
+      <ul>
+        <li>Mobile services</li>
+        <li>Home broadband</li>
+        <li>Fixed line</li>
+        <li>Additional subscriptions</li>
+      </ul>
 
-      <div class="segments">
-        <span class="sub-label">Bills spread across systems</span>
-        <div class="tag-row">
-          <span class="tag">Mobile services</span>
-          <span class="tag">Home broadband</span>
-          <span class="tag">Fixed line</span>
-          <span class="tag">Additional subscriptions</span>
-        </div>
-        <p class="body prose" style="margin:0;">Four separate journeys, each with its own rules,
-          for what the customer experienced as a single obligation.</p>
-      </div>
+      <p class="spaced">Each service had a different path, different payment flow, and different
+        source of truth.</p>
+      <p>The result wasn’t complexity in the product. It was complexity in the customer’s head.</p>
+      <ul class="q-list">
+        <li>Which bill is due?</li>
+        <li>Have I already paid it?</li>
+        <li>Where do I go next?</li>
+        <li>Why can’t I see everything in one place?</li>
+      </ul>
+
+      <p class="spaced">We weren’t solving a payment problem.</p>
+      <p><strong>We were solving a mental model problem.</strong></p>
     </div>
     </div><!-- /rail-grid 02 -->
+
+    <div class="rail-grid problem-grid" style="margin-top:76px;">
+    <div class="sec-head rev">
+      <h2>… and the<br>question</h2>
+    </div>
+
+    <div class="rev rail-body stack-lines">
+      <p>The first question wasn’t structural. It was experiential.</p>
+      <ul class="q-list">
+        <li>What would this feel like if it were crystal-clear and reassuring?</li>
+      </ul>
+
+      <p class="spaced">That question didn’t give us the answer. But it gave us the right filter
+        for every decision that followed.</p>
+
+      <p class="spaced">Bill payment is one of the few moments where people slow down and worry
+        about getting it wrong. <strong>In Oman, it’s rarely just personal.</strong></p>
+      <p>People routinely manage payments for family members, multiple lines and sometimes multiple
+        households. The challenge wasn’t awareness.</p>
+
+      <p class="spaced">Omantel already reminded people when bills were due. <strong>The challenge
+        was the effort required to act on that awareness.</strong></p>
+    </div>
+    </div><!-- /rail-grid, the question -->
 
     <div class="findings-layout">
       <div class="sec-head stacked rev findings-intro" style="margin-top:0;">
