@@ -1161,6 +1161,8 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
    it, and Act 1's .m3::before would add a second one immediately below. Only
    the m3 that follows the phones is affected; section 04 keeps its rule. */
 .m2 + .m3::before{display:none;}
+/* the needs row follows straight on from the question, with no rule between */
+.m2 > .wrap > .problem-grid.no-rule{border-top:0;padding-top:0;}
 /* Staggered so the row reads as four floating screens rather than a filmstrip.
    The offset lives in a custom property so the hover lift composes with it
    instead of overwriting it. Flat on mobile, where the row is a carousel. */
@@ -1630,13 +1632,13 @@ body:not(.ledger-off) footer{padding-bottom:var(--ledger-h);}
 .hero .wrap{display:block;padding-block:0;}
 .hero-copy .hero-eyebrow{margin-bottom:18px;}
 .hero h1{font-size:clamp(2.6rem,5.6vw,5rem);line-height:1.08;margin:0 0 clamp(32px,4vw,56px);max-width:none;}
-.hero-deck{font-size:clamp(1.15rem,1.7vw,1.5rem);line-height:1.5;color:var(--navy);max-width:none;}
+.hero-deck{font-size:19px;line-height:1.6;color:var(--navy);max-width:none;}
 .hero-copy .meta{margin-top:clamp(48px,5.5vw,80px);grid-template-columns:repeat(4,1fr);
   border:1px solid rgba(20,20,61,.10);border-radius:16px;background:rgba(255,255,255,.4);}
 .hero-copy .meta div{padding:22px 28px 22px;border-right:1px solid rgba(20,20,61,.12);margin:12px 0;}
 .hero-copy .meta div:last-child{border-right:0;}
 .hero-copy .meta dt{font-size:12px;}
-.hero-copy .meta dd{font-size:18px;font-weight:400;}
+.hero-copy .meta dd{font-size:14px;font-weight:400;}
 .hero-copy .topline{margin-top:24px;grid-template-columns:repeat(4,1fr);gap:24px;
   background:none;border-radius:0;overflow:visible;}
 .hero-copy .topline div{background:var(--orange);border-radius:16px;border:0;padding:26px 28px 22px;}
@@ -1702,7 +1704,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
   border-radius:1.25rem;border:1px solid rgba(20,20,64,.10);
   background:rgba(255,255,255,.31);}
 .note-card p{margin:0;font-size:var(--t-body);line-height:1.75;color:var(--ink-78);}
-.note-card .hl-act{color:var(--orange);}
+.hl-act{color:var(--orange);}
 .note-card strong{font-weight:700;color:var(--navy);}
 
 /* short declarative lines, one per row, rather than flowing paragraphs */
@@ -1715,12 +1717,17 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 /* the questions a customer is left holding: filled, arrowed, one per line */
 .q-list{display:flex;flex-direction:column;align-items:flex-start;
   gap:4px;margin:.55em 0 0;padding:0;list-style:none;}
-/* square, tight to the text: a marker stroke over the sentence, not a button */
-.q-list li{display:inline-flex;align-items:baseline;gap:.6em;
-  font-family:var(--sans);font-size:var(--t-body);line-height:1.5;
-  background:var(--orange);color:#fff;padding:3px 11px 5px;border-radius:0;}
+/* A marker stroke, not a button: the fill lives on an inline span with
+   box-decoration-break:clone, so a sentence that wraps gets a stroke hugging
+   each line rather than one full-width rectangle. */
+.q-list li{max-width:100%;}
+.q-hl{display:inline;background:var(--orange);color:#fff;
+  padding:3px 11px 5px;border-radius:0;
+  -webkit-box-decoration-break:clone;box-decoration-break:clone;
+  font-family:var(--sans);font-size:var(--t-body);line-height:1.95;}
+.q-hl .to-arw{margin-right:.42em;}
 /* the site's arrow, inverted to sit on the orange */
-.q-list .to-arw path{stroke:#fff;}
+.q-hl .to-arw path{stroke:#fff;}
 
 /* A rail section with no 0N number: Act 1's 30px body offset exists purely to
    clear that number, so without one it pushes the copy below the heading.
@@ -1774,11 +1781,13 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
   transition:background .3s ease,transform .35s cubic-bezier(.16,1,.3,1);}
 .principle:has(.p-collage):hover .idx{background:var(--orange);transform:translateY(-2px);}
 
-.p-collage{position:relative;width:100%;}
+.p-collage{position:relative;width:100%;margin-top:var(--drop,0);}
 .p-collage::before{content:"";display:block;padding-top:var(--ar,58%);}
-.p-collage img{position:absolute;display:block;width:auto;height:auto;}
-.p-collage img.card{border-radius:10px;
-  box-shadow:0 20px 42px -28px rgba(20,20,61,.55);}
+/* drop-shadow, not box-shadow: these PNGs carry their own rounded outline and
+   transparent edges, so a box shadow would trace the element rectangle and a
+   border-radius would cut through the drawn stroke. */
+.p-collage img{position:absolute;display:block;width:auto;height:auto;
+  filter:drop-shadow(0 16px 26px rgba(20,20,61,.16));}
 @media (max-width:900px){
   .principle:has(.p-collage){grid-template-columns:1fr;row-gap:26px;}
   .principle:has(.p-collage) > .idx,
@@ -1790,7 +1799,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 @media (max-width:430px){.needs{grid-template-columns:1fr;row-gap:34px;}}
 @media (max-width:640px){
   .note-card{flex-direction:column;align-items:flex-start;gap:1rem;min-height:0;}
-  .q-list li{font-size:13px;}
+  .q-hl{font-size:13px;}
 }
 </style>
 </head>
@@ -1901,10 +1910,10 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
         source of truth.</p>
       <p>The result wasn’t complexity in the product. It was complexity in the customer’s head.</p>
       <ul class="q-list">
-        <li><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Which bill is due?</li>
-        <li><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Have I already paid it?</li>
-        <li><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Where do I go next?</li>
-        <li><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Why can’t I see everything in one place?</li>
+        <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Which bill is due?</span></li>
+        <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Have I already paid it?</span></li>
+        <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Where do I go next?</span></li>
+        <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Why can’t I see everything in one place?</span></li>
       </ul>
 
       <p class="spaced">We weren’t solving a payment problem.</p>
@@ -1920,7 +1929,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rev rail-body stack-lines">
       <p>The first question wasn’t structural. It was experiential.</p>
       <ul class="q-list">
-        <li><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>What would this feel like if it were crystal-clear and reassuring?</li>
+        <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>What would this feel like if it were crystal-clear and reassuring?</span></li>
       </ul>
 
       <p class="spaced">That question didn’t give us the answer. But it gave us the right filter
@@ -1936,7 +1945,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     </div>
     </div><!-- /rail-grid, the question -->
 
-    <div class="rail-grid problem-grid" style="margin-top:76px;">
+    <div class="rail-grid problem-grid no-rule" style="margin-top:76px;">
     <div class="sec-head rev"></div>
 
     <div class="rev rail-body">
@@ -2016,17 +2025,17 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
           <p>By bringing every bill into one place, the experience stopped asking customers to
             manage complexity that wasn’t theirs to carry.</p>
         </div>
-        <div class="p-collage" style="--ar:52%;">
+        <div class="p-collage" style="--ar:62.4%;--drop:18.7%;">
           <img class="card" src="img/Card 1.png" width="651" height="420" loading="lazy" decoding="async"
-               style="left:0;top:0;width:52%;"
+               style="left:0;top:0;width:62.4%;"
                alt="An Omantel Fixed bill card showing the account number, a total due of OMR 120.000 and an editable custom amount.">
           <img src="img/ROP.png" width="320" height="300" loading="lazy" decoding="async"
-               style="left:1%;top:22%;width:12%;" alt="" aria-hidden="true">
+               style="left:1%;top:22%;width:14.4%;" alt="" aria-hidden="true">
           <img class="card" src="img/Card 2.png" width="870" height="564" loading="lazy" decoding="async"
-               style="left:29%;top:13%;width:60%;"
+               style="left:27%;top:13%;width:72%;"
                alt="A Nama Electricity bill card in the same format, with its own total due and custom amount.">
           <img src="img/Nama.png" width="306" height="288" loading="lazy" decoding="async"
-               style="left:14%;top:72%;width:12%;" alt="" aria-hidden="true">
+               style="left:14%;top:72%;width:14.4%;" alt="" aria-hidden="true">
         </div>
       </div>
       <div class="principle">
@@ -2041,21 +2050,21 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
           <p>Customers could decide what to pay.</p>
           <p>The system handled the complexity behind the scenes.</p>
         </div>
-        <div class="p-collage" style="--ar:74%;">
+        <div class="p-collage" style="--ar:88.8%;--drop:26.6%;">
           <img class="card" src="img/Message 1.png" width="879" height="225" loading="lazy" decoding="async"
-               style="left:4%;top:0;width:64%;"
+               style="left:4%;top:0;width:76.8%;"
                alt="A biller saved under the customer’s own name, BMW Car, with edit and remove controls.">
           <img class="card" src="img/Message 2.png" width="879" height="225" loading="lazy" decoding="async"
-               style="left:20%;top:20%;width:64%;"
+               style="left:20%;top:20%;width:76.8%;"
                alt="A saved biller row for Nama Electricity in the same format.">
           <img class="card" src="img/Message 3.png" width="879" height="225" loading="lazy" decoding="async"
-               style="left:0;top:42%;width:64%;"
+               style="left:0;top:42%;width:76.8%;"
                alt="A saved biller row for Nama Water in the same format.">
           <img src="img/Normal state.png" width="450" height="600" loading="lazy" decoding="async"
-               style="left:64%;top:58%;width:16%;"
+               style="left:60%;top:58%;width:19.2%;"
                alt="An electricity biller once added, showing an outstanding balance of 34.500.">
           <img src="img/Add state.png" width="438" height="600" loading="lazy" decoding="async"
-               style="left:83%;top:58%;width:16%;"
+               style="left:79%;top:58%;width:19.2%;"
                alt="The same biller before it is attached, offered with an Add action.">
         </div>
       </div>
@@ -2065,18 +2074,18 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
         <div class="stack-lines">
           <p>A payment isn’t complete when the system finishes processing. It’s complete when the
             person feels confident it’s done. Every bill receives its own status:</p>
-          <p>– Paid</p>
-          <p>– Processing</p>
-          <p>– Failed</p>
+          <p><span class="hl-act">–</span> Paid</p>
+          <p><span class="hl-act">–</span> Processing</p>
+          <p><span class="hl-act">–</span> Failed</p>
           <p>No guessing.</p>
           <p class="spaced">No second-guessing.</p>
         </div>
-        <div class="p-collage" style="--ar:62%;">
+        <div class="p-collage" style="--ar:74.4%;--drop:22.3%;">
           <img class="card" src="img/Card 4.png" width="723" height="564" loading="lazy" decoding="async"
-               style="left:18%;top:0;width:58%;"
+               style="left:18%;top:0;width:69.6%;"
                alt="A failed payment summarised per bill: Omantel Postpaid, Nama Electricity and Diam Electricity each listed with their own amount.">
           <img class="card" src="img/Card 5.png" width="1216" height="268" loading="lazy" decoding="async"
-               style="left:0;top:64%;width:74%;"
+               style="left:0;top:64%;width:88.8%;"
                alt="An in-app notice reading: You’re all set. Some bills are still being processed, please don’t retry, we’ll notify you once they’re updated.">
         </div>
       </div>
@@ -2201,63 +2210,24 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rail-grid">
       <div class="sec-head rev">
         <span class="sec-num">04</span>
-        <h2>What made this hard</h2>
-        <p class="lede rev">Every provider had been designed independently. Each one made sense on
-          its own. None of them had been designed to work together.</p>
+        <h2>What made<br>this hard</h2>
       </div>
-      <div class="rail-body">
+      <div class="rail-body stack-lines">
+        <p>Every provider had been designed independently.</p>
+        <p><span class="hl-act">Different rules. Different workflows. Different technical
+          constraints. Different expectations.</span> Each one made sense on its own.</p>
 
-    <div class="moves">
-      <article class="move rev">
-        <span class="idx">01</span>
-        <h3>Four providers, four sets of rules</h3>
-        <p>Electricity, water, ROP fines and telco each arrived with their own logic:</p>
-        <ul>
-          <li>Different billing cycles</li>
-          <li>Different identifiers</li>
-          <li>Different validation rules</li>
-          <li>Different failure states</li>
-          <li>Different sources of truth</li>
+        <p class="spaced">None of them had been designed to work together.</p>
+        <p>The challenge wasn’t exposing that complexity.</p>
+
+        <p class="spaced">The challenge was absorbing it on behalf of customers.</p>
+        <p>Every new bill type increased complexity for the platform.</p>
+        <p>The design challenge was ensuring complexity never increased for the customer.</p>
+
+        <ul class="q-list" style="margin-top:1.7em;">
+          <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>All-in-one bill payment rarely fails because of vision.</span></li>
+          <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>It fails because complexity accumulates quietly over time, and no single team owns the full picture.</span></li>
         </ul>
-        <p>None of it was wrong. It had simply never been designed to sit in one list.</p>
-      </article>
-      <article class="move rev">
-        <span class="idx">02</span>
-        <h3>Absorbing complexity instead of exposing it</h3>
-        <p>The obvious route was to surface each provider's rules to the customer. We took the harder one:</p>
-        <ul>
-          <li>One shared bill model</li>
-          <li>Provider logic held behind it</li>
-          <li>One interaction pattern across all types</li>
-          <li>Differences resolved by the platform</li>
-        </ul>
-        <p>Every new bill type increased complexity for us, never for the person paying.</p>
-      </article>
-      <article class="move rev">
-        <span class="idx">03</span>
-        <h3>Supporting how money actually moves</h3>
-        <p>People rarely pay everything at once. The model had to hold real financial behaviour:</p>
-        <ul>
-          <li>Pay what is urgent</li>
-          <li>Pay what is affordable</li>
-          <li>Split across salary cycles</li>
-          <li>Pay on behalf of family members</li>
-        </ul>
-        <p>Selection had to stay simple while the settlement behind it did not.</p>
-      </article>
-      <article class="move rev">
-        <span class="idx">04</span>
-        <h3>Completion that survives multiple bills</h3>
-        <p>Paying four bills at once creates four ways to be left uncertain. Each one needed:</p>
-        <ul>
-          <li>Its own status</li>
-          <li>Its own failure path</li>
-          <li>Partial success handled clearly</li>
-          <li>Recovery without starting again</li>
-        </ul>
-        <p>A summary that hides what happened is not a confirmation.</p>
-      </article>
-    </div>
       </div>
     </div>
 
