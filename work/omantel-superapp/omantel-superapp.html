@@ -1725,11 +1725,24 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
    box-decoration-break:clone, so a sentence that wraps gets a stroke hugging
    each line rather than one full-width rectangle. */
 .q-list li{max-width:100%;}
-.q-hl{display:inline;background:var(--orange);color:#fff;
-  padding:3px 11px 5px;border-radius:0;
+.q-hl{display:inline;padding:3px 11px 5px;border-radius:0;
   -webkit-box-decoration-break:clone;box-decoration-break:clone;
-  font-family:var(--sans);font-size:var(--t-body);line-height:1.95;}
+  font-family:var(--sans);font-size:var(--t-body);line-height:1.95;
+  /* drawn on, left to right, like a marker passing over the line */
+  background-image:linear-gradient(var(--orange),var(--orange));
+  background-repeat:no-repeat;background-position:0 0;background-size:0% 100%;
+  color:var(--navy);
+  transition:background-size .7s cubic-bezier(.22,1,.36,1),color .3s ease;}
 .q-hl .to-arw{margin-right:.42em;}
+.q-hl .to-arw path{stroke:var(--navy);transition:stroke .3s ease;}
+.q-list li{--d:calc(var(--n,0) * .14s);}
+.q-list li .q-hl{transition-delay:var(--d),calc(var(--d) + .2s);}
+.q-list li .q-hl .to-arw path{transition-delay:calc(var(--d) + .2s);}
+.q-list.in .q-hl{background-size:100% 100%;color:#fff;}
+.q-list.in @media (prefers-reduced-motion:reduce){
+  .q-hl{transition:none;background-size:100% 100%;color:#fff;}
+  .q-hl .to-arw path{stroke:#fff;transition:none;}
+}
 /* the site's arrow, inverted to sit on the orange */
 .q-hl .to-arw path{stroke:#fff;}
 
@@ -1766,7 +1779,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 .note-card--wide{max-width:none;}
 /* the ecosystem graphic sits under the card and slightly into it */
 .ecosystem{margin-top:clamp(-26px,-2vw,-14px);display:flex;justify-content:center;}
-.eco-svg{display:block;width:100%;max-width:clamp(320px,55vw,780px);height:auto;overflow:visible;}
+.eco-svg{display:block;width:100%;max-width:clamp(300px,33vw,470px);height:auto;overflow:visible;}
 /* the platform keeps growing: the marker dots drift round the rings at two
    speeds, and each service bubble breathes on its own offset. */
 .eco-dots-a,.eco-dots-b,.eco-node{transform-box:view-box;}
@@ -1828,6 +1841,16 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
   .principle:has(.p-collage) > .idx{margin-bottom:0;}
   .principle:has(.p-collage) > .stack-lines{margin-top:0;}
   .principle:has(.p-collage) > .p-collage{margin-top:0;}
+  /* the aspect box leaves slack under the lowest card; the section padding
+     does not need to add to it as well. */
+  .principle:has(.p-collage){padding-bottom:22px;}
+  .br-lg{display:none;}
+  /* stacked, the 0N sits above the heading in normal flow, so the body needs
+     no offset to clear it. */
+  .m3 > .wrap > .rail-grid:has(.sec-num) > .rail-body.stack-lines{padding-top:0;}
+  /* the graphic takes the full width of the phone, bleeding past the gutter */
+  .ecosystem{margin-inline:calc(-1 * var(--eco-bleed,18px));}
+  .eco-svg{max-width:min(100%,520px);}
   .p-collage{max-width:520px;}
 }
 @media (max-width:430px){.needs{grid-template-columns:1fr;row-gap:34px;}}
@@ -1911,7 +1934,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rail-grid work-grid">
     <div class="sec-head rev">
       <span class="sec-num">01</span>
-      <h2>Before we<br>start</h2>
+      <h2>Before we<br class="br-lg">start</h2>
     </div>
 
     <div class="rev rail-body">
@@ -1943,11 +1966,11 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
       <p class="spaced">Each service had a different path, different payment flow, and different
         source of truth.</p>
       <p>The result wasn’t complexity in the product. It was complexity in the customer’s head.</p>
-      <ul class="q-list">
-        <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Which bill is due?</span></li>
-        <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Have I already paid it?</span></li>
-        <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Where do I go next?</span></li>
-        <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Why can’t I see everything in one place?</span></li>
+      <ul class="q-list rev">
+        <li style="--n:0"><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Which bill is due?</span></li>
+        <li style="--n:1"><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Have I already paid it?</span></li>
+        <li style="--n:2"><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Where do I go next?</span></li>
+        <li style="--n:3"><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>Why can’t I see everything in one place?</span></li>
       </ul>
 
       <p class="spaced">We weren’t solving a payment problem.</p>
@@ -1957,13 +1980,13 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
 
     <div class="rail-grid problem-grid" style="margin-top:76px;">
     <div class="sec-head rev">
-      <h2>… and the<br>question</h2>
+      <h2>… and the<br class="br-lg">question</h2>
     </div>
 
     <div class="rev rail-body stack-lines">
       <p>The first question wasn’t structural. It was experiential.</p>
-      <ul class="q-list">
-        <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>What would this feel like if it were crystal-clear and reassuring?</span></li>
+      <ul class="q-list rev">
+        <li style="--n:0"><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>What would this feel like if it were crystal-clear and reassuring?</span></li>
       </ul>
 
       <p class="spaced">That question didn’t give us the answer. But it gave us the right filter
@@ -2034,7 +2057,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rail-grid">
       <div class="sec-head rev">
         <span class="sec-num">03</span>
-        <h2>The<br>principle</h2>
+        <h2>The<br class="br-lg">principle</h2>
       </div>
       <div class="rail-body">
         <div class="note-card note-card--principle rev">
@@ -2135,7 +2158,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rail-grid">
       <div class="sec-head rev">
         <span class="sec-num">04</span>
-        <h2>What made<br>this hard</h2>
+        <h2>What made<br class="br-lg">this hard</h2>
       </div>
       <div class="rail-body stack-lines">
         <p>Every provider had been designed independently.</p>
@@ -2149,9 +2172,9 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
         <p>Every new bill type increased complexity for the platform.</p>
         <p>The design challenge was ensuring complexity never increased for the customer.</p>
 
-        <ul class="q-list" style="margin-top:1.7em;">
-          <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>All-in-one bill payment rarely fails because of vision.</span></li>
-          <li><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>It fails because complexity accumulates quietly over time, and no single team owns the full picture.</span></li>
+        <ul class="q-list rev" style="margin-top:1.7em;">
+          <li style="--n:0"><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>All-in-one bill payment rarely fails because of vision.</span></li>
+          <li style="--n:1"><span class="q-hl"><span class="to-arw" aria-hidden="true"><svg viewBox="0 0 24 16" xmlns="http://www.w3.org/2000/svg"><path d="M1 8h20M15 2l6 6-6 6"/></svg></span>It fails because complexity accumulates quietly over time, and no single team owns the full picture.</span></li>
         </ul>
       </div>
     </div>
@@ -2191,7 +2214,7 @@ nav#nav.nav-hidden{translate:0 calc(-100% - 30px);}
     <div class="rail-grid">
       <div class="sec-head rev">
         <span class="sec-num">06</span>
-        <h2>What is<br>next?</h2>
+        <h2>What is<br class="br-lg">next?</h2>
       </div>
       <div class="rail-body">
         <div class="note-card note-card--principle note-card--wide rev">
