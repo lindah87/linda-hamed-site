@@ -3907,6 +3907,16 @@ html body .back-top svg{stroke:var(--cream)!important;}
 html body:not(#_):not(#__) .nav-links a[aria-current="page"],html body:not(#_):not(#__) .nav-links a.is-active{color:var(--orange)!important;}
 /* nav pill text matches the nav links */
 html body:not(#_) .ai-pill,html body:not(#_) .gh-ai-pill,html body:not(#_) .collab-tab{font-size:15px!important;}
+/* The two nav pills read larger than Work and About at the same size, because
+   a label inside a pill counts the pill's edges as part of the word. One step
+   down puts them optically level with the bare links. Scoped to the nav so the
+   collaboration tabs and the assistant pill keep their own size. */
+html body:not(#_) nav .gh-ai-pill,
+html body:not(#_) nav .nav-talk{font-size:14px!important;}
+/* The label group sits between a 4.5px dot on the left and a full-height
+   letter on the right, so symmetric padding reads shifted right. Two pixels
+   off the left edge centres it optically. */
+html body:not(#_) nav .gh-ai-pill{padding-left:14px!important;padding-right:16px!important;}
 /* the "next case study" title keeps its display size but shares the link hover */
 html body:not(#_) .foot-next a.big{color:var(--cream)!important;transition:color .25s ease!important;}
 html body:not(#_) .foot-next a.big:hover,html body:not(#_) .foot-next a.big:focus-visible{color:var(--coral)!important;}
