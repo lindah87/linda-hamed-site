@@ -1683,7 +1683,7 @@ a.design-card:hover .design-card-image img { transform: scale(1.04); }
                is-cutout -> portrait-image.png   (pre-cropped, pre-graded)
                is-glass  -> portrait-glass.jpg   (Dubai glass wall)
                is-studio -> portrait-linda.jpg   (grey-backdrop headshot) -->
-        <img src="portrait-hero.webp" alt="Portrait of Linda Hamed" width="1800" height="1800" fetchpriority="high" decoding="async">
+        <img src="portrait-hero.webp" alt="Portrait of Linda Hamed" width="900" height="900" fetchpriority="high" decoding="async">
         <!-- <img src="portrait-glass.jpg" alt="Linda Hamed sketching on a glass wall in Dubai" width="1800" height="1200" decoding="async"> -->
         <!-- <img src="portrait-linda.jpg" alt="Linda Hamed" width="1667" height="2500" decoding="async"> -->
       </div>
@@ -3641,7 +3641,11 @@ a:hover .gh-arw[data-dir="s"], button:hover .gh-arw[data-dir="s"] {transform:tra
   background:none;                       /* the orb would ring the baked-in edge */
   --p-lift:1; --p-warm:0; --p-sat:1; --p-contrast:1; --p-wash:0;
   overflow:visible;                      /* nothing to clip; the alpha does it */
-  filter:drop-shadow(0 40px 70px rgba(20,20,61,.30));
+  /* No shadow until the portrait has finished decoding. drop-shadow traces
+     whatever the container is currently painting, and a partially decoded
+     webp paints as an opaque rectangle, which is why the shadow briefly
+     showed up boxy on a cold load. See gh-portrait-shadow-js. */
+  filter:none;
   box-shadow:none;
   /* Give the drop-shadow room to bleed outside the portrait bounds.
      Padding expands the paintable area; negative margin keeps visual position. */
@@ -3653,6 +3657,8 @@ a:hover .gh-arw[data-dir="s"], button:hover .gh-arw[data-dir="s"] {transform:tra
   object-fit:contain;object-position:center;}
 .gh-portrait.is-cutout::after,
 .gh-portrait.is-cutout::before{content:none;}
+.gh-portrait.is-cutout.shadow-ready{
+  filter:drop-shadow(0 40px 70px rgba(20,20,61,.30));}
 
 /* ════════════════════════════════════════════════════════════════════
    14 · MOBILE REFINEMENTS
@@ -4089,6 +4095,27 @@ html body em,html body i{font-style:normal!important;}
   })();
 
   update();
+})();
+</script>
+<script id="gh-portrait-shadow-js">
+/* The portrait's drop-shadow is derived from the image's alpha, so it is only
+   correct once the image has decoded. Until then the container has no filter
+   at all: a missing shadow reads as a deliberate choice, a rectangular one
+   reads as a bug. With JS off the portrait simply keeps no shadow. */
+(function(){
+  var wrap = document.querySelector('.gh-portrait.is-cutout');
+  if (!wrap) return;
+  var img = wrap.querySelector('img');
+  if (!img) return;
+  var reveal = function(){ wrap.classList.add('shadow-ready'); };
+  var afterDecode = function(){
+    if (img.decode) { img.decode().then(reveal).catch(reveal); } else { reveal(); }
+  };
+  if (img.complete && img.naturalWidth > 0) { afterDecode(); }
+  else {
+    img.addEventListener('load', afterDecode, {once:true});
+    img.addEventListener('error', reveal, {once:true});
+  }
 })();
 </script>
 </body>
